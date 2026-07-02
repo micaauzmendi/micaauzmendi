@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import fitz\")",
+      "Bash(python3 -c \"import PyPDF2\")",
+      "Bash(pdftotext -layout \"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\CV MICA\\\\ABRIL OK}\\\\CV. Micaela Auzmendi - Product Designer & UXUI.pdf\" -)",
+      "Bash(pdfinfo \"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\CV MICA\\\\ABRIL OK}\\\\CV. Micaela Auzmendi - Product Designer & UXUI.pdf\")",
+      "Bash(npm create *)",
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(choco --version)",
+      "Bash(choco install *)",
+      "Bash(where winget *)",
+      "Read(//mingw64/share/**)",
+      "Read(//c//**)",
+      "Bash(pkill -f \"find /\")",
+      "mcp__a92d5604-793e-40a9-b615-4a4e1cb03ac2__get_design_context",
+      "WebFetch(domain:claude.ai)",
+      "mcp__a92d5604-793e-40a9-b615-4a4e1cb03ac2__get_metadata",
+      "Bash(python3 -c \"print\\(1\\)\")",
+      "Read(//c/Users/usuario/AppData/Local/Temp/claude/C--Users-usuario-Desktop-UX-Mica-Portfolio-Interactivo/3f2d5748-3325-4e09-b3ea-be17c9513dde/scratchpad/**)",
+      "Bash(pdftotext -layout \"/c/Users/usuario/Desktop/UX Mica/CV MICA/ABRIL OK}/CV. Micaela Auzmendi - Product Designer & UXUI.pdf\" cv.txt)",
+      "Bash(npm run *)"
+    ]
+  }
+}
