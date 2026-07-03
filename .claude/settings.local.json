@@ -20,7 +20,9 @@
       "Bash(python3 -c \"print\\(1\\)\")",
       "Read(//c/Users/usuario/AppData/Local/Temp/claude/C--Users-usuario-Desktop-UX-Mica-Portfolio-Interactivo/3f2d5748-3325-4e09-b3ea-be17c9513dde/scratchpad/**)",
       "Bash(pdftotext -layout \"/c/Users/usuario/Desktop/UX Mica/CV MICA/ABRIL OK}/CV. Micaela Auzmendi - Product Designer & UXUI.pdf\" cv.txt)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(rm components/portfolio/ProjectCover.tsx)",
+      "WebFetch(domain:designlab.com)"
     ]
   }
 }

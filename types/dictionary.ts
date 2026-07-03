@@ -19,6 +19,13 @@ export interface SectionCopy {
   description?: string;
 }
 
+export interface AboutCopy extends SectionCopy {
+  greetingPre: string;
+  greetingName: string;
+  companiesLabel: string;
+  companies: string[];
+}
+
 export interface Dictionary {
   locale: Locale;
   meta: {
@@ -45,6 +52,7 @@ export interface Dictionary {
     toLight: string;
     toDark: string;
   };
+  ticker: string[];
   personalInfo: PersonalInfo;
   hero: {
     sectionLabel: string;
@@ -55,7 +63,7 @@ export interface Dictionary {
     ctaContact: string;
     nextSectionLabel: string;
   };
-  about: SectionCopy;
+  about: AboutCopy;
   profileSummary: string;
   stats: Stat[];
   philosophy: SectionCopy;
@@ -124,6 +132,9 @@ export interface Dictionary {
   };
   footer: {
     tagline: string;
+    influentialPhrase: string;
+    exploreLabel: string;
+    connectLabel: string;
   };
   projects: PortfolioProject[];
 }

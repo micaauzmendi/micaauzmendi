@@ -5,7 +5,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
-import { HeroPortrait } from "@/components/ui/HeroPortrait";
+import { HeroDots } from "@/components/ui/HeroDots";
 import { RevealText } from "@/components/ui/RevealText";
 import type { Dictionary } from "@/types/dictionary";
 
@@ -31,13 +31,11 @@ export function Hero({ dict }: { dict: Dictionary }) {
         <DecorativeLine orientation="vertical" className="h-40" animated />
       </span>
 
-      <HeroPortrait caption={dict.personalInfo.name} variant="bleed" />
-
       <motion.div
         style={{ y, opacity }}
-        className="pointer-events-none relative z-10 mx-auto grid w-full max-w-6xl gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12"
+        className="relative z-10 mx-auto grid w-full max-w-6xl gap-16 lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:gap-12"
       >
-        <div className="pointer-events-auto">
+        <div>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,7 +45,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
             {dict.personalInfo.title}
           </motion.p>
 
-          <h1 className="font-heading text-4xl font-semibold leading-[1.1] text-text sm:text-6xl lg:text-6xl xl:text-7xl">
+          <h1 className="font-heading text-4xl font-semibold leading-[1.1] text-text text-balance sm:text-5xl lg:text-6xl">
             <RevealText>{dict.hero.headlinePre}</RevealText>{" "}
             <RevealText className="text-accent" delay={dict.hero.headlinePre.split(" ").length * 0.045}>
               {dict.hero.headlineAccent}
@@ -92,12 +90,16 @@ export function Hero({ dict }: { dict: Dictionary }) {
               <ArrowRight size={16} aria-hidden="true" />
             </Button>
           </motion.div>
-
-          <HeroPortrait caption={dict.personalInfo.name} variant="inline" />
         </div>
 
-        {/* Spacer — reserves the grid track the full-bleed portrait occupies on desktop */}
-        <div aria-hidden="true" className="hidden lg:block" />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
+          className="hidden lg:block"
+        >
+          <HeroDots />
+        </motion.div>
       </motion.div>
 
       <motion.a

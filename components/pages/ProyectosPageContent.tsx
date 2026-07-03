@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { TopBar } from "@/components/layout/TopBar";
 import { ProjectIndexList } from "@/components/portfolio/ProjectIndexList";
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
 import { Reveal } from "@/components/ui/Reveal";
@@ -15,6 +16,7 @@ export function ProyectosPageContent({ dict }: { dict: Dictionary }) {
       <a href="#main-content" className="sr-only-focusable">
         {dict.nav.skipToContent}
       </a>
+      <TopBar phrases={dict.ticker} />
       <Header dict={dict} />
       <main id="main-content" className="px-6 pb-24 pt-16 md:px-10 md:pt-24">
         <div className="mx-auto max-w-6xl">

@@ -32,6 +32,12 @@ export const es: Dictionary = {
     toLight: "Cambiar a modo claro",
     toDark: "Cambiar a modo oscuro",
   },
+  ticker: [
+    "El diseño no empieza cuando abrimos Figma.",
+    "Diseñar también es decidir qué no construir.",
+    "Las mejores interfaces desaparecen.",
+    "Cada decisión comunica una intención.",
+  ],
   personalInfo: {
     name: "Micaela Auzmendi",
     title: "Product Designer · UX|UI",
@@ -50,7 +56,14 @@ export const es: Dictionary = {
     ctaContact: "Hablemos",
     nextSectionLabel: "Ir a la siguiente sección",
   },
-  about: { eyebrow: "Sobre mí", title: "Diseño con propósito, no por moda." },
+  about: {
+    eyebrow: "Sobre mí",
+    title: "Diseño con propósito, no por moda.",
+    greetingPre: "Hola, soy",
+    greetingName: "Mica.",
+    companiesLabel: "He diseñado en",
+    companies: ["Anfler Solutions", "Stakeholders Colombia", "AFIP", "Yo No Fui"],
+  },
   profileSummary:
     "Product Designer con más de 3 años de experiencia diseñando productos digitales para organismos públicos, plataformas SaaS y empresas de diversos sectores, respaldados por más de 18 años de trayectoria en distintas disciplinas del diseño. Especializada en UX, UI, Design Systems e integración de herramientas de IA para optimizar procesos de diseño. Participo en todo el ciclo de vida del producto, desde la investigación y definición de estrategias hasta el diseño, validación e implementación, colaborando con equipos multidisciplinarios para equilibrar las necesidades de los usuarios, los objetivos del negocio y la viabilidad técnica.",
   stats: [
@@ -306,7 +319,12 @@ export const es: Dictionary = {
     sendEmailButton: "Enviar por email",
     closeModalLabel: "Cerrar",
   },
-  footer: { tagline: "Diseñado y construido con cuidado por Micaela." },
+  footer: {
+    tagline: "Diseñado y construido con cuidado por Micaela.",
+    influentialPhrase: "Con propósito.",
+    exploreLabel: "Explorar",
+    connectLabel: "Conectar",
+  },
   projects: [
     {
       id: "migraciones",

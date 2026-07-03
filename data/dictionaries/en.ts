@@ -30,6 +30,12 @@ export const en: Dictionary = {
     toLight: "Switch to light mode",
     toDark: "Switch to dark mode",
   },
+  ticker: [
+    "Design doesn't start when we open Figma.",
+    "Designing is also deciding what not to build.",
+    "The best interfaces disappear.",
+    "Every decision communicates intent.",
+  ],
   personalInfo: {
     name: "Micaela Auzmendi",
     title: "Product Designer · UX|UI",
@@ -48,7 +54,14 @@ export const en: Dictionary = {
     ctaContact: "Let's talk",
     nextSectionLabel: "Go to next section",
   },
-  about: { eyebrow: "About me", title: "Design with purpose, not for trend." },
+  about: {
+    eyebrow: "About me",
+    title: "Design with purpose, not for trend.",
+    greetingPre: "Hi, I'm",
+    greetingName: "Mica.",
+    companiesLabel: "Designed at",
+    companies: ["Anfler Solutions", "Stakeholders Colombia", "AFIP", "Yo No Fui"],
+  },
   profileSummary:
     "Product Designer with 3+ years of experience designing digital products for public institutions, SaaS platforms and companies across industries, backed by 18+ years across different design disciplines. Specialized in UX, UI, Design Systems and integrating AI tools to optimize design workflows. I take part in the full product lifecycle, from research and strategy to design, validation and implementation, working with cross-functional teams to balance user needs, business goals and technical feasibility.",
   stats: [
@@ -289,7 +302,12 @@ export const en: Dictionary = {
     sendEmailButton: "Send via email",
     closeModalLabel: "Close",
   },
-  footer: { tagline: "Designed and built with care by Micaela." },
+  footer: {
+    tagline: "Designed and built with care by Micaela.",
+    influentialPhrase: "With purpose.",
+    exploreLabel: "Explore",
+    connectLabel: "Connect",
+  },
   projects: [
     {
       id: "migraciones",

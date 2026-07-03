@@ -12,6 +12,7 @@ import { Skills } from "@/components/sections/Skills";
 import { Tools } from "@/components/sections/Tools";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { TopBar } from "@/components/layout/TopBar";
 import { SetHtmlLang } from "@/components/ui/SetHtmlLang";
 import type { Dictionary } from "@/types/dictionary";
 
@@ -22,6 +23,7 @@ export function HomePageContent({ dict }: { dict: Dictionary }) {
       <a href="#main-content" className="sr-only-focusable">
         {dict.nav.skipToContent}
       </a>
+      <TopBar phrases={dict.ticker} />
       <Header dict={dict} />
       <main id="main-content">
         <Hero dict={dict} />
