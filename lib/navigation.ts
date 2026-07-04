@@ -20,7 +20,7 @@ export function buildNavLinks(dict: Dictionary): NavLink[] {
     { id: "proceso", label: dict.nav.proceso, href: `${base}/#proceso`, group: "journey" },
     { id: "experiencia", label: dict.nav.experiencia, href: `${base}/#experiencia`, group: "journey" },
     { id: "skills", label: dict.nav.skills, href: `${base}/#skills`, group: "journey" },
-    { id: "servicios", label: dict.nav.servicios, href: `${base}/#servicios`, group: "work" },
+    { id: "servicios", label: dict.nav.servicios, href: `${base}/servicios`, group: "work" },
     { id: "portfolio", label: dict.nav.portfolio, href: `${base}/proyectos`, group: "work" },
     { id: "contacto", label: dict.nav.contacto, href: `${base}/#contacto`, group: "work" },
   ];

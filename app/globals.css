@@ -11,6 +11,9 @@
   --color-text-muted: #8f8880;
   --color-accent: #8c5e5a;
   --color-accent-support: #c9a9a3;
+  /* Notebook grid hover "sketch" pass — on-tone with the accent (dark in light
+     mode, light in dark mode) so it matches the palette. */
+  --color-grid-ink: var(--color-accent);
 }
 
 .dark {
@@ -22,6 +25,7 @@
   --color-text-muted: #9a938c;
   --color-accent: #c9a9a3;
   --color-accent-support: #8c5e5a;
+  --color-grid-ink: var(--color-accent);
 }
 
 @theme inline {
@@ -115,8 +119,78 @@
   background-image: radial-gradient(circle, var(--color-accent-support) 0%, transparent 70%);
 }
 
+/* Notebook grid ("cuadrillé") — the sketchbook the whole portfolio riffs on:
+   a plain square grid of faint full lines. Placed per-section via GridField,
+   which fades it at the edges and, on hover, paints accent "+" ticks at the
+   intersections near the cursor. */
+.bg-grid-paper {
+  background-image:
+    /* a single, faint square grid — no heavier major lines, kept subtle */
+    linear-gradient(to right, color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Hover "sketch" pass: soft blue grid lines revealed near the cursor, so
+   hovering looks like drawing ink over the paper. Aligned to the grid. */
+.bg-grid-hover-lines {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-grid-ink) 38%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-grid-ink) 38%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Blue "+" ticks at each intersection, revealed near the cursor by GridField.
+   Full ink lines masked down to small crosses at the crossings, aligned to the
+   paper's grid. */
+.bg-grid-cross-accent {
+  background-image:
+    linear-gradient(to right, var(--color-grid-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-ink) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle 6px at center, #000 55%, transparent 100%);
+  mask-image: radial-gradient(circle 6px at center, #000 55%, transparent 100%);
+  -webkit-mask-size: 40px 40px;
+  mask-size: 40px 40px;
+  -webkit-mask-position: 20px 20px;
+  mask-position: 20px 20px;
+}
+
+/* Dot field: a muted base grid of dots, plus an accent copy revealed near the
+   cursor (see DotField.tsx) so hovering "paints" the dots in the warm accent.
+   Dots are large and widely spaced for an airy, sparse feel. */
+.bg-dot-field {
+  background-image: radial-gradient(color-mix(in srgb, var(--color-text) 5%, transparent) 1.3px, transparent 1.7px);
+  background-size: 38px 38px;
+}
+
+.bg-dot-field-accent {
+  background-image: radial-gradient(var(--color-accent) 1.5px, transparent 1.9px);
+  background-size: 38px 38px;
+}
+
+/* Gentle continuous bob for the accent icon tiles, so the belief/step cards
+   never sit fully still. Staggered per tile via inline animation-delay. */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .animate-float {
+    animation: none;
   }
 }

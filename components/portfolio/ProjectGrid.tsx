@@ -42,7 +42,7 @@ export function ProjectGrid({ projects, dict, titleAs = "h3" }: ProjectGridProps
             </div>
             <div className="mt-3 flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <TitleTag className="truncate font-heading text-lg font-semibold text-text transition-colors group-hover:text-accent">
+                <TitleTag className="truncate font-heading text-lg font-medium text-text transition-colors group-hover:text-accent">
                   {project.title}
                 </TitleTag>
                 <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-text-muted">

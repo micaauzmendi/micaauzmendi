@@ -16,9 +16,10 @@ export const en: Dictionary = {
     servicios: "Services",
     experiencia: "Experience",
     portfolio: "Projects",
-    skills: "Skills",
+    skills: "Strengths",
     contacto: "Let's talk",
     skipToContent: "Skip to main content",
+    backToHome: "Back to home",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     mainNav: "Main navigation",
@@ -33,7 +34,7 @@ export const en: Dictionary = {
   ticker: [
     "Design doesn't start when we open Figma.",
     "Designing is also deciding what not to build.",
-    "The best interfaces disappear.",
+    "Simplicity is the hardest thing to hold.",
     "Every decision communicates intent.",
   ],
   personalInfo: {
@@ -45,6 +46,32 @@ export const en: Dictionary = {
     linkedin: { label: "linkedin.com/in/micaauzmendi", url: "https://linkedin.com/in/micaauzmendi" },
     behance: { label: "behance.net/micaauzmendi", url: "https://behance.net/micaauzmendi" },
   },
+  book: {
+    chapterKicker: "Chapter",
+    prologue: {
+      kicker: "Prologue",
+      headlinePre: "Some ways of designing change.",
+      headlineAccent: "Others stay.",
+      subtitle:
+        "More than eighteen years ago I started by designing objects. Over time the tools changed, the formats changed, even the name of what I do changed. The way I stand in front of a problem never did.",
+      scrollCue: "Turn the page",
+      tags: ["Product design", "UX/UI", "Strategy", "Frontend"],
+    },
+    interlude: {
+      kicker: "Interlude",
+      phrasePre: "Every great product begins",
+      phraseAccent: "long before",
+      phrasePost: "you design it.",
+      tags: ["Research", "Strategy", "Design systems", "AI"],
+    },
+    epilogue: {
+      kicker: "Epilogue",
+      now: "Now, yes.",
+      greeting: "Hi, I'm Mica.",
+      body: "You walked through the way I think before you saw my face. That was the point. I've been designing for more than eighteen years and it still feels like the best job in the world: understanding a problem until it turns simple. If you made it this far, something here resonated.",
+      cta: "Let's talk",
+    },
+  },
   hero: {
     sectionLabel: "Introduction",
     headlinePre: "Every great product starts",
@@ -55,75 +82,109 @@ export const en: Dictionary = {
     nextSectionLabel: "Go to next section",
   },
   about: {
-    eyebrow: "About me",
-    title: "Design with purpose, not for trend.",
-    greetingPre: "Hi, I'm",
-    greetingName: "Mica.",
-    companiesLabel: "Designed at",
+    eyebrow: "My path",
+    title: "Every discipline I moved through taught me to see differently.",
+    tags: ["Textile", "Brand", "UX/UI", "Frontend"],
+    journeyLabel: "How I got here",
+    disciplines: [
+      {
+        year: "2013",
+        title: "Industrial design & production",
+        description: "Textile products and my own brand: how something is made and used without anyone explaining it.",
+      },
+      {
+        year: "2022",
+        title: "Brands & visual identity",
+        description: "Giving shape, voice and coherence to what a brand wants to say.",
+      },
+      {
+        year: "2023",
+        title: "Experience design · UX/UI",
+        description: "Digital products: how they're used, understood and evolve.",
+      },
+      {
+        year: "2024",
+        title: "Frontend",
+        description: "Bringing design to the browser and keeping it true to how it was intended.",
+      },
+    ],
+    companiesLabel: "Along the way I worked with",
     companies: ["Anfler Solutions", "Stakeholders Colombia", "AFIP", "Yo No Fui"],
   },
   profileSummary:
-    "Product Designer with 3+ years of experience designing digital products for public institutions, SaaS platforms and companies across industries, backed by 18+ years across different design disciplines. Specialized in UX, UI, Design Systems and integrating AI tools to optimize design workflows. I take part in the full product lifecycle, from research and strategy to design, validation and implementation, working with cross-functional teams to balance user needs, business goals and technical feasibility.",
+    "I started by designing textile products for babies: thinking about how something is made, how it's used and how it cares for whoever has it close. For eight years I ran it as my own venture and brand. Then came brands and visual identity and, later, experience design, UX/UI and frontend. Each discipline left me a different way of observing, asking and deciding. Today they all live inside a single way of thinking.",
   stats: [
-    { value: 18, suffix: "+", label: "Years of design experience" },
+    { value: 18, suffix: "+", label: "Years inside design" },
     { value: 3, suffix: "+", label: "Years in digital product" },
-    { value: 10, suffix: "+", label: "Projects for public and private organizations" },
+    { value: 10, suffix: "+", label: "Projects that shipped to production" },
   ],
-  philosophy: { eyebrow: "Design philosophy", title: "Principles that guide every decision." },
+  philosophy: {
+    eyebrow: "My philosophy",
+    title: "What I believe when I design.",
+    tags: ["Problem", "Clarity", "Detail", "Judgment"],
+  },
   philosophyItems: [
     {
       icon: "Target",
-      title: "Strategy before screens",
+      title: "I don't start with the screen.",
       description:
-        "Every design starts with understanding the business, the user and technical feasibility before a single screen gets drawn.",
+        "The screen is the last decision, not the first. Before it comes the problem, the person who has it and what the business needs to solve.",
     },
     {
       icon: "Sparkles",
-      title: "Detail isn't an extra",
-      description: "A consistent design system and care for every micro-interaction are, in themselves, the product.",
+      title: "I don't design to impress.",
+      description:
+        "I want something to be understood without effort, not to earn applause. Clarity ages better than effect.",
     },
     {
-      icon: "Users",
-      title: "People-centered design",
-      description: "Every decision aims to balance the needs of the people using the product with real business goals.",
+      icon: "Compass",
+      title: "Small decisions build the product too.",
+      description:
+        "Spacing, an error message, the order of two buttons. No one notices them when they're right; everyone suffers them when they're wrong.",
     },
     {
       icon: "Bot",
-      title: "AI as an accelerator, not a shortcut",
-      description: "I use AI tools to explore faster and document better, without giving up judgment.",
+      title: "AI speeds things up; judgment stays human.",
+      description: "I use AI to explore and iterate faster. Deciding what's actually good is not something I delegate.",
     },
   ],
-  process: { eyebrow: "My process", title: "How I take a product from idea to production." },
+  process: {
+    eyebrow: "The way I work",
+    title: "Every project is different. The reasoning isn't.",
+    tags: ["Investigate", "Prioritize", "Design", "Validate", "Implement"],
+    description:
+      "I don't follow a closed methodology, I follow an order of questions. The project changes, the team changes, the scale changes — but the way of thinking holds.",
+  },
   processSteps: [
     {
       icon: "Compass",
       step: "01",
-      title: "Research",
-      description: "Understanding users, context and business before proposing solutions.",
+      title: "Investigate",
+      description: "Before proposing anything, I listen: what the business needs, what's happening to whoever will use it, what the technology allows.",
     },
     {
       icon: "Target",
       step: "02",
-      title: "Strategy",
-      description: "Defining priorities and roadmap balancing business, users and feasibility.",
+      title: "Prioritize",
+      description: "Not everything makes it in. Deciding what stays out is designing too; that's where the product's focus is won.",
     },
     {
       icon: "PenTool",
       step: "03",
       title: "Design",
-      description: "Flows, wireframes and design systems that are consistent and scalable.",
+      description: "Only now do the screens appear. Flows, system and detail built to scale, not to show off.",
     },
     {
       icon: "CheckCircle2",
       step: "04",
-      title: "Validation",
-      description: "High-fidelity prototypes, usability testing and accessibility review.",
+      title: "Validate",
+      description: "I prototype, test, correct. It's cheaper to be wrong in a file than in production.",
     },
     {
       icon: "Rocket",
       step: "05",
-      title: "Implementation",
-      description: "Staying close to development to bring the design into production.",
+      title: "Implement",
+      description: "I stay close to development. A design doesn't end in Figma: it ends working.",
     },
   ],
   services: {
@@ -153,7 +214,13 @@ export const en: Dictionary = {
       items: ["Corporate identity", "Design systems", "Flyers & signage design", "Corporate documents"],
     },
   ],
-  experience: { eyebrow: "Professional experience", title: "18+ years designing across different disciplines." },
+  experience: {
+    eyebrow: "Experience",
+    title: "The scale changed. The challenge didn't.",
+    tags: ["Product", "UX/UI", "Design Systems", "Frontend"],
+    description:
+      "Each job was bigger and more complex than the last. The challenge, though, repeats in all of them: finding clarity where there was noise.",
+  },
   experienceItems: [
     {
       id: "anfler",
@@ -162,6 +229,7 @@ export const en: Dictionary = {
       period: "February 2025 - Present",
       yearLabel: "2025 —",
       projects: ["Migraciones", "Fronteras", "Arbolado GCBA", "Khalipa", "Sisgea"],
+      impact: "Highly complex government systems, now in production and used by thousands of people.",
       bullets: [
         "I design experiences and interfaces for highly complex digital products, landing pages and institutional sites, working on 10+ projects for public and private organizations.",
         "Among them, government systems such as Migraciones, Fronteras and Arbolado GCBA stand out, several already in production.",
@@ -180,6 +248,7 @@ export const en: Dictionary = {
       period: "October 2023 - June 2026",
       yearLabel: "2023–26",
       projects: ["SaaS Platform", "Design System"],
+      impact: "A design system that put the product in order and gave the whole team a shared language.",
       bullets: [
         "I redesigned and evolved the design system of a SaaS platform, standardizing components and interface patterns to improve product consistency, speed up implementation and greatly improve the user experience.",
         "I led the product's UX/UI design initiatives, taking part in defining the roadmap and prioritizing improvements that balanced business goals, technical feasibility and user needs.",
@@ -196,6 +265,7 @@ export const en: Dictionary = {
       period: "May 2023 - June 2025",
       yearLabel: "2023–25",
       projects: ["Appis Group", "Kent", "Ember", "La Viandita"],
+      impact: "Brands built from scratch, with a coherent identity across every touchpoint.",
       bullets: [
         "APPIS GROUP — I designed the company's corporate identity and digital experience from scratch, defining branding, information architecture, navigation, interactive prototypes and a design system for a consistent, scalable experience.",
         "ATM SEGUROS — I led the design of a digital quoting platform, running user research, defining flows, wireframes and high-fidelity prototypes to validate solutions before development.",
@@ -209,6 +279,7 @@ export const en: Dictionary = {
       period: "2014 - 2023",
       yearLabel: "2014–23",
       projects: ["Brand development", "Branding", "Shopping experience", "Textile collection"],
+      impact: "A brand of my own, from idea to shelf: design, production and team under one vision.",
       bullets: [
         "I designed and developed product lines for the children's market, managing their full lifecycle from conception and validation to production and commercialization.",
         "I led the venture end to end, building and coordinating a 3-person team across design, production and communications, ensuring product quality and meeting business goals.",
@@ -219,7 +290,12 @@ export const en: Dictionary = {
     },
   ],
   experienceUi: { seeMore: "See more", seeLess: "See less" },
-  featuredProjects: { eyebrow: "Featured projects", title: "A sample of the work behind each case." },
+  featuredProjects: {
+    eyebrow: "Case studies",
+    title: "Decisions that ended up becoming product.",
+    tags: ["Government", "SaaS", "Apps", "Branding"],
+    description: "Each one began with a hard question. Open the ones that spark your curiosity.",
+  },
   featuredProjectsUi: {
     viewAll: "See more projects",
     caseStudyLabel: "View case study: {title} on Behance (opens in a new tab)",
@@ -233,27 +309,52 @@ export const en: Dictionary = {
     filterAllLabel: "All",
     filterGroupLabel: "Filter projects by category",
   },
-  skills: { eyebrow: "Skills", title: "Areas of expertise." },
+  skills: {
+    eyebrow: "What I bring to a team",
+    title: "Not tools. Ways of contributing.",
+    tags: ["Research", "Systems", "Product sense"],
+  },
   skillsItems: [
     {
-      category: "Product Design & UX",
+      category: "Clarity in complexity",
+      summary:
+        "Taking a tangled system and making it understandable: research, information architecture and flows people follow without thinking.",
       items: ["User Research", "Benchmarking", "User Personas", "Journey Mapping", "Information Architecture", "Usability", "Accessibility"],
     },
     {
-      category: "UI / Design System",
-      items: ["Design Systems", "UI Kits", "Wireframing", "Prototyping", "Auto Layout", "Responsive Design"],
+      category: "Systems that scale",
+      summary:
+        "Design once, use it a thousand times: consistent design systems that speed up the whole team and hold the product together over time.",
+      items: ["Design Systems", "UI Kits", "Components", "Wireframing", "Prototyping", "Auto Layout", "Responsive Design"],
+    },
+    {
+      category: "Product judgment",
+      summary:
+        "Helping decide what to build and what not to, balancing what the business needs, what the person needs and what the tech allows.",
+      items: ["Prioritization", "Roadmap", "Validation", "Collaboration with development", "AI integration"],
     },
   ],
-  tools: { eyebrow: "Tools", title: "What I use every day." },
+  tools: {
+    eyebrow: "Tools",
+    title: "Tools change. Judgment should last longer.",
+    tags: ["Figma", "Adobe", "Notion", "AI"],
+  },
   toolsItems: [
-    { name: "Figma (advanced)", icon: "PenTool" },
+    { name: "Figma", icon: "PenTool" },
     { name: "Adobe Creative Suite", icon: "Layers" },
     { name: "Notion", icon: "NotebookPen" },
     { name: "Visual Studio Code", icon: "Code2" },
     { name: "ChatGPT", icon: "MessageSquare" },
     { name: "Claude Design", icon: "Sparkles" },
+    { name: "Claude Code", icon: "Bot" },
   ],
-  frontend: { eyebrow: "Frontend Technologies", title: "Design that speaks to code." },
+  frontend: {
+    eyebrow: "Frontend",
+    title: "Understanding code makes me a better designer.",
+    tags: ["HTML", "CSS", "React", "Next.js"],
+    description:
+      "I don't sell myself as a developer. But knowing how what I design gets built changes the decisions: I know what's simple, what's expensive and where design and development meet.",
+  },
   frontendItems: [
     { name: "HTML", icon: "FileCode" },
     { name: "CSS", icon: "Palette" },
@@ -262,7 +363,12 @@ export const en: Dictionary = {
     { name: "Next.js", icon: "Triangle" },
     { name: "Angular", icon: "Shield" },
   ],
-  education: { eyebrow: "Education & certifications", title: "Academic foundation and continuous learning." },
+  education: {
+    eyebrow: "Learning",
+    title: "I never stopped learning.",
+    tags: ["Industrial Design", "UX/UI", "Digital Marketing"],
+    description: "Education is the foundation. Almost everything else I learned by designing.",
+  },
   educationData: {
     degree: { title: "Industrial Design", institution: "Universidad Nacional de Mar del Plata", period: "2007 - 2013" },
     certifications: [
@@ -287,6 +393,9 @@ export const en: Dictionary = {
     responsePromise: "Tell me what you're thinking — I'll get back to you within 24 hours.",
     emailButton: "Email me",
     downloadCvButton: "Download CV",
+    viewCvButton: "View CV",
+    cvModalTitle: "Résumé",
+    openPdfLink: "Open PDF in new tab",
     linkedinLabel: "LinkedIn",
     behanceLabel: "Behance",
     modalTitle: "Email me",
@@ -315,7 +424,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design of an internal regulatory management system built to streamline administrative processes and centralize internal user information.",
-      image: "/projects/migraciones.png",
+      image: "/projects/migraciones-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251931637/Caso-de-Estudio-Migraciones",
       featured: true,
     },
@@ -325,7 +434,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design of a mobile app built to streamline urban tree surveying and management for field inspectors.",
-      image: "/projects/arbolado.png",
+      image: "/projects/arbolado-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251933935/Caso-de-Estudio-Arbolado-BA",
       featured: true,
     },
@@ -335,7 +444,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Redesign of a system used by border control agents to streamline migratory inspection and document control processes.",
-      image: "/projects/fronteras.png",
+      image: "/projects/fronteras-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251932145/Caso-de-Estudio-Sistema-de-control-fronterizo",
     },
     {
@@ -344,7 +453,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design of a mobile app aimed at encouraging healthy eating habits through a simple, intuitive, user-centered experience.",
-      image: "/projects/khalipa.png",
+      image: "/projects/khalipa-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251934203/Caso-de-Estudio-Khalipa",
     },
     {
@@ -352,7 +461,7 @@ export const en: Dictionary = {
       title: "Sisgea",
       category: "UX/UI",
       description: "Redesign of a corporate intranet aimed at streamlining information management and internal processes.",
-      image: "/projects/sisgea.png",
+      image: "/projects/sisgea-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251934643/Caso-de-Estudio-Sisgea",
     },
     {
@@ -361,7 +470,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design and evolution of a SaaS platform specialized in media monitoring and information analysis, optimizing the experience for users working with large volumes of data.",
-      image: "/projects/stakeholders.png",
+      image: "/projects/stakeholders-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251931223/Caso-de-Estudio-Stakeholders-SaaS",
       featured: true,
     },
@@ -371,7 +480,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       year: "2022",
       description: "UI/UX, web design and app design case study for Argentina's federal tax authority.",
-      image: "/projects/afip.png",
+      image: "/projects/afip-hd.png",
       behanceUrl: "https://www.behance.net/gallery/152164639/Caso-de-Estudio-AFIP-2022",
       featured: true,
     },
@@ -381,7 +490,7 @@ export const en: Dictionary = {
       category: "Branding",
       year: "2024",
       description: "Corporate identity designed from scratch: branding, graphic system and digital experience.",
-      image: "/projects/appis.png",
+      image: "/projects/appis-hd.png",
       behanceUrl: "https://www.behance.net/gallery/218607711/Identidad-corporativa-Appis-Group-2024",
       featured: true,
     },
@@ -391,7 +500,7 @@ export const en: Dictionary = {
       category: "Branding",
       year: "2023",
       description: "Full re-branding: visual identity, UI/UX and graphic system.",
-      image: "/projects/laviandita.png",
+      image: "/projects/laviandita-hd.png",
       behanceUrl: "https://www.behance.net/gallery/171224961/Re-Branding-La-Viandita-2023",
       featured: true,
     },
@@ -401,7 +510,7 @@ export const en: Dictionary = {
       category: "Branding & UX/UI",
       description:
         "End-to-end visual identity and experience design project for a specialty café: a warm, elegant, contemporary brand.",
-      image: "/projects/ember.png",
+      image: "/projects/ember-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251927609/Ember-Caf-Branding-UXUI",
     },
     {
@@ -409,7 +518,7 @@ export const en: Dictionary = {
       title: "Savia",
       category: "Branding & UX/UI",
       description: "Branding and UX/UI design for an online healthy-goods pantry: naming, logo, color system and typography.",
-      image: "/projects/savia.png",
+      image: "/projects/savia-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251877205/Savia-Branding-UXUI",
     },
     {
@@ -418,7 +527,7 @@ export const en: Dictionary = {
       category: "Branding",
       year: "2023",
       description: "Complete brand identity.",
-      image: "/projects/kent.png",
+      image: "/projects/kent-hd.png",
       behanceUrl: "https://www.behance.net/gallery/169758517/Identidad-de-marca-KENT-2023",
     },
     {
@@ -427,7 +536,7 @@ export const en: Dictionary = {
       category: "Branding",
       year: "2021",
       description: "Creative direction and brand development for Yo No Fui Diseño.",
-      image: "/projects/yonofui-branding.png",
+      image: "/projects/yonofui-branding-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157291447/Branding-YO-NO-FUI-2021",
     },
     {
@@ -445,7 +554,7 @@ export const en: Dictionary = {
       category: "Branding",
       year: "2022",
       description: "Illustration and product design for the Emociones collection.",
-      image: "/projects/yonofui-emociones.png",
+      image: "/projects/yonofui-emociones-hd.png",
       behanceUrl: "https://www.behance.net/gallery/160878747/Coleccion-Emociones-YO-NO-FUI-2022",
     },
     {
@@ -454,7 +563,7 @@ export const en: Dictionary = {
       category: "Branding",
       year: "2021",
       description: "Industrial design, creative direction and brand development.",
-      image: "/projects/yonofui-marca.png",
+      image: "/projects/yonofui-marca-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157288117/Desarrollo-de-marca-YO-NO-FUI-2021",
     },
     {

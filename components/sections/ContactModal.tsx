@@ -86,7 +86,7 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
               <X size={18} />
             </button>
 
-            <h3 id="contact-modal-title" className="pr-8 font-heading text-2xl font-semibold text-text">
+            <h3 id="contact-modal-title" className="pr-8 font-heading text-2xl font-medium text-text">
               {dict.cta.modalTitle}
             </h3>
             <p className="mt-2 text-sm text-text-secondary">{dict.cta.modalDescription}</p>

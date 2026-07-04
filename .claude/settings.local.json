@@ -22,7 +22,21 @@
       "Bash(pdftotext -layout \"/c/Users/usuario/Desktop/UX Mica/CV MICA/ABRIL OK}/CV. Micaela Auzmendi - Product Designer & UXUI.pdf\" cv.txt)",
       "Bash(npm run *)",
       "Bash(rm components/portfolio/ProjectCover.tsx)",
-      "WebFetch(domain:designlab.com)"
+      "WebFetch(domain:designlab.com)",
+      "PowerShell(npx tsc --noEmit)",
+      "PowerShell(npm run lint 2>&1)",
+      "Bash(cp \"../photos/MIGRACIONES - PORTFOLIO.png\" migraciones-hd.png)",
+      "Bash(cp \"../photos/ARBOLADO GCBA - PORTFOLIO.png\" arbolado-hd.png)",
+      "Bash(cp \"../photos/FRONTERAS - PORTFOLIO.png\" fronteras-hd.png)",
+      "Bash(cp \"../photos/KHALIPA - PORTFOLIO.png\" khalipa-hd.png)",
+      "Bash(cp \"../photos/SISGEA - PORTFOLIO.png\" sisgea-hd.png)",
+      "Bash(sed -i 's|-v2\\\\.png|-hd.png|g' es.ts en.ts)",
+      "Bash(sed -i 's|/projects/ember\\\\.png|/projects/ember-hd.png|g; s|/projects/savia\\\\.png|/projects/savia-hd.png|g; s|/projects/yonofui-branding\\\\.png|/projects/yonofui-branding-hd.png|g' es.ts en.ts)",
+      "Bash(echo \"---exit $?---\")",
+      "Bash(npx tsc *)",
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if \\($py\\) { python --version; python -c \"import fitz; print\\('pymupdf', fitz.__doc__[:20]\\)\" 2>&1 } else { \"no python\" }; \\(Get-Command magick -ErrorAction SilentlyContinue\\) | Select-Object Source; \\(Get-Command pdftoppm -ErrorAction SilentlyContinue\\) | Select-Object Source)",
+      "PowerShell(python -m pip install --quiet --disable-pip-version-check pymupdf 2>&1)",
+      "PowerShell(python -c \"import fitz; print\\('pymupdf OK', fitz.VersionBind\\)\")"
     ]
   }
 }

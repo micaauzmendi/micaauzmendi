@@ -26,7 +26,7 @@ export function Services({ dict }: { dict: Dictionary }) {
               <RevealItem key={group.category} className="border-t border-accent-support/30 pt-6">
                 <div className="flex items-center gap-3">
                   <Icon size={20} aria-hidden="true" className="text-accent" />
-                  <h3 className="font-heading text-lg font-semibold text-text">{group.category}</h3>
+                  <h3 className="font-heading text-lg font-medium text-text">{group.category}</h3>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (

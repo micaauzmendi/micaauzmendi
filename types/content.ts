@@ -26,11 +26,15 @@ export interface ExperienceEntry {
   period: string;
   yearLabel: string;
   projects: string[];
+  /** One elegant line summarizing the impact of this chapter of the career. */
+  impact?: string;
   bullets: string[];
 }
 
 export interface SkillCategory {
   category: string;
+  /** Short strategic framing of the capability, shown above the tags. */
+  summary?: string;
   items: string[];
 }
 

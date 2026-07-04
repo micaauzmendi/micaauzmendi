@@ -11,6 +11,18 @@ const SPEED_PX_PER_SEC = 32;
 const REPEAT = 3;
 const DRAG_THRESHOLD = 6;
 
+// Variable widths on a shared, fixed height so some pieces read wider than
+// others while all stay proportional and aligned. Cycled by project index, so
+// the rhythm is identical across the repeated copies (keeps the loop seamless).
+const WIDTHS = [
+  "w-64 sm:w-80",
+  "w-52 sm:w-60",
+  "w-80 sm:w-96",
+  "w-56 sm:w-64",
+  "w-72 sm:w-[22rem]",
+  "w-60 sm:w-72",
+];
+
 interface ProjectMarqueeProps {
   projects: PortfolioProject[];
   dict: Dictionary;
@@ -19,10 +31,12 @@ interface ProjectMarqueeProps {
 function MarqueeCard({
   project,
   dict,
+  width,
   decorative = false,
 }: {
   project: PortfolioProject;
   dict: Dictionary;
+  width: string;
   decorative?: boolean;
 }) {
   const Tag = decorative ? "div" : "a";
@@ -38,19 +52,19 @@ function MarqueeCard({
             "aria-label": formatTemplate(dict.featuredProjectsUi.caseStudyLabel, { title: project.title }),
           })}
       draggable={false}
-      className="group relative block h-72 w-56 shrink-0 select-none overflow-hidden rounded-none transition-[border-radius] duration-500 ease-out hover:rounded-tl-[2rem] hover:rounded-br-[2rem] sm:h-80 sm:w-64"
+      className={`group relative block h-72 shrink-0 select-none overflow-hidden rounded-none transition-[border-radius] duration-500 ease-out hover:rounded-tl-[2rem] hover:rounded-br-[2rem] sm:h-80 ${width}`}
     >
       <Image
         src={project.image}
         alt=""
         fill
         draggable={false}
-        sizes="256px"
+        sizes="(max-width: 640px) 320px, 384px"
         className="object-cover grayscale transition-[filter,transform] duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-text/80 via-text/0 to-text/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       <div className="absolute inset-x-0 bottom-0 p-4 text-bg opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <p className="font-heading text-base font-semibold">{project.title}</p>
+        <p className="font-heading text-base font-medium">{project.title}</p>
         <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-bg/80">
           {project.category}
           {project.year ? ` · ${project.year}` : ""}
@@ -95,8 +109,14 @@ function MarqueeRow({
   });
 
   const items = Array.from({ length: REPEAT }).flatMap((_, copy) =>
-    projects.map((project) => (
-      <MarqueeCard key={`${copy}-${project.id}`} project={project} dict={dict} decorative={copy !== 0} />
+    projects.map((project, i) => (
+      <MarqueeCard
+        key={`${copy}-${project.id}`}
+        project={project}
+        dict={dict}
+        width={WIDTHS[i % WIDTHS.length]}
+        decorative={copy !== 0}
+      />
     )),
   );
 

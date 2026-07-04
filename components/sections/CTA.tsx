@@ -27,9 +27,9 @@ export function CTA({ dict }: { dict: Dictionary }) {
         <Reveal>
           <div className="flex items-center justify-center gap-3">
             <DecorativeLine orientation="vertical" className="h-4" />
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{dict.cta.eyebrow}</p>
+            <p className="font-mono font-medium text-xs uppercase tracking-[0.2em] text-accent">{dict.cta.eyebrow}</p>
           </div>
-          <h2 id="contacto-heading" className="mt-4 font-heading text-3xl font-semibold text-text sm:text-4xl">
+          <h2 id="contacto-heading" className="mt-4 font-heading text-3xl font-medium text-text sm:text-4xl">
             <RevealText>{dict.cta.headlinePre}</RevealText>{" "}
             <RevealText className="text-accent" delay={dict.cta.headlinePre.split(" ").length * 0.045}>
               {dict.cta.headlineAccent}

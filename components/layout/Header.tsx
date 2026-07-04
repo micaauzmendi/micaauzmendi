@@ -20,6 +20,7 @@ export function Header({ dict }: { dict: Dictionary }) {
   const base = dict.locale === "en" ? "/en" : "";
   const homePath = base || "/";
   const portfolioPath = `${base}/proyectos`;
+  const servicesPath = `${base}/servicios`;
   const otherLocaleHref =
     dict.locale === "en" ? pathname.replace(/^\/en/, "") || "/" : pathname === "/" ? "/en" : `/en${pathname}`;
 
@@ -53,7 +54,11 @@ export function Header({ dict }: { dict: Dictionary }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const isActive = (linkId: string) => (linkId === "portfolio" ? pathname === portfolioPath : activeId === linkId);
+  const isActive = (linkId: string) => {
+    if (linkId === "portfolio") return pathname === portfolioPath;
+    if (linkId === "servicios") return pathname === servicesPath;
+    return activeId === linkId;
+  };
   const journeyLinks = navLinks.filter((link) => link.group === "journey");
   const workLinks = navLinks.filter((link) => link.group === "work" && link.id !== "contacto");
   const contactLink = navLinks.find((link) => link.id === "contacto");
@@ -66,7 +71,7 @@ export function Header({ dict }: { dict: Dictionary }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-accent-support/30 bg-bg/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2 md:px-10">
         <Link href={`${base}/#hero`} className="font-heading text-sm font-semibold tracking-tight text-text">
           Micaela Auzmendi
         </Link>

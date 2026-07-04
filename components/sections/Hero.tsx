@@ -45,7 +45,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
             {dict.personalInfo.title}
           </motion.p>
 
-          <h1 className="font-heading text-4xl font-semibold leading-[1.1] text-text text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-4xl font-medium leading-[1.1] text-text text-balance sm:text-5xl lg:text-6xl">
             <RevealText>{dict.hero.headlinePre}</RevealText>{" "}
             <RevealText className="text-accent" delay={dict.hero.headlinePre.split(" ").length * 0.045}>
               {dict.hero.headlineAccent}

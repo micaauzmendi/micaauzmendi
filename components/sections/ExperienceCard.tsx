@@ -12,17 +12,24 @@ export function ExperienceCard({ entry, ui }: { entry: ExperienceEntry; ui: Dict
   const panelId = `experience-panel-${entry.id}`;
 
   return (
-    <article className="relative pl-10 sm:pl-14">
+    <motion.article
+      whileHover={{ scale: 1.07 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      style={{ transformOrigin: "left center" }}
+      className="group relative z-0 pl-10 hover:z-10 sm:pl-14"
+    >
       <span
         aria-hidden="true"
         className="absolute left-0 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-accent bg-bg sm:left-0"
       />
 
-      <p className="font-mono text-xs uppercase tracking-wider text-accent">{entry.yearLabel}</p>
+      <p className="font-mono font-medium text-xs uppercase tracking-wider text-accent">{entry.yearLabel}</p>
 
       <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h3 className="font-heading text-xl font-semibold text-text">{entry.company}</h3>
+          <h3 className="font-heading text-xl font-medium text-text transition-colors duration-300 group-hover:text-accent">
+            {entry.company}
+          </h3>
           <p className="mt-1 text-sm text-text-secondary">{entry.role}</p>
         </div>
         <p className="font-mono text-xs uppercase tracking-wider text-text-muted">{entry.period}</p>
@@ -33,6 +40,12 @@ export function ExperienceCard({ entry, ui }: { entry: ExperienceEntry; ui: Dict
           <Tag key={project}>{project}</Tag>
         ))}
       </div>
+
+      {entry.impact ? (
+        <p className="mt-5 flex gap-3 border-l-2 border-accent/50 pl-4 text-[15px] italic leading-relaxed text-text">
+          {entry.impact}
+        </p>
+      ) : null}
 
       <button
         type="button"
@@ -67,6 +80,6 @@ export function ExperienceCard({ entry, ui }: { entry: ExperienceEntry; ui: Dict
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </article>
+    </motion.article>
   );
 }

@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { TopBar } from "@/components/layout/TopBar";
 import { ProjectIndexList } from "@/components/portfolio/ProjectIndexList";
+import { BackToHome } from "@/components/ui/BackToHome";
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
 import { Reveal } from "@/components/ui/Reveal";
 import { SetHtmlLang } from "@/components/ui/SetHtmlLang";
@@ -21,11 +22,12 @@ export function ProyectosPageContent({ dict }: { dict: Dictionary }) {
       <main id="main-content" className="px-6 pb-24 pt-16 md:px-10 md:pt-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
+            <BackToHome dict={dict} className="mb-6" />
             <div className="flex items-center gap-3">
               <DecorativeLine orientation="vertical" className="h-4" />
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{dict.portfolioPage.eyebrow}</p>
+              <p className="font-mono font-medium text-xs uppercase tracking-[0.2em] text-accent">{dict.portfolioPage.eyebrow}</p>
             </div>
-            <h1 className="mt-4 max-w-2xl font-heading text-3xl font-semibold text-text sm:text-5xl">
+            <h1 className="mt-4 max-w-2xl font-heading text-3xl font-medium text-text sm:text-5xl">
               {formatTemplate(dict.portfolioPage.title, { count: dict.projects.length })}
             </h1>
             <p className="mt-5 max-w-xl text-base text-text-secondary">{dict.portfolioPage.description}</p>

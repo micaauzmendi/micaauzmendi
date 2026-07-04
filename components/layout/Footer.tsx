@@ -1,5 +1,6 @@
-import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { BehanceIcon } from "@/components/ui/BehanceIcon";
+import { LinkedinIcon } from "@/components/ui/LinkedinIcon";
 import type { Dictionary } from "@/types/dictionary";
 
 export function Footer({ dict }: { dict: Dictionary }) {
@@ -41,9 +42,9 @@ export function Footer({ dict }: { dict: Dictionary }) {
                 href={dict.personalInfo.linkedin.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-text-secondary transition-colors hover:text-accent"
+                className="inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-accent"
               >
-                {dict.cta.linkedinLabel} <ExternalLink size={12} aria-hidden="true" />
+                <LinkedinIcon size={14} /> {dict.cta.linkedinLabel}
               </a>
             </li>
             <li>
@@ -51,9 +52,9 @@ export function Footer({ dict }: { dict: Dictionary }) {
                 href={dict.personalInfo.behance.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-text-secondary transition-colors hover:text-accent"
+                className="inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-accent"
               >
-                {dict.cta.behanceLabel} <ExternalLink size={12} aria-hidden="true" />
+                <BehanceIcon size={14} /> {dict.cta.behanceLabel}
               </a>
             </li>
             <li>
@@ -71,9 +72,9 @@ export function Footer({ dict }: { dict: Dictionary }) {
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">{dict.nav.contacto}</p>
           <Link
             href={`${base}/#contacto`}
-            className="mt-4 inline-flex items-center gap-1.5 font-heading text-base font-semibold text-text transition-colors hover:text-accent"
+            className="mt-4 inline-flex rounded-full bg-text px-5 py-2 font-mono text-xs uppercase tracking-wider text-bg transition-colors duration-300 hover:bg-accent"
           >
-            {dict.hero.ctaContact} <ArrowUpRight size={16} aria-hidden="true" />
+            {dict.hero.ctaContact}
           </Link>
         </div>
       </div>

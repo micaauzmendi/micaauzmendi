@@ -17,13 +17,48 @@ export interface SectionCopy {
   eyebrow: string;
   title: string;
   description?: string;
+  /** Optional mono keyword tags rendered under the heading, banner-style. */
+  tags?: string[];
+}
+
+export interface Discipline {
+  year: string;
+  title: string;
+  description: string;
 }
 
 export interface AboutCopy extends SectionCopy {
-  greetingPre: string;
-  greetingName: string;
+  journeyLabel: string;
+  disciplines: Discipline[];
   companiesLabel: string;
   companies: string[];
+}
+
+/** Narrative scaffolding that turns the site into a book: prologue, interlude, epilogue. */
+export interface BookCopy {
+  chapterKicker: string;
+  prologue: {
+    kicker: string;
+    headlinePre: string;
+    headlineAccent: string;
+    subtitle: string;
+    scrollCue: string;
+    tags: string[];
+  };
+  interlude: {
+    kicker: string;
+    phrasePre: string;
+    phraseAccent: string;
+    phrasePost: string;
+    tags: string[];
+  };
+  epilogue: {
+    kicker: string;
+    now: string;
+    greeting: string;
+    body: string;
+    cta: string;
+  };
 }
 
 export interface Dictionary {
@@ -41,6 +76,7 @@ export interface Dictionary {
     skills: string;
     contacto: string;
     skipToContent: string;
+    backToHome: string;
     openMenu: string;
     closeMenu: string;
     mainNav: string;
@@ -54,6 +90,7 @@ export interface Dictionary {
   };
   ticker: string[];
   personalInfo: PersonalInfo;
+  book: BookCopy;
   hero: {
     sectionLabel: string;
     headlinePre: string;
@@ -115,6 +152,9 @@ export interface Dictionary {
     responsePromise: string;
     emailButton: string;
     downloadCvButton: string;
+    viewCvButton: string;
+    cvModalTitle: string;
+    openPdfLink: string;
     linkedinLabel: string;
     behanceLabel: string;
     modalTitle: string;
