@@ -7,6 +7,7 @@ import { ContactModal } from "@/components/sections/ContactModal";
 import { CvModal } from "@/components/sections/CvModal";
 import { Button } from "@/components/ui/Button";
 import { DotGrid } from "@/components/ui/DotGrid";
+import { Highlight } from "@/components/ui/Highlight";
 import { Reveal } from "@/components/ui/Reveal";
 import { RevealText } from "@/components/ui/RevealText";
 import type { Dictionary } from "@/types/dictionary";
@@ -55,7 +56,9 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
           <p className="font-mono font-medium text-xs uppercase tracking-[0.3em] text-accent">{kicker}</p>
           <h2 id="epilogo-heading" className="mt-5 font-heading text-4xl font-medium leading-tight text-text sm:text-5xl">
             <span className="block text-text-secondary">{now}</span>
-            <RevealText className="text-accent">{greeting}</RevealText>
+            <Highlight>
+              <RevealText className="text-accent">{greeting}</RevealText>
+            </Highlight>
           </h2>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-text-secondary text-pretty">{body}</p>

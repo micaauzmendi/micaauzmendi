@@ -109,7 +109,17 @@ export const en: Dictionary = {
       },
     ],
     companiesLabel: "Along the way I worked with",
-    companies: ["Anfler Solutions", "Stakeholders Colombia", "AFIP", "Yo No Fui"],
+    companies: [
+      { name: "Anfler Solutions", logo: "/photos/logo-anfler.png" },
+      { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png" },
+      { name: "Yo No Fui" },
+    ],
+    projectsForLabel: "And I worked on projects for",
+    projectsFor: [
+      { name: "Buenos Aires", logo: "/photos/logo-BA-1.png" },
+      { name: "Migraciones", logo: "/photos/logo-migraciones.png" },
+      { name: "SICAM" },
+    ],
   },
   profileSummary:
     "I started by designing textile products for babies: thinking about how something is made, how it's used and how it cares for whoever has it close. For eight years I ran it as my own venture and brand. Then came brands and visual identity and, later, experience design, UX/UI and frontend. Each discipline left me a different way of observing, asking and deciding. Today they all live inside a single way of thinking.",

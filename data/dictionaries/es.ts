@@ -111,7 +111,17 @@ export const es: Dictionary = {
       },
     ],
     companiesLabel: "En el camino trabajé con",
-    companies: ["Anfler Solutions", "Stakeholders Colombia", "AFIP", "Yo No Fui"],
+    companies: [
+      { name: "Anfler Solutions", logo: "/photos/logo-anfler.png" },
+      { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png" },
+      { name: "Yo No Fui" },
+    ],
+    projectsForLabel: "Y trabajé en proyectos para",
+    projectsFor: [
+      { name: "Buenos Aires", logo: "/photos/logo-BA-1.png" },
+      { name: "Migraciones", logo: "/photos/logo-migraciones.png" },
+      { name: "SICAM" },
+    ],
   },
   profileSummary:
     "Empecé diseñando productos textiles para bebés: pensando cómo algo se fabrica, cómo se usa y cómo cuida a quien lo tiene cerca. Durante ocho años lo sostuve como emprendimiento y marca propia. Después vinieron las marcas y la identidad visual y, más tarde, el diseño de experiencias, la UX/UI y el frontend. Cada disciplina me dejó una forma distinta de observar, de preguntar y de decidir. Hoy todas conviven en una sola manera de pensar.",

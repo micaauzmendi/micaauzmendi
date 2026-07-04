@@ -4,6 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { useRef } from "react";
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
 import { DotField } from "@/components/ui/DotField";
+import { Highlight } from "@/components/ui/Highlight";
 import { RevealText } from "@/components/ui/RevealText";
 import type { Dictionary } from "@/types/dictionary";
 
@@ -28,11 +29,14 @@ export function Prologue({ dict }: { dict: Dictionary }) {
     >
       <DotField />
 
-      <span aria-hidden="true" className="absolute left-8 top-1/4 hidden h-40 md:block">
-        <DecorativeLine orientation="vertical" className="h-40" animated />
-      </span>
-
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-4xl">
+        {/* Kept well clear of the text, out in the left margin, so the words stay the protagonist. */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-14 top-1/2 hidden h-48 -translate-y-1/2 lg:block"
+        >
+          <DecorativeLine orientation="vertical" className="h-full" animated />
+        </span>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,9 +50,11 @@ export function Prologue({ dict }: { dict: Dictionary }) {
         <h1 className="font-heading text-4xl font-medium leading-[1.12] text-text text-balance sm:text-5xl lg:text-6xl">
           <RevealText>{prologue.headlinePre}</RevealText>
           <br />
-          <RevealText className="text-accent" delay={prologue.headlinePre.split(" ").length * 0.045}>
-            {prologue.headlineAccent}
-          </RevealText>
+          <Highlight>
+            <RevealText className="text-accent" delay={prologue.headlinePre.split(" ").length * 0.045}>
+              {prologue.headlineAccent}
+            </RevealText>
+          </Highlight>
         </h1>
 
         <motion.p

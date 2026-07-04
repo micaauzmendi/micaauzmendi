@@ -4,6 +4,7 @@ import { Download, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
+import { Highlight } from "@/components/ui/Highlight";
 import { Reveal } from "@/components/ui/Reveal";
 import { RevealText } from "@/components/ui/RevealText";
 import { ContactModal } from "@/components/sections/ContactModal";
@@ -31,9 +32,11 @@ export function CTA({ dict }: { dict: Dictionary }) {
           </div>
           <h2 id="contacto-heading" className="mt-4 font-heading text-3xl font-medium text-text sm:text-4xl">
             <RevealText>{dict.cta.headlinePre}</RevealText>{" "}
-            <RevealText className="text-accent" delay={dict.cta.headlinePre.split(" ").length * 0.045}>
-              {dict.cta.headlineAccent}
-            </RevealText>{" "}
+            <Highlight>
+              <RevealText className="text-accent" delay={dict.cta.headlinePre.split(" ").length * 0.045}>
+                {dict.cta.headlineAccent}
+              </RevealText>
+            </Highlight>{" "}
             <RevealText
               delay={(dict.cta.headlinePre.split(" ").length + dict.cta.headlineAccent.split(" ").length) * 0.045}
             >

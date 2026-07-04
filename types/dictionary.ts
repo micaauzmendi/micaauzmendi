@@ -27,11 +27,19 @@ export interface Discipline {
   description: string;
 }
 
+export interface CompanyChip {
+  name: string;
+  /** Optional brand logo (path under /public). Shown instead of the name. */
+  logo?: string;
+}
+
 export interface AboutCopy extends SectionCopy {
   journeyLabel: string;
   disciplines: Discipline[];
   companiesLabel: string;
-  companies: string[];
+  companies: CompanyChip[];
+  projectsForLabel: string;
+  projectsFor: CompanyChip[];
 }
 
 /** Narrative scaffolding that turns the site into a book: prologue, interlude, epilogue. */
