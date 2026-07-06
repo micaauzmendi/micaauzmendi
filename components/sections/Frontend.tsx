@@ -8,13 +8,14 @@ export function Frontend({ dict }: { dict: Dictionary }) {
     <section
       id="frontend"
       aria-labelledby="frontend-heading"
-      className="bg-surface-muted/50 px-6 py-24 md:px-10 md:py-32"
+      className="bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="frontend-heading"
           eyebrow={dict.frontend.eyebrow}
           title={dict.frontend.title}
+          accent={dict.frontend.titleAccent}
           description={dict.frontend.description}
         />
 

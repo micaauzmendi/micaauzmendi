@@ -1,14 +1,19 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Download, ExternalLink, X } from "lucide-react";
-import { useEffect } from "react";
+import { Download, ExternalLink, X, ZoomIn, ZoomOut } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import type { Dictionary } from "@/types/dictionary";
 
 const CV_PATH = "/cv-mica-auzmendi.pdf";
-/** Page images live in /public/cv, regenerated whenever the PDF changes. */
-const CV_PAGE_COUNT = 2;
+const MIN_ZOOM = 0.6;
+const MAX_ZOOM = 3;
+const ZOOM_STEP = 0.25;
+
+// PDF.js needs browser APIs, so the viewer is loaded client-side only.
+const CvPdf = dynamic(() => import("@/components/sections/CvPdf"), { ssr: false });
 
 interface CvModalProps {
   dict: Dictionary;
@@ -17,11 +22,27 @@ interface CvModalProps {
 }
 
 /**
- * Preview of the CV. The pages are shown as pre-rendered images (reliable across
- * browsers, unlike embedding the raw PDF, which some viewers force-download),
- * and the original PDF can be downloaded from the header.
+ * Preview of the CV. The real PDF is rendered to canvas with PDF.js (see CvPdf),
+ * so it shows the actual document — not pre-rendered images — reliably across
+ * browsers. The original file can be downloaded from the header or opened in a
+ * new tab from the footer.
  */
 export function CvModal({ dict, open, onClose }: CvModalProps) {
+  const loadingLabel = dict.locale === "en" ? "Loading CV…" : "Cargando CV…";
+  const errorLabel = dict.locale === "en" ? "Couldn't load the CV." : "No se pudo cargar el CV.";
+  const zoomOutLabel = dict.locale === "en" ? "Zoom out" : "Alejar";
+  const zoomInLabel = dict.locale === "en" ? "Zoom in" : "Acercar";
+  const resetZoomLabel = dict.locale === "en" ? "Reset zoom" : "Restablecer zoom";
+
+  const [scale, setScale] = useState(1);
+  const zoomOut = () => setScale((s) => Math.max(MIN_ZOOM, Math.round((s - ZOOM_STEP) * 100) / 100));
+  const zoomIn = () => setScale((s) => Math.min(MAX_ZOOM, Math.round((s + ZOOM_STEP) * 100) / 100));
+
+  // Reset the zoom each time the modal is opened.
+  useEffect(() => {
+    if (open) setScale(1);
+  }, [open]);
+
   useEffect(() => {
     if (!open) return;
 
@@ -37,8 +58,6 @@ export function CvModal({ dict, open, onClose }: CvModalProps) {
       document.body.style.overflow = previousOverflow;
     };
   }, [open, onClose]);
-
-  const pages = Array.from({ length: CV_PAGE_COUNT }, (_, i) => i + 1);
 
   return (
     <AnimatePresence>
@@ -87,22 +106,39 @@ export function CvModal({ dict, open, onClose }: CvModalProps) {
               </div>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto bg-surface-muted/30 p-4 md:p-6">
-              <div className="mx-auto flex max-w-2xl flex-col gap-4">
-                {pages.map((page) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={page}
-                    src={`/cv/page-${String(page).padStart(2, "0")}.jpg`}
-                    alt={`${dict.cta.cvModalTitle} — ${page}/${CV_PAGE_COUNT}`}
-                    loading={page === 1 ? "eager" : "lazy"}
-                    className="w-full rounded-sm border border-accent-support/20 shadow-sm"
-                  />
-                ))}
-              </div>
+            <div className="min-h-0 flex-1 overflow-auto bg-surface-muted/30 p-4 md:p-6">
+              {open ? <CvPdf file={CV_PATH} loadingLabel={loadingLabel} errorLabel={errorLabel} scale={scale} /> : null}
             </div>
 
-            <div className="flex items-center justify-center border-t border-accent-support/20 px-6 py-3">
+            <div className="flex items-center justify-between gap-4 border-t border-accent-support/20 px-4 py-3 md:px-6">
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={zoomOut}
+                  disabled={scale <= MIN_ZOOM}
+                  aria-label={zoomOutLabel}
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-accent disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <ZoomOut size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setScale(1)}
+                  aria-label={resetZoomLabel}
+                  className="min-w-[3.5ch] text-center font-mono text-xs tabular-nums text-text-secondary transition-colors hover:text-accent"
+                >
+                  {Math.round(scale * 100)}%
+                </button>
+                <button
+                  type="button"
+                  onClick={zoomIn}
+                  disabled={scale >= MAX_ZOOM}
+                  aria-label={zoomInLabel}
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-text-secondary transition-colors hover:text-accent disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <ZoomIn size={16} />
+                </button>
+              </div>
               <a
                 href={CV_PATH}
                 target="_blank"

@@ -57,13 +57,14 @@ export const en: Dictionary = {
   },
   contact: {
     kicker: "Contact",
-    greeting: "Hi, I'm Mica.",
-    body: "I've been designing for more than eighteen years and it still feels like the best job in the world: understanding a problem until it turns simple. If any of this resonated, let's talk.",
+    greeting: "Thanks for making it this far.",
+    body: "Whether you're adding a designer to your team or have a project that needs design, I'd love to hear from you. Send me a message and we'll take it from there.",
     cta: "Let's talk",
   },
   about: {
     eyebrow: "My path",
     title: "Every discipline I moved through taught me to see differently.",
+    titleAccent: "to see differently.",
     tags: ["Textile", "Brand", "UX/UI", "Frontend"],
     journeyLabel: "How I got here",
     disciplines: [
@@ -92,13 +93,12 @@ export const en: Dictionary = {
     companies: [
       { name: "Anfler Solutions", logo: "/photos/logo-anfler.png" },
       { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png" },
-      { name: "Yo No Fui" },
+      { name: "Yo No Fui", logo: "/photos/logo-yonofui.png" },
     ],
     projectsForLabel: "And I worked on projects for",
     projectsFor: [
       { name: "Buenos Aires", logo: "/photos/logo-BA-1.png" },
       { name: "Migraciones", logo: "/photos/logo-migraciones.png" },
-      { name: "SICAM" },
     ],
   },
   profileSummary:
@@ -111,6 +111,7 @@ export const en: Dictionary = {
   philosophy: {
     eyebrow: "My philosophy",
     title: "What I believe when I design.",
+    titleAccent: "when I design.",
     tags: ["Problem", "Clarity", "Detail", "Judgment"],
   },
   philosophyItems: [
@@ -141,7 +142,8 @@ export const en: Dictionary = {
   process: {
     eyebrow: "The way I work",
     title: "Every project is different. The reasoning isn't.",
-    tags: ["Investigate", "Prioritize", "Design", "Validate", "Implement"],
+    titleAccent: "The reasoning isn't.",
+    tags: ["Investigate", "Prioritize", "Design", "Validate", "Implement", "Iterate"],
     description:
       "I don't follow a closed methodology, I follow an order of questions. The project changes, the team changes, the scale changes — but the way of thinking holds.",
   },
@@ -175,6 +177,12 @@ export const en: Dictionary = {
       step: "05",
       title: "Implement",
       description: "I stay close to development. A design doesn't end in Figma: it ends working.",
+    },
+    {
+      icon: "Sparkles",
+      step: "06",
+      title: "Iterate",
+      description: "The product lives and changes. I go back to what shipped: I measure how it's used, learn and adjust so it keeps improving.",
     },
   ],
   services: {
@@ -213,6 +221,7 @@ export const en: Dictionary = {
   experience: {
     eyebrow: "Experience",
     title: "The scale changed. The challenge didn't.",
+    titleAccent: "The challenge didn't.",
     tags: ["Product", "UX/UI", "Design Systems", "Frontend"],
     description:
       "Each job was bigger and more complex than the last. The challenge, though, repeats in all of them: finding clarity where there was noise.",
@@ -289,6 +298,7 @@ export const en: Dictionary = {
   featuredProjects: {
     eyebrow: "Case studies",
     title: "Decisions that ended up becoming product.",
+    titleAccent: "becoming product.",
     tags: ["Government", "SaaS", "Apps", "Branding"],
     description: "Each one began with a hard question. Open the ones that spark your curiosity.",
   },
@@ -312,6 +322,7 @@ export const en: Dictionary = {
   skills: {
     eyebrow: "What I bring to a team",
     title: "Not tools. Ways of contributing.",
+    titleAccent: "Ways of contributing.",
     tags: ["Research", "Systems", "Product sense"],
   },
   skillsItems: [
@@ -337,6 +348,7 @@ export const en: Dictionary = {
   tools: {
     eyebrow: "Tools",
     title: "Tools change. Judgment should last longer.",
+    titleAccent: "Judgment should last longer.",
     tags: ["Figma", "Adobe", "Notion", "AI"],
   },
   toolsItems: [
@@ -351,6 +363,7 @@ export const en: Dictionary = {
   frontend: {
     eyebrow: "Frontend",
     title: "Understanding code makes me a better designer.",
+    titleAccent: "a better designer.",
     tags: ["HTML", "CSS", "React", "Next.js"],
     description:
       "I don't sell myself as a developer. But knowing how what I design gets built changes the decisions: I know what's simple, what's expensive and where design and development meet.",
@@ -366,6 +379,7 @@ export const en: Dictionary = {
   education: {
     eyebrow: "Learning",
     title: "I never stopped learning.",
+    titleAccent: "learning.",
     tags: ["Industrial Design", "UX/UI", "Digital Marketing"],
     description: "Education is the foundation. Almost everything else I learned by designing.",
   },
@@ -424,7 +438,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design of an internal regulatory management system built to streamline administrative processes and centralize internal user information.",
-      image: "/photos/migraciones-portada.png",
+      image: "/photos/migraciones-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251931637/Caso-de-Estudio-Migraciones",
       featured: true,
     },
@@ -434,7 +448,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design of a mobile app built to streamline urban tree surveying and management for field inspectors.",
-      image: "/photos/arbolado-portada.png",
+      image: "/photos/arbolado-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251933935/Caso-de-Estudio-Arbolado-BA",
       featured: true,
     },
@@ -444,7 +458,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Redesign of a system used by border control agents to streamline migratory inspection and document control processes.",
-      image: "/photos/fronteras-portada.png",
+      image: "/photos/fronteras-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251932145/Caso-de-Estudio-Sistema-de-control-fronterizo",
     },
     {
@@ -453,7 +467,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design of a mobile app aimed at encouraging healthy eating habits through a simple, intuitive, user-centered experience.",
-      image: "/photos/khalipa-portada.png",
+      image: "/photos/khalipa-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251934203/Caso-de-Estudio-Khalipa",
     },
     {
@@ -461,7 +475,7 @@ export const en: Dictionary = {
       title: "Sisgea",
       category: "UX/UI",
       description: "Redesign of a corporate intranet aimed at streamlining information management and internal processes.",
-      image: "/photos/sisgea-portada.png",
+      image: "/photos/sisgea-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251934643/Caso-de-Estudio-Sisgea",
     },
     {
@@ -470,7 +484,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       description:
         "Design and evolution of a SaaS platform specialized in media monitoring and information analysis, optimizing the experience for users working with large volumes of data.",
-      image: "/photos/stakeholders-portada.png",
+      image: "/photos/stakeholders-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251931223/Caso-de-Estudio-Stakeholders-SaaS",
       featured: true,
     },
@@ -480,7 +494,7 @@ export const en: Dictionary = {
       category: "UX/UI",
       year: "2022",
       description: "UI/UX, web design and app design case study for Argentina's federal tax authority.",
-      image: "/photos/afip-portada.png",
+      image: "/photos/afip-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/152164639/Caso-de-Estudio-AFIP-2022",
       featured: true,
     },
@@ -490,7 +504,7 @@ export const en: Dictionary = {
       category: "Brands",
       year: "2024",
       description: "Corporate identity designed from scratch: branding, graphic system and digital experience.",
-      image: "/photos/appis-portada.png",
+      image: "/photos/appis-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/218607711/Identidad-corporativa-Appis-Group-2024",
       featured: true,
     },
@@ -500,7 +514,7 @@ export const en: Dictionary = {
       category: "Brands",
       year: "2023",
       description: "Full re-branding: visual identity, UI/UX and graphic system.",
-      image: "/photos/laviandita-portada.png",
+      image: "/photos/laviandita-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/171224961/Re-Branding-La-Viandita-2023",
       featured: true,
     },
@@ -510,7 +524,7 @@ export const en: Dictionary = {
       category: "Brands",
       description:
         "End-to-end visual identity and experience design project for a specialty café: a warm, elegant, contemporary brand.",
-      image: "/photos/ember-portada.png",
+      image: "/photos/ember-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251927609/Ember-Caf-Branding-UXUI",
     },
     {
@@ -518,7 +532,7 @@ export const en: Dictionary = {
       title: "Savia",
       category: "Brands",
       description: "Branding and UX/UI design for an online healthy-goods pantry: naming, logo, color system and typography.",
-      image: "/photos/savia-portada.png",
+      image: "/photos/savia-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251877205/Savia-Branding-UXUI",
     },
     {
@@ -527,7 +541,7 @@ export const en: Dictionary = {
       category: "Brands",
       year: "2023",
       description: "Complete brand identity.",
-      image: "/photos/kent-portada.png",
+      image: "/photos/kent-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/169758517/Identidad-de-marca-KENT-2023",
     },
     {
@@ -537,7 +551,7 @@ export const en: Dictionary = {
       label: "Brands",
       year: "2021",
       description: "Creative direction and brand development for Yo No Fui Diseño.",
-      image: "/photos/yonofui-branding-portada.png",
+      image: "/photos/yonofui-branding-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157291447/Branding-YO-NO-FUI-2021",
     },
     {
@@ -547,7 +561,7 @@ export const en: Dictionary = {
       label: "UX/UI",
       year: "2021",
       description: "Shopping experience design for Yo No Fui Diseño.",
-      image: "/photos/yonofui-compra-portada.png",
+      image: "/photos/yonofui-compra-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157292781/Diseno-de-Experiencia-de-Compra-YO-NO-FUI-2021-",
     },
     {
@@ -557,7 +571,7 @@ export const en: Dictionary = {
       label: "Textile Design",
       year: "2022",
       description: "Illustration and product design for the Emociones collection.",
-      image: "/photos/yonofui-emociones-portada.png",
+      image: "/photos/yonofui-emociones-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/160878747/Coleccion-Emociones-YO-NO-FUI-2022",
     },
     {
@@ -567,7 +581,7 @@ export const en: Dictionary = {
       label: "Brand Creation",
       year: "2021",
       description: "Industrial design, creative direction and brand development.",
-      image: "/photos/yonofui-marca-portada.png",
+      image: "/photos/yonofui-marca-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157288117/Desarrollo-de-marca-YO-NO-FUI-2021",
     },
   ],

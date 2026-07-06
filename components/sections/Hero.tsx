@@ -34,7 +34,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
     >
       <DotField />
 
-      <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-4xl">
+      <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-6xl">
         {/* Kept well clear of the text, out in the left margin, so the words stay the protagonist. */}
         <span
           aria-hidden="true"

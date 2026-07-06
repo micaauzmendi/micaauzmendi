@@ -5,7 +5,7 @@ import type { Dictionary } from "@/types/dictionary";
 
 export function About({ dict }: { dict: Dictionary }) {
   return (
-    <section id="sobre-mi" aria-labelledby="sobre-mi-heading" className="px-6 py-24 md:px-10 md:py-32">
+    <section id="sobre-mi" aria-labelledby="sobre-mi-heading" className="px-6 py-16 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         {/* Presentation — the portrait now lives only in the epilogue. */}
         <div className="max-w-3xl">
@@ -13,6 +13,7 @@ export function About({ dict }: { dict: Dictionary }) {
             id="sobre-mi-heading"
             eyebrow={dict.about.eyebrow}
             title={dict.about.title}
+            accent={dict.about.titleAccent}
           />
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-secondary">{dict.profileSummary}</p>
@@ -93,7 +94,7 @@ function CompanyGroup({
               src={company.logo}
               alt={company.name}
               loading="lazy"
-              className={`w-auto object-contain grayscale ${logoClass}`}
+              className={`w-auto object-contain grayscale dark:brightness-0 dark:invert ${logoClass}`}
             />
           ) : (
             <span key={company.name} className={`font-heading font-medium text-text-secondary ${textClass}`}>

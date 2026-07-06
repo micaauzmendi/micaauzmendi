@@ -55,7 +55,16 @@
       "Bash(cp \"migraciones-portada.png\" \"casos/migraciones/03.png\")",
       "Bash(node -e \"const fs=require\\('fs'\\),p=require\\('path'\\);const d=p.join\\(process.cwd\\(\\),'public','photos','casos','migraciones'\\);console.log\\('cwd:',process.cwd\\(\\)\\);console.log\\('exists:',fs.existsSync\\(d\\)\\);try{console.log\\('files:',fs.readdirSync\\(d\\)\\)}catch\\(e\\){console.log\\('err',e.message\\)}\")",
       "Bash(node -e \"const fs=require\\('fs'\\),p=require\\('path'\\);const d=p.join\\(process.cwd\\(\\),'public','photos','casos','migraciones'\\);console.log\\('exists:',fs.existsSync\\(d\\),'files:',fs.existsSync\\(d\\)?fs.readdirSync\\(d\\):[]\\)\")",
-      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 25; \"exit: $LASTEXITCODE\")"
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 25; \"exit: $LASTEXITCODE\")",
+      "Bash(cp \"AFIP-portada para portfolio.png\" \"../../photos/afip-portada.png\")",
+      "Bash(cp \"APPIS-portada para portfolio.png\" \"../../photos/appis-portada.png\")",
+      "Bash(cp \"ARBOLADO GCBA - portada para portfolio.png\" \"../../photos/arbolado-portada.png\")",
+      "Bash(cp \"BRANDING - portada para portfolio.png\" \"../../photos/yonofui-branding-portada.png\")",
+      "Bash(cp \"DESARROLLO DE MARCA-portada para portfolio.png\" \"../../photos/yonofui-marca-portada.png\")",
+      "Bash(echo \"=== exit: $? ===\")",
+      "PowerShell(npm install react-pdf 2>&1)",
+      "PowerShell(Copy-Item \"node_modules\\\\pdfjs-dist\\\\build\\\\pdf.worker.min.mjs\" \"public\\\\pdf.worker.min.mjs\" -Force)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; @\\(\"migraciones-portada-hd.png\",\"stakeholders-portada-hd.png\",\"ember-portada-hd.png\"\\) | ForEach-Object { $p=\"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\Portfolio Interactivo\\\\public\\\\photos\\\\$_\"; if\\(Test-Path $p\\){ $i=New-Object System.Drawing.Bitmap\\($p\\); Write-Output \\(\"{0}  {1}x{2}  {3}KB\" -f $_,$i.Width,$i.Height,[int]\\(\\(Get-Item $p\\).Length/1KB\\)\\); $i.Dispose\\(\\) } })"
     ]
   }
 }

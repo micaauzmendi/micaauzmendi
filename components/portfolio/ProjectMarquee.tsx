@@ -47,13 +47,16 @@ function MarqueeCard({
 
   const inner = (
     <>
+      {/* Cards are taller than wide, so object-cover scales the landscape cover
+          by its height (~1.6x the card width) — the source must be that wide. */}
       <Image
         src={project.image}
         alt=""
         fill
         draggable={false}
-        sizes="(max-width: 640px) 320px, 384px"
-        className="object-cover grayscale transition-[filter,transform] duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+        quality={90}
+        sizes="(max-width: 640px) 470px, 520px"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-text/80 via-text/0 to-text/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       <div className="absolute inset-x-0 bottom-0 p-4 text-bg opacity-0 transition-opacity duration-500 group-hover:opacity-100">

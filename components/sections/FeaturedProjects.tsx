@@ -18,13 +18,14 @@ export function FeaturedProjects({
   const featuredProjects = dict.projects.filter((project) => project.category === "UX/UI");
 
   return (
-    <section id="proyectos" aria-labelledby="proyectos-heading" className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32">
+    <section id="proyectos" aria-labelledby="proyectos-heading" className="relative overflow-hidden bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32">
       <GridField />
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="proyectos-heading"
           eyebrow={dict.featuredProjects.eyebrow}
           title={dict.featuredProjects.title}
+          accent={dict.featuredProjects.titleAccent}
           description={dict.featuredProjects.description}
         />
 

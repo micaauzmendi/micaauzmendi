@@ -17,12 +17,13 @@
 }
 
 .dark {
+  /* Text tones lifted for stronger contrast on the dark background. */
   --color-bg: #2e2a29;
   --color-surface: #3a3532;
   --color-surface-muted: #46403c;
   --color-text: #f4f1ee;
-  --color-text-secondary: #c7c0b9;
-  --color-text-muted: #9a938c;
+  --color-text-secondary: #d3cdc6;
+  --color-text-muted: #b3aba3;
   --color-accent: #c9a9a3;
   --color-accent-support: #8c5e5a;
   --color-grid-ink: var(--color-accent);

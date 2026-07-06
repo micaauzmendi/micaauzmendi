@@ -5,12 +5,13 @@ import type { Dictionary } from "@/types/dictionary";
 
 export function Skills({ dict }: { dict: Dictionary }) {
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="bg-surface-muted/50 px-6 py-24 md:px-10 md:py-32">
+    <section id="skills" aria-labelledby="skills-heading" className="bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="skills-heading"
           eyebrow={dict.skills.eyebrow}
           title={dict.skills.title}
+          accent={dict.skills.titleAccent}
         />
 
         <Reveal stagger className="mt-16 grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-3">

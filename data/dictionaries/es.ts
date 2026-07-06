@@ -53,19 +53,20 @@ export const es: Dictionary = {
     headlinePre: "Algunas formas de diseñar cambian.",
     headlineAccent: "Otras permanecen.",
     subtitle:
-      "Hace más de dieciocho años empecé diseñando objetos. Con el tiempo cambiaron las herramientas, los formatos y hasta el nombre de lo que hago. Nunca cambió la manera de pararme frente a un problema.",
+      "Hace más de dieciocho años que diseño. Cambiaron las herramientas, los formatos y los productos. Lo que nunca cambió fue el punto de partida: entender qué necesita una persona y convertir esa complejidad en algo simple de usar.",
     ctaProjects: "Ver trabajos",
     ctaContact: "Hablemos",
   },
   contact: {
     kicker: "Contacto",
-    greeting: "Hola, soy Mica.",
-    body: "Diseño hace más de dieciocho años y todavía me parece el mejor oficio del mundo: entender un problema hasta volverlo simple. Si algo de todo esto te resonó, hablemos.",
+    greeting: "Gracias por llegar hasta acá.",
+    body: "Ya sea que estés sumando una diseñadora a tu equipo o tengas un proyecto que necesita diseño, me encantaría escucharte. Escribime y lo vemos juntos.",
     cta: "Hablemos",
   },
   about: {
     eyebrow: "Mi recorrido",
     title: "Cada disciplina que atravesé me enseñó a mirar distinto.",
+    titleAccent: "a mirar distinto.",
     tags: ["Textil", "Marca", "UX/UI", "Frontend"],
     journeyLabel: "Cómo llegué hasta acá",
     disciplines: [
@@ -94,13 +95,12 @@ export const es: Dictionary = {
     companies: [
       { name: "Anfler Solutions", logo: "/photos/logo-anfler.png" },
       { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png" },
-      { name: "Yo No Fui" },
+      { name: "Yo No Fui", logo: "/photos/logo-yonofui.png" },
     ],
     projectsForLabel: "Y realicé trabajos para",
     projectsFor: [
       { name: "Buenos Aires", logo: "/photos/logo-BA-1.png" },
       { name: "Migraciones", logo: "/photos/logo-migraciones.png" },
-      { name: "SICAM" },
     ],
   },
   profileSummary:
@@ -113,6 +113,7 @@ export const es: Dictionary = {
   philosophy: {
     eyebrow: "Mi filosofía",
     title: "En qué creo cuando diseño.",
+    titleAccent: "cuando diseño.",
     tags: ["Problema", "Claridad", "Detalle", "Criterio"],
   },
   philosophyItems: [
@@ -144,7 +145,8 @@ export const es: Dictionary = {
   process: {
     eyebrow: "Mi manera de trabajar",
     title: "Cada trabajo es distinto. El razonamiento no.",
-    tags: ["Investigar", "Priorizar", "Diseñar", "Validar", "Implementar"],
+    titleAccent: "El razonamiento no.",
+    tags: ["Investigar", "Priorizar", "Diseñar", "Validar", "Implementar", "Iterar"],
     description:
       "No sigo una metodología cerrada, sigo un orden de preguntas. Cambia el trabajo, cambia el equipo, cambia la escala — pero el modo de pensar se sostiene.",
   },
@@ -178,6 +180,12 @@ export const es: Dictionary = {
       step: "05",
       title: "Implementar",
       description: "Acompaño al desarrollo de cerca. Un diseño no termina en Figma: termina funcionando.",
+    },
+    {
+      icon: "Sparkles",
+      step: "06",
+      title: "Iterar",
+      description: "El producto vive y cambia. Vuelvo sobre lo lanzado: mido cómo se usa, aprendo y ajusto para que siga mejorando.",
     },
   ],
   services: {
@@ -220,6 +228,7 @@ export const es: Dictionary = {
   experience: {
     eyebrow: "Experiencia",
     title: "Cambió la escala. No el desafío.",
+    titleAccent: "No el desafío.",
     tags: ["Producto", "UX/UI", "Design Systems", "Frontend"],
     description:
       "Cada trabajo fue más grande y más complejo que el anterior. El desafío, en cambio, se repite en todos: encontrar claridad donde había ruido.",
@@ -296,6 +305,7 @@ export const es: Dictionary = {
   featuredProjects: {
     eyebrow: "Casos de estudio",
     title: "Decisiones que terminaron siendo producto.",
+    titleAccent: "siendo producto.",
     tags: ["Gobierno", "SaaS", "Apps", "Branding"],
     description: "Cada uno empezó con una pregunta difícil. Abrí los que te generen curiosidad.",
   },
@@ -319,6 +329,7 @@ export const es: Dictionary = {
   skills: {
     eyebrow: "Lo que llevo a cada equipo",
     title: "No son herramientas. Son formas de aportar.",
+    titleAccent: "Son formas de aportar.",
     tags: ["Investigación", "Sistemas", "Criterio de producto"],
   },
   skillsItems: [
@@ -352,6 +363,7 @@ export const es: Dictionary = {
   tools: {
     eyebrow: "Herramientas",
     title: "Las herramientas cambian. El criterio debería durar más.",
+    titleAccent: "El criterio debería durar más.",
     tags: ["Figma", "Adobe", "Notion", "IA"],
   },
   toolsItems: [
@@ -366,6 +378,7 @@ export const es: Dictionary = {
   frontend: {
     eyebrow: "Frontend",
     title: "Entender el código me hace mejor diseñadora.",
+    titleAccent: "mejor diseñadora.",
     tags: ["HTML", "CSS", "React", "Next.js"],
     description:
       "No me vendo como desarrolladora. Pero saber cómo se construye lo que diseño cambia las decisiones: sé qué es simple, qué es caro y dónde el diseño y el desarrollo se encuentran.",
@@ -381,6 +394,7 @@ export const es: Dictionary = {
   education: {
     eyebrow: "Aprendizaje",
     title: "Nunca dejé de aprender.",
+    titleAccent: "de aprender.",
     tags: ["Diseño Industrial", "UX/UI", "Marketing Digital"],
     description: "La formación es la base. Casi todo lo demás lo aprendí diseñando.",
   },
@@ -439,7 +453,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       description:
         "Diseño de un sistema interno de gestión regulatoria desarrollado para optimizar procesos administrativos y centralizar la información de usuarios internos.",
-      image: "/photos/migraciones-portada.png",
+      image: "/photos/migraciones-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251931637/Caso-de-Estudio-Migraciones",
       featured: true,
     },
@@ -449,7 +463,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       description:
         "Diseño de una aplicación móvil desarrollada para optimizar el relevamiento y la gestión del arbolado urbano por parte de inspectores de campo.",
-      image: "/photos/arbolado-portada.png",
+      image: "/photos/arbolado-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251933935/Caso-de-Estudio-Arbolado-BA",
       featured: true,
     },
@@ -459,7 +473,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       description:
         "Rediseño de un sistema utilizado por agentes de control fronterizo para optimizar los procesos de inspección migratoria y control documental.",
-      image: "/photos/fronteras-portada.png",
+      image: "/photos/fronteras-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251932145/Caso-de-Estudio-Sistema-de-control-fronterizo",
     },
     {
@@ -468,7 +482,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       description:
         "Diseño de una aplicación móvil orientada a promover hábitos de alimentación saludable mediante una experiencia simple, intuitiva y centrada en el usuario.",
-      image: "/photos/khalipa-portada.png",
+      image: "/photos/khalipa-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251934203/Caso-de-Estudio-Khalipa",
     },
     {
@@ -477,7 +491,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       description:
         "Rediseño de una intranet corporativa orientada a optimizar la gestión de información y los procesos internos de la organización.",
-      image: "/photos/sisgea-portada.png",
+      image: "/photos/sisgea-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251934643/Caso-de-Estudio-Sisgea",
     },
     {
@@ -486,7 +500,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       description:
         "Diseño y evolución de una plataforma SaaS especializada en monitoreo de medios y análisis de información, optimizando la experiencia de usuarios que trabajan con grandes volúmenes de datos.",
-      image: "/photos/stakeholders-portada.png",
+      image: "/photos/stakeholders-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251931223/Caso-de-Estudio-Stakeholders-SaaS",
       featured: true,
     },
@@ -496,7 +510,7 @@ export const es: Dictionary = {
       category: "UX/UI",
       year: "2022",
       description: "Caso de estudio de diseño UI/UX, web design y app design para el organismo tributario argentino.",
-      image: "/photos/afip-portada.png",
+      image: "/photos/afip-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/152164639/Caso-de-Estudio-AFIP-2022",
       featured: true,
     },
@@ -506,7 +520,7 @@ export const es: Dictionary = {
       category: "Brands",
       year: "2024",
       description: "Identidad corporativa diseñada desde cero: branding, sistema gráfico y experiencia digital.",
-      image: "/photos/appis-portada.png",
+      image: "/photos/appis-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/218607711/Identidad-corporativa-Appis-Group-2024",
       featured: true,
     },
@@ -516,7 +530,7 @@ export const es: Dictionary = {
       category: "Brands",
       year: "2023",
       description: "Re-branding completo: identidad visual, UI/UX y sistema gráfico.",
-      image: "/photos/laviandita-portada.png",
+      image: "/photos/laviandita-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/171224961/Re-Branding-La-Viandita-2023",
       featured: true,
     },
@@ -526,7 +540,7 @@ export const es: Dictionary = {
       category: "Brands",
       description:
         "Trabajo integral de identidad visual y diseño de experiencia para una cafetería de especialidad: una marca cálida, elegante y contemporánea.",
-      image: "/photos/ember-portada.png",
+      image: "/photos/ember-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251927609/Ember-Caf-Branding-UXUI",
     },
     {
@@ -535,7 +549,7 @@ export const es: Dictionary = {
       category: "Brands",
       description:
         "Branding y diseño UX/UI para una despensa en línea de productos saludables: naming, logo, sistema de color y tipografía.",
-      image: "/photos/savia-portada.png",
+      image: "/photos/savia-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251877205/Savia-Branding-UXUI",
     },
     {
@@ -544,7 +558,7 @@ export const es: Dictionary = {
       category: "Brands",
       year: "2023",
       description: "Identidad de marca completa.",
-      image: "/photos/kent-portada.png",
+      image: "/photos/kent-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/169758517/Identidad-de-marca-KENT-2023",
     },
     {
@@ -554,7 +568,7 @@ export const es: Dictionary = {
       label: "Brands",
       year: "2021",
       description: "Dirección creativa y desarrollo de marca para Yo No Fui Diseño.",
-      image: "/photos/yonofui-branding-portada.png",
+      image: "/photos/yonofui-branding-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157291447/Branding-YO-NO-FUI-2021",
     },
     {
@@ -564,7 +578,7 @@ export const es: Dictionary = {
       label: "UX/UI",
       year: "2021",
       description: "Diseño de experiencia de compra para Yo No Fui Diseño.",
-      image: "/photos/yonofui-compra-portada.png",
+      image: "/photos/yonofui-compra-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157292781/Diseno-de-Experiencia-de-Compra-YO-NO-FUI-2021-",
     },
     {
@@ -574,7 +588,7 @@ export const es: Dictionary = {
       label: "Diseño Textil",
       year: "2022",
       description: "Ilustración y diseño de producto para la colección Emociones.",
-      image: "/photos/yonofui-emociones-portada.png",
+      image: "/photos/yonofui-emociones-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/160878747/Coleccion-Emociones-YO-NO-FUI-2022",
     },
     {
@@ -584,7 +598,7 @@ export const es: Dictionary = {
       label: "Creación de Marca",
       year: "2021",
       description: "Diseño industrial, dirección creativa y desarrollo de marca.",
-      image: "/photos/yonofui-marca-portada.png",
+      image: "/photos/yonofui-marca-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/157288117/Desarrollo-de-marca-YO-NO-FUI-2021",
     },
   ],

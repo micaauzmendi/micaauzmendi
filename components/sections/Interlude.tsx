@@ -13,7 +13,7 @@ export function Interlude({ dict }: { dict: Dictionary }) {
   return (
     <section
       aria-label={kicker}
-      className="relative flex min-h-[45vh] items-center justify-center overflow-hidden bg-surface-muted/30 px-6 py-24 md:px-10"
+      className="relative flex min-h-0 items-center justify-center overflow-hidden bg-surface-muted/50 px-6 py-16 md:min-h-[45vh] md:px-10 md:py-24"
     >
       <GridField />
       <div

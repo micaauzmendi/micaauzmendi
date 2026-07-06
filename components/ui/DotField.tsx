@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRevealField } from "@/lib/useRevealField";
 
 /**
  * A subtle grid of dots that "paints" itself in the warm accent around the
@@ -8,31 +8,11 @@ import { useEffect, useRef } from "react";
  * reads as a loose patch rather than a full bleed. Drop it inside any
  * `position: relative` section; it attaches its pointer listeners to that
  * parent, so no wiring is needed at the call site. Purely decorative and
- * pointer-transparent — it never blocks the content.
+ * pointer-transparent — it never blocks the content. On touch devices the
+ * reveal drifts on its own (see useRevealField).
  */
 export function DotField({ className = "" }: { className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const layer = ref.current;
-    const host = layer?.parentElement;
-    if (!layer || !host) return;
-
-    const onMove = (event: PointerEvent) => {
-      const rect = host.getBoundingClientRect();
-      layer.style.setProperty("--mx", `${event.clientX - rect.left}px`);
-      layer.style.setProperty("--my", `${event.clientY - rect.top}px`);
-      layer.style.setProperty("--reveal", "1");
-    };
-    const onLeave = () => layer.style.setProperty("--reveal", "0");
-
-    host.addEventListener("pointermove", onMove);
-    host.addEventListener("pointerleave", onLeave);
-    return () => {
-      host.removeEventListener("pointermove", onMove);
-      host.removeEventListener("pointerleave", onLeave);
-    };
-  }, []);
+  const ref = useRevealField<HTMLDivElement>();
 
   // Softly fades the whole field toward the edges/corners.
   const edgeFade = "radial-gradient(115% 100% at 45% 40%, #000 36%, transparent 84%)";

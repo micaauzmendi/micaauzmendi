@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRevealField } from "@/lib/useRevealField";
 
 /**
  * A notebook grid ("cuadrillé") — the sketchbook the whole portfolio riffs on:
@@ -8,31 +8,11 @@ import { useEffect, useRef } from "react";
  * of faint lines, fades out toward the section's edges so it never fills the
  * whole block, and on hover "paints" accent "+" ticks at the intersections
  * around the cursor. Drop it inside any `position: relative` section; it wires
- * its pointer listeners to that parent. Decorative and pointer-transparent.
+ * its pointer listeners to that parent. Decorative and pointer-transparent. On
+ * touch devices the reveal drifts on its own (see useRevealField).
  */
 export function GridField({ className = "" }: { className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const layer = ref.current;
-    const host = layer?.parentElement;
-    if (!layer || !host) return;
-
-    const onMove = (event: PointerEvent) => {
-      const rect = host.getBoundingClientRect();
-      layer.style.setProperty("--mx", `${event.clientX - rect.left}px`);
-      layer.style.setProperty("--my", `${event.clientY - rect.top}px`);
-      layer.style.setProperty("--reveal", "1");
-    };
-    const onLeave = () => layer.style.setProperty("--reveal", "0");
-
-    host.addEventListener("pointermove", onMove);
-    host.addEventListener("pointerleave", onLeave);
-    return () => {
-      host.removeEventListener("pointermove", onMove);
-      host.removeEventListener("pointerleave", onLeave);
-    };
-  }, []);
+  const ref = useRevealField<HTMLDivElement>();
 
   // Softly fades the whole grid toward the edges/corners so it reads as a loose
   // patch of ruled paper rather than a full bleed.

@@ -15,13 +15,13 @@ import type { Dictionary } from "@/types/dictionary";
  */
 export function ServiciosPageContent({ dict }: { dict: Dictionary }) {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SetHtmlLang locale={dict.locale} />
       <a href="#main-content" className="sr-only-focusable">
         {dict.nav.skipToContent}
       </a>
       <Header dict={dict} />
-      <main id="main-content" className="px-6 pb-24 pt-16 md:px-10 md:pt-24">
+      <main id="main-content" className="flex-1 px-6 pb-24 pt-16 md:px-10 md:pt-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <BackToHome dict={dict} className="mb-6" />
@@ -58,6 +58,6 @@ export function ServiciosPageContent({ dict }: { dict: Dictionary }) {
         </div>
       </main>
       <Footer dict={dict} />
-    </>
+    </div>
   );
 }

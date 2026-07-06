@@ -16,6 +16,8 @@ export type Locale = "es" | "en";
 export interface SectionCopy {
   eyebrow: string;
   title: string;
+  /** Optional trailing phrase of `title` to emphasize with a soft marker. Must be an exact suffix of `title`. */
+  titleAccent?: string;
   description?: string;
   /** Optional mono keyword tags rendered under the heading, banner-style. */
   tags?: string[];

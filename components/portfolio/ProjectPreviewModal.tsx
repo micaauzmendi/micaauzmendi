@@ -103,6 +103,7 @@ export function ProjectPreviewModal({ project, images, dict, onClose }: ProjectP
                           alt={`${project.title} — ${index + 1}`}
                           width={1400}
                           height={0}
+                          quality={90}
                           sizes="(min-width: 768px) 700px, 100vw"
                           className="h-auto w-full"
                         />

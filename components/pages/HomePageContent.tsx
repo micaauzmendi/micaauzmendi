@@ -28,13 +28,13 @@ export function HomePageContent({
   caseImages?: Record<string, string[]>;
 }) {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <SetHtmlLang locale={dict.locale} />
       <a href="#main-content" className="sr-only-focusable">
         {dict.nav.skipToContent}
       </a>
       <Header dict={dict} />
-      <main id="main-content">
+      <main id="main-content" className="flex-1">
         <Hero dict={dict} />
 
         <FeaturedProjects dict={dict} caseImages={caseImages} />
@@ -53,6 +53,6 @@ export function HomePageContent({
         <Epilogue dict={dict} />
       </main>
       <Footer dict={dict} />
-    </>
+    </div>
   );
 }

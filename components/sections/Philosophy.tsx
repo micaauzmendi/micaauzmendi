@@ -9,7 +9,7 @@ export function Philosophy({ dict }: { dict: Dictionary }) {
     <section
       id="filosofia"
       aria-labelledby="filosofia-heading"
-      className="relative overflow-hidden bg-surface-muted/40 px-6 py-24 md:px-10 md:py-32"
+      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-32"
     >
       <DotField />
 
@@ -18,14 +18,15 @@ export function Philosophy({ dict }: { dict: Dictionary }) {
           id="filosofia-heading"
           eyebrow={dict.philosophy.eyebrow}
           title={dict.philosophy.title}
+          accent={dict.philosophy.titleAccent}
         />
 
-        <Reveal stagger className="mt-16 grid grid-cols-1 gap-x-12 gap-y-14 sm:grid-cols-2">
+        <Reveal stagger className="mt-8 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 md:mt-16 md:gap-y-14">
           {dict.philosophyItems.map((item, index) => {
             return (
               <RevealItem key={item.title} variant="blurIn" className="group">
                 <MotionIconTile icon={item.icon} index={index} />
-                <h3 className="mt-5 font-heading text-xl font-medium text-text">{item.title}</h3>
+                <h3 className="mt-4 font-heading text-xl font-medium text-text">{item.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-text-secondary">{item.description}</p>
               </RevealItem>
             );

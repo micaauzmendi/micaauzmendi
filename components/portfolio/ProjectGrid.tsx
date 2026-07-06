@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProjectPreviewModal } from "@/components/portfolio/ProjectPreviewModal";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
-import { buildEditorialLayout, SIZE_SPAN } from "@/lib/editorialGrid";
+import { buildEditorialLayout, SIZE_SPAN, type CardSize } from "@/lib/editorialGrid";
 import { formatTemplate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import type { PortfolioProject } from "@/types/content";
@@ -18,6 +18,19 @@ interface ProjectGridProps {
   /** Map `{ [projectId]: imagePaths[] }` for the in-site preview. Optional. */
   caseImages?: Record<string, string[]>;
 }
+
+// The grid is capped at max-w-6xl (1152px). "wide" tiles span 8/12 columns
+// (~768px), md/tall span 4/12 (~384px). Each tile asks the optimizer for a
+// source matched to its real footprint instead of a blanket 50vw.
+//
+// "tall" spans 2 rows: it's a portrait slot holding a landscape cover, so
+// object-cover scales the source by its HEIGHT (~2x its column width). It needs
+// a far wider source than its 384px column or it looks upscaled/blurry.
+const GRID_SIZES: Record<CardSize, string> = {
+  wide: "(min-width: 1152px) 768px, (min-width: 768px) 66vw, 100vw",
+  md: "(min-width: 1152px) 384px, (min-width: 768px) 33vw, 100vw",
+  tall: "(min-width: 1280px) 900px, (min-width: 768px) 70vw, 100vw",
+};
 
 export function ProjectGrid({ projects, dict, titleAs = "h3", caseImages = {} }: ProjectGridProps) {
   const sizes = buildEditorialLayout(projects.length);
@@ -41,8 +54,9 @@ export function ProjectGrid({ projects, dict, titleAs = "h3", caseImages = {} }:
                   src={project.image}
                   alt=""
                   fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover grayscale transition-[filter,transform] duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+                  quality={90}
+                  sizes={GRID_SIZES[sizes[index]]}
+                  className="object-cover"
                 />
               </div>
               <div className="mt-3 flex items-start justify-between gap-3">

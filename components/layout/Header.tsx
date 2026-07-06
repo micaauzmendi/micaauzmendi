@@ -65,8 +65,8 @@ export function Header({ dict }: { dict: Dictionary }) {
 
   const linkClass = (id: string) =>
     cn(
-      "font-mono text-xs uppercase tracking-wider transition-colors duration-300",
-      isActive(id) ? "text-accent" : "text-text-secondary hover:text-text",
+      "font-mono text-xs font-medium uppercase tracking-wider transition-colors duration-300",
+      isActive(id) ? "text-accent" : "text-text hover:text-accent",
     );
 
   return (
@@ -137,7 +137,7 @@ export function Header({ dict }: { dict: Dictionary }) {
                   key={link.id}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-2 py-2.5 font-mono text-xs uppercase tracking-wider text-text-secondary hover:bg-surface-muted hover:text-text"
+                  className="rounded-lg px-2 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-text hover:bg-surface-muted hover:text-accent"
                 >
                   {link.label}
                 </Link>
@@ -150,7 +150,7 @@ export function Header({ dict }: { dict: Dictionary }) {
                   key={link.id}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-2 py-2.5 font-mono text-xs uppercase tracking-wider text-text-secondary hover:bg-surface-muted hover:text-text"
+                  className="rounded-lg px-2 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-text hover:bg-surface-muted hover:text-accent"
                 >
                   {link.label}
                 </Link>
