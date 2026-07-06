@@ -15,15 +15,13 @@ import type { Dictionary } from "@/types/dictionary";
 const EPILOGUE_PHOTO = "/photos/retrato-principal.png";
 
 /**
- * The human close. The portrait returns and the greeting finally happens. The
- * primary door is to talk, with the CV and the full body of work as quieter,
- * secondary exits.
+ * The closing contact section: the portrait, a short greeting, and clear doors
+ * to talk, view the CV, or browse the full body of work.
  */
 export function Epilogue({ dict }: { dict: Dictionary }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
-  const { kicker, now, greeting, body, cta } = dict.book.epilogue;
-  const base = dict.locale === "en" ? "/en" : "";
+  const { kicker, greeting, body, cta } = dict.contact;
 
   return (
     <section
@@ -55,7 +53,6 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
         <div>
           <p className="font-mono font-medium text-xs uppercase tracking-[0.3em] text-accent">{kicker}</p>
           <h2 id="epilogo-heading" className="mt-5 font-heading text-4xl font-medium leading-tight text-text sm:text-5xl">
-            <span className="block text-text-secondary">{now}</span>
             <Highlight>
               <RevealText className="text-accent">{greeting}</RevealText>
             </Highlight>
@@ -70,9 +67,6 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
             <Button variant="outline" onClick={() => setCvOpen(true)} className="uppercase">
               <Eye size={14} aria-hidden="true" />
               {dict.cta.viewCvButton}
-            </Button>
-            <Button href={`${base}/proyectos`} variant="outline" className="uppercase">
-              {dict.hero.ctaProjects}
             </Button>
           </Reveal>
         </div>

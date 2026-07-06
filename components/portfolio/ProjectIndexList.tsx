@@ -6,9 +6,17 @@ import { cn } from "@/lib/utils";
 import type { PortfolioProject, ProjectCategory } from "@/types/content";
 import type { Dictionary } from "@/types/dictionary";
 
-const CATEGORY_FILTERS: ProjectCategory[] = ["UX/UI", "Branding", "Branding & UX/UI"];
+const CATEGORY_FILTERS: ProjectCategory[] = ["UX/UI", "Brands"];
 
-export function ProjectIndexList({ projects, dict }: { projects: PortfolioProject[]; dict: Dictionary }) {
+export function ProjectIndexList({
+  projects,
+  dict,
+  caseImages,
+}: {
+  projects: PortfolioProject[];
+  dict: Dictionary;
+  caseImages?: Record<string, string[]>;
+}) {
   const [filter, setFilter] = useState<ProjectCategory | "all">("all");
 
   const filtered = useMemo(
@@ -51,7 +59,7 @@ export function ProjectIndexList({ projects, dict }: { projects: PortfolioProjec
       </div>
 
       <div key={filter} className="mt-10">
-        <ProjectGrid projects={filtered} dict={dict} titleAs="h2" />
+        <ProjectGrid projects={filtered} dict={dict} titleAs="h2" caseImages={caseImages} />
       </div>
     </div>
   );

@@ -1,19 +1,16 @@
-import { ChapterMarker } from "@/components/ui/ChapterMarker";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MotionIconTile } from "@/components/ui/MotionIconTile";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/types/dictionary";
 
-export function Process({ dict, numeral }: { dict: Dictionary; numeral: string }) {
+export function Process({ dict }: { dict: Dictionary }) {
   return (
     <section id="proceso" aria-labelledby="proceso-heading" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <ChapterMarker
+        <SectionHeading
           id="proceso-heading"
-          numeral={numeral}
-          kicker={dict.book.chapterKicker}
-          label={dict.process.eyebrow}
+          eyebrow={dict.process.eyebrow}
           title={dict.process.title}
-          tags={dict.process.tags}
           description={dict.process.description}
         />
 

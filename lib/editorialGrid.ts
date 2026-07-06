@@ -8,9 +8,9 @@ const ROW_TEMPLATES: CardSize[][] = [
 ];
 
 export const SIZE_SPAN: Record<CardSize, string> = {
-  md: "lg:col-span-4 lg:row-span-1",
-  wide: "lg:col-span-8 lg:row-span-1",
-  tall: "lg:col-span-4 lg:row-span-2",
+  md: "md:col-span-4 md:row-span-1",
+  wide: "md:col-span-8 md:row-span-1",
+  tall: "md:col-span-4 md:row-span-2",
 };
 
 /** Deterministically assigns a card size to every project by flattening the

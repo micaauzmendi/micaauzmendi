@@ -49,7 +49,7 @@ export function ProjectBento({ projects, dict }: { projects: PortfolioProject[];
             <div className="absolute inset-x-0 bottom-0 p-4 text-bg opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <p className="font-heading text-base font-medium">{project.title}</p>
               <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-bg/80">
-                {project.category}
+                {project.label ?? project.category}
                 {project.year ? ` · ${project.year}` : ""}
               </p>
             </div>

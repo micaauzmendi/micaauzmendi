@@ -71,12 +71,15 @@ export interface ProcessStep {
   description: string;
 }
 
-export type ProjectCategory = "UX/UI" | "Branding" | "Branding & UX/UI";
+export type ProjectCategory = "UX/UI" | "Brands";
 
 export interface PortfolioProject {
   id: string;
   title: string;
   category: ProjectCategory;
+  /** Optional discipline label shown on the card in place of `category`
+   *  (e.g. "Diseño Textil"). `category` is still used for filtering. */
+  label?: string;
   year?: string;
   description: string;
   image: string;

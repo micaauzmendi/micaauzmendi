@@ -4,10 +4,10 @@ import { Epilogue } from "@/components/sections/Epilogue";
 import { Experience } from "@/components/sections/Experience";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Frontend } from "@/components/sections/Frontend";
+import { Hero } from "@/components/sections/Hero";
 import { Interlude } from "@/components/sections/Interlude";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { Process } from "@/components/sections/Process";
-import { Prologue } from "@/components/sections/Prologue";
 import { Skills } from "@/components/sections/Skills";
 import { Tools } from "@/components/sections/Tools";
 import { Footer } from "@/components/layout/Footer";
@@ -16,11 +16,17 @@ import { SetHtmlLang } from "@/components/ui/SetHtmlLang";
 import type { Dictionary } from "@/types/dictionary";
 
 /**
- * The portfolio reads as a book: a prologue that opens a question, nine chapters
- * that each answer a different one, a silent interlude at its conceptual center,
- * and an epilogue where the portrait and the greeting finally arrive.
+ * A recruiter-first portfolio: an opening that states who she is and points
+ * straight to the work, the projects surfaced early, and the supporting story
+ * (process, experience, skills) below for anyone who wants the depth.
  */
-export function HomePageContent({ dict }: { dict: Dictionary }) {
+export function HomePageContent({
+  dict,
+  caseImages,
+}: {
+  dict: Dictionary;
+  caseImages?: Record<string, string[]>;
+}) {
   return (
     <>
       <SetHtmlLang locale={dict.locale} />
@@ -29,20 +35,20 @@ export function HomePageContent({ dict }: { dict: Dictionary }) {
       </a>
       <Header dict={dict} />
       <main id="main-content">
-        <Prologue dict={dict} />
+        <Hero dict={dict} />
 
-        <About dict={dict} numeral="I" />
+        <FeaturedProjects dict={dict} caseImages={caseImages} />
+        <Experience dict={dict} />
 
         <Interlude dict={dict} />
 
-        <Process dict={dict} numeral="II" />
-        <Philosophy dict={dict} numeral="III" />
-        <Experience dict={dict} numeral="IV" />
-        <FeaturedProjects dict={dict} numeral="V" />
-        <Skills dict={dict} numeral="VI" />
-        <Tools dict={dict} numeral="VII" />
-        <Frontend dict={dict} numeral="VIII" />
-        <Education dict={dict} numeral="IX" />
+        <About dict={dict} />
+        <Process dict={dict} />
+        <Philosophy dict={dict} />
+        <Skills dict={dict} />
+        <Tools dict={dict} />
+        <Frontend dict={dict} />
+        <Education dict={dict} />
 
         <Epilogue dict={dict} />
       </main>

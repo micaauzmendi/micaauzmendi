@@ -1,19 +1,16 @@
-import { ChapterMarker } from "@/components/ui/ChapterMarker";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import { Tag } from "@/components/ui/Tag";
 import type { Dictionary } from "@/types/dictionary";
 
-export function Skills({ dict, numeral }: { dict: Dictionary; numeral: string }) {
+export function Skills({ dict }: { dict: Dictionary }) {
   return (
     <section id="skills" aria-labelledby="skills-heading" className="bg-surface-muted/50 px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <ChapterMarker
+        <SectionHeading
           id="skills-heading"
-          numeral={numeral}
-          kicker={dict.book.chapterKicker}
-          label={dict.skills.eyebrow}
+          eyebrow={dict.skills.eyebrow}
           title={dict.skills.title}
-          tags={dict.skills.tags}
         />
 
         <Reveal stagger className="mt-16 grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-3">

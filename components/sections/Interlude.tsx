@@ -4,11 +4,11 @@ import { RevealText } from "@/components/ui/RevealText";
 import type { Dictionary } from "@/types/dictionary";
 
 /**
- * A full page of the book with nothing on it but one thought. No buttons, no
- * navigation, deliberate silence. The conceptual heart of the portfolio.
+ * A quiet, full-width beat between the work and the story behind it. No buttons,
+ * no navigation — one thought. The conceptual heart of the portfolio.
  */
 export function Interlude({ dict }: { dict: Dictionary }) {
-  const { kicker, phrasePre, phraseAccent, phrasePost } = dict.book.interlude;
+  const { kicker, phrasePre, phraseAccent, phrasePost } = dict.interlude;
 
   return (
     <section

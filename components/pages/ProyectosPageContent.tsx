@@ -9,7 +9,13 @@ import { SetHtmlLang } from "@/components/ui/SetHtmlLang";
 import type { Dictionary } from "@/types/dictionary";
 import { formatTemplate } from "@/lib/format";
 
-export function ProyectosPageContent({ dict }: { dict: Dictionary }) {
+export function ProyectosPageContent({
+  dict,
+  caseImages,
+}: {
+  dict: Dictionary;
+  caseImages?: Record<string, string[]>;
+}) {
   return (
     <>
       <SetHtmlLang locale={dict.locale} />
@@ -41,7 +47,7 @@ export function ProyectosPageContent({ dict }: { dict: Dictionary }) {
           </Reveal>
 
           <div className="mt-16">
-            <ProjectIndexList projects={dict.projects} dict={dict} />
+            <ProjectIndexList projects={dict.projects} dict={dict} caseImages={caseImages} />
           </div>
         </div>
       </main>

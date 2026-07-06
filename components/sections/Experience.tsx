@@ -1,19 +1,16 @@
 import { ExperienceCard } from "@/components/sections/ExperienceCard";
-import { ChapterMarker } from "@/components/ui/ChapterMarker";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/types/dictionary";
 
-export function Experience({ dict, numeral }: { dict: Dictionary; numeral: string }) {
+export function Experience({ dict }: { dict: Dictionary }) {
   return (
     <section id="experiencia" aria-labelledby="experiencia-heading" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-4xl">
-        <ChapterMarker
+        <SectionHeading
           id="experiencia-heading"
-          numeral={numeral}
-          kicker={dict.book.chapterKicker}
-          label={dict.experience.eyebrow}
+          eyebrow={dict.experience.eyebrow}
           title={dict.experience.title}
-          tags={dict.experience.tags}
           description={dict.experience.description}
         />
 

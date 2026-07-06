@@ -1,20 +1,18 @@
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { ChapterMarker } from "@/components/ui/ChapterMarker";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/types/dictionary";
 
-export function About({ dict, numeral }: { dict: Dictionary; numeral: string }) {
+export function About({ dict }: { dict: Dictionary }) {
   return (
     <section id="sobre-mi" aria-labelledby="sobre-mi-heading" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         {/* Presentation — the portrait now lives only in the epilogue. */}
         <div className="max-w-3xl">
-          <ChapterMarker
+          <SectionHeading
             id="sobre-mi-heading"
-            numeral={numeral}
-            label={dict.about.eyebrow}
+            eyebrow={dict.about.eyebrow}
             title={dict.about.title}
-            tags={dict.about.tags}
           />
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-secondary">{dict.profileSummary}</p>

@@ -8,20 +8,19 @@ export interface NavLink {
 }
 
 /**
- * Nav links are grouped into two clusters: "journey" (about her — process,
- * experience, skills) and "work" (how to hire her — services, projects).
- * The contact CTA is rendered separately as a button, not part of either group.
+ * A deliberately short nav, ordered by what a recruiter weighs first: the work
+ * and the experience, then who she is. Process/skills are intentionally left
+ * out of the top bar to keep it focused — they're still reachable by scrolling.
+ * "journey" is her work; "work" is services. Contact is a separate button.
  */
 export function buildNavLinks(dict: Dictionary): NavLink[] {
   const base = dict.locale === "en" ? "/en" : "";
 
   return [
-    { id: "sobre-mi", label: dict.nav.sobreMi, href: `${base}/#sobre-mi`, group: "journey" },
-    { id: "proceso", label: dict.nav.proceso, href: `${base}/#proceso`, group: "journey" },
+    { id: "portfolio", label: dict.nav.portfolio, href: `${base}/proyectos`, group: "journey" },
     { id: "experiencia", label: dict.nav.experiencia, href: `${base}/#experiencia`, group: "journey" },
-    { id: "skills", label: dict.nav.skills, href: `${base}/#skills`, group: "journey" },
+    { id: "sobre-mi", label: dict.nav.sobreMi, href: `${base}/#sobre-mi`, group: "journey" },
     { id: "servicios", label: dict.nav.servicios, href: `${base}/servicios`, group: "work" },
-    { id: "portfolio", label: dict.nav.portfolio, href: `${base}/proyectos`, group: "work" },
     { id: "contacto", label: dict.nav.contacto, href: `${base}/#contacto`, group: "work" },
   ];
 }

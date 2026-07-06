@@ -1,9 +1,9 @@
 import { IconGrid } from "@/components/sections/IconGrid";
-import { ChapterMarker } from "@/components/ui/ChapterMarker";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/types/dictionary";
 
-export function Frontend({ dict, numeral }: { dict: Dictionary; numeral: string }) {
+export function Frontend({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="frontend"
@@ -11,13 +11,10 @@ export function Frontend({ dict, numeral }: { dict: Dictionary; numeral: string 
       className="bg-surface-muted/50 px-6 py-24 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <ChapterMarker
+        <SectionHeading
           id="frontend-heading"
-          numeral={numeral}
-          kicker={dict.book.chapterKicker}
-          label={dict.frontend.eyebrow}
+          eyebrow={dict.frontend.eyebrow}
           title={dict.frontend.title}
-          tags={dict.frontend.tags}
           description={dict.frontend.description}
         />
 

@@ -36,7 +36,26 @@
       "Bash(npx tsc *)",
       "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if \\($py\\) { python --version; python -c \"import fitz; print\\('pymupdf', fitz.__doc__[:20]\\)\" 2>&1 } else { \"no python\" }; \\(Get-Command magick -ErrorAction SilentlyContinue\\) | Select-Object Source; \\(Get-Command pdftoppm -ErrorAction SilentlyContinue\\) | Select-Object Source)",
       "PowerShell(python -m pip install --quiet --disable-pip-version-check pymupdf 2>&1)",
-      "PowerShell(python -c \"import fitz; print\\('pymupdf OK', fitz.VersionBind\\)\")"
+      "PowerShell(python -c \"import fitz; print\\('pymupdf OK', fitz.VersionBind\\)\")",
+      "WebFetch(domain:www.behance.net)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120 Safari/537.36\" \"https://www.behance.net/gallery/251931637/Caso-de-Estudio-Migraciones\")",
+      "Bash(curl -sL -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120 Safari/537.36' https://www.behance.net/gallery/157293329/Territorios-de-Comunicacion-YO-NO-FUI-2021)",
+      "Bash(curl -s -o /dev/null -w '%{http_code} final=%{url_effective}\\\\n' -L -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120 Safari/537.36' https://www.behance.net/gallery/157293329/Territorios-de-Comunicacion-YO-NO-FUI-2021)",
+      "Bash(curl -sL -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120 Safari/537.36' https://www.behance.net/micaauzmendi)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:3000/proyectos)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(rm -rf .next .next-preview node_modules/.cache)",
+      "Bash(df -h .)",
+      "Bash(grep -nA1 'id: \"yonofui' data/dictionaries/es.ts)",
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 20; \"exit: $LASTEXITCODE\")",
+      "Bash(mkdir -p casos/migraciones)",
+      "Bash(cp \"MIGRACIONES - PORTFOLIO.png\" \"casos/migraciones/01.png\")",
+      "Bash(cp \"MIGRACIONES - PORTFOLIO-4.png\" \"casos/migraciones/02.png\")",
+      "Bash(cp \"migraciones-portada.png\" \"casos/migraciones/03.png\")",
+      "Bash(node -e \"const fs=require\\('fs'\\),p=require\\('path'\\);const d=p.join\\(process.cwd\\(\\),'public','photos','casos','migraciones'\\);console.log\\('cwd:',process.cwd\\(\\)\\);console.log\\('exists:',fs.existsSync\\(d\\)\\);try{console.log\\('files:',fs.readdirSync\\(d\\)\\)}catch\\(e\\){console.log\\('err',e.message\\)}\")",
+      "Bash(node -e \"const fs=require\\('fs'\\),p=require\\('path'\\);const d=p.join\\(process.cwd\\(\\),'public','photos','casos','migraciones'\\);console.log\\('exists:',fs.existsSync\\(d\\),'files:',fs.existsSync\\(d\\)?fs.readdirSync\\(d\\):[]\\)\")",
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 25; \"exit: $LASTEXITCODE\")"
     ]
   }
 }

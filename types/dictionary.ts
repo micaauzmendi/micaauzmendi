@@ -42,33 +42,6 @@ export interface AboutCopy extends SectionCopy {
   projectsFor: CompanyChip[];
 }
 
-/** Narrative scaffolding that turns the site into a book: prologue, interlude, epilogue. */
-export interface BookCopy {
-  chapterKicker: string;
-  prologue: {
-    kicker: string;
-    headlinePre: string;
-    headlineAccent: string;
-    subtitle: string;
-    scrollCue: string;
-    tags: string[];
-  };
-  interlude: {
-    kicker: string;
-    phrasePre: string;
-    phraseAccent: string;
-    phrasePost: string;
-    tags: string[];
-  };
-  epilogue: {
-    kicker: string;
-    now: string;
-    greeting: string;
-    body: string;
-    cta: string;
-  };
-}
-
 export interface Dictionary {
   locale: Locale;
   meta: {
@@ -98,15 +71,21 @@ export interface Dictionary {
   };
   ticker: string[];
   personalInfo: PersonalInfo;
-  book: BookCopy;
   hero: {
+    /** Small kicker above the headline — her role. */
     sectionLabel: string;
     headlinePre: string;
     headlineAccent: string;
-    headlinePost: string;
+    subtitle: string;
     ctaProjects: string;
     ctaContact: string;
-    nextSectionLabel: string;
+  };
+  /** Closing contact section (portrait + greeting + CTAs). */
+  contact: {
+    kicker: string;
+    greeting: string;
+    body: string;
+    cta: string;
   };
   about: AboutCopy;
   profileSummary: string;
@@ -117,6 +96,13 @@ export interface Dictionary {
   processSteps: ProcessStep[];
   services: SectionCopy;
   servicesItems: ServiceCategory[];
+  /** Full-width silence quote used as a transition between blocks. */
+  interlude: {
+    kicker: string;
+    phrasePre: string;
+    phraseAccent: string;
+    phrasePost: string;
+  };
   experience: SectionCopy;
   experienceItems: ExperienceEntry[];
   experienceUi: {
@@ -129,6 +115,14 @@ export interface Dictionary {
     viewAll: string;
     /** Template with a `{title}` placeholder. */
     caseStudyLabel: string;
+    /** Aria label for the card that opens the in-site preview. Template with `{title}`. */
+    previewLabel: string;
+    /** CTA inside the preview modal that opens the full case on Behance. */
+    viewFullCase: string;
+    /** Empty state shown when a case has no preview images yet. */
+    previewUnavailable: string;
+    /** Informative badge: the in-site preview may look lower quality than Behance. */
+    previewQualityNote: string;
   };
   portfolioPage: {
     eyebrow: string;

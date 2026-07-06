@@ -79,10 +79,10 @@ export function Footer({ dict }: { dict: Dictionary }) {
         </div>
       </div>
 
-      {/* Oversized, faded influential phrase */}
+      {/* Oversized, faded signature — her name, sized to sit fully within the viewport. */}
       <p
         aria-hidden="true"
-        className="pointer-events-none select-none whitespace-nowrap text-center font-heading text-[14vw] font-semibold leading-none text-accent/15"
+        className="pointer-events-none select-none whitespace-nowrap text-center font-heading text-[9vw] font-semibold leading-none text-accent/15"
       >
         {dict.footer.influentialPhrase}
       </p>

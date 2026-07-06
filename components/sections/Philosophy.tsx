@@ -1,10 +1,10 @@
-import { ChapterMarker } from "@/components/ui/ChapterMarker";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { DotField } from "@/components/ui/DotField";
 import { MotionIconTile } from "@/components/ui/MotionIconTile";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/types/dictionary";
 
-export function Philosophy({ dict, numeral }: { dict: Dictionary; numeral: string }) {
+export function Philosophy({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="filosofia"
@@ -14,13 +14,10 @@ export function Philosophy({ dict, numeral }: { dict: Dictionary; numeral: strin
       <DotField />
 
       <div className="mx-auto max-w-6xl">
-        <ChapterMarker
+        <SectionHeading
           id="filosofia-heading"
-          numeral={numeral}
-          kicker={dict.book.chapterKicker}
-          label={dict.philosophy.eyebrow}
+          eyebrow={dict.philosophy.eyebrow}
           title={dict.philosophy.title}
-          tags={dict.philosophy.tags}
         />
 
         <Reveal stagger className="mt-16 grid grid-cols-1 gap-x-12 gap-y-14 sm:grid-cols-2">
