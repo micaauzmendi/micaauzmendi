@@ -9,13 +9,14 @@ export function Services({ dict }: { dict: Dictionary }) {
     <section
       id="servicios"
       aria-labelledby="servicios-heading"
-      className="relative overflow-hidden bg-surface-muted/40 px-6 py-24 md:px-10 md:py-32"
+      className="relative overflow-hidden bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="servicios-heading"
           eyebrow={dict.services.eyebrow}
           title={dict.services.title}
+          accent={dict.services.titleAccent}
           description={dict.services.description}
         />
 

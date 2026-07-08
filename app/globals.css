@@ -116,6 +116,30 @@
   background-image: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
 }
 
+/* Soft title highlighter: a warm rose band that the text sits on top of. The
+   text keeps the normal text color (text-text), which flips light/dark with the
+   theme — so the highlighted words read the same as the rest of the line. In
+   dark mode the band opacity is raised so the rose is clearly visible (at 30% it
+   read as a murky near-black box) while the letters stay light. */
+.hl-soft {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-accent-support) 30%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent-support) 30%, transparent) 46%,
+    transparent 54%
+  );
+}
+
+.dark .hl-soft {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-accent-support) 55%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent-support) 55%, transparent) 46%,
+    transparent 54%
+  );
+}
+
 .bg-glow-cool {
   background-image: radial-gradient(circle, var(--color-accent-support) 0%, transparent 70%);
 }

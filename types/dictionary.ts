@@ -33,6 +33,12 @@ export interface CompanyChip {
   name: string;
   /** Optional brand logo (path under /public). Shown instead of the name. */
   logo?: string;
+  /**
+   * Optional per-logo size override (Tailwind `h-*`/`max-w-*`). Logos ship with
+   * different amounts of baked-in padding and aspect ratios, so a single group
+   * height makes them look mismatched; this tunes each one to a harmonious size.
+   */
+  logoClass?: string;
 }
 
 export interface AboutCopy extends SectionCopy {
@@ -172,6 +178,9 @@ export interface Dictionary {
     defaultMessage: string;
     whatsappButton: string;
     sendEmailButton: string;
+    sendingLabel: string;
+    successMessage: string;
+    errorMessage: string;
     closeModalLabel: string;
   };
   footer: {

@@ -5,7 +5,7 @@ import type { Dictionary } from "@/types/dictionary";
 
 export function Skills({ dict }: { dict: Dictionary }) {
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32">
+    <section id="skills" aria-labelledby="skills-heading" className="px-6 py-16 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="skills-heading"

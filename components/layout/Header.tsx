@@ -5,16 +5,27 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { DecorativeLine } from "@/components/ui/DecorativeLine";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useContactModal } from "@/components/sections/ContactModalProvider";
 import type { Dictionary } from "@/types/dictionary";
 import { buildNavLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+
+// Which home section each nav tab should light up for while scrolling. The
+// "portfolio" tab links out to /proyectos, but on the home it tracks the
+// featured-projects block (id="proyectos").
+const NAV_SECTION_ID: Record<string, string> = {
+  portfolio: "proyectos",
+  experiencia: "experiencia",
+  "sobre-mi": "sobre-mi",
+  contacto: "contacto",
+};
 
 export function Header({ dict }: { dict: Dictionary }) {
   const pathname = usePathname();
   const [activeId, setActiveId] = useState<string>("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const openContact = useContactModal();
 
   const navLinks = buildNavLinks(dict);
   const base = dict.locale === "en" ? "/en" : "";
@@ -27,20 +38,22 @@ export function Header({ dict }: { dict: Dictionary }) {
   useEffect(() => {
     if (pathname !== homePath) return;
 
-    const sections = navLinks
-      .map((link) => document.getElementById(link.id))
-      .filter((el): el is HTMLElement => Boolean(el));
+    const tracked = navLinks
+      .map((link) => {
+        const el = document.getElementById(NAV_SECTION_ID[link.id] ?? link.id);
+        return el ? { linkId: link.id, el } : null;
+      })
+      .filter((item): item is { linkId: string; el: HTMLElement } => item !== null);
 
     const intersecting = new Set<string>();
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            intersecting.add(entry.target.id);
-          } else {
-            intersecting.delete(entry.target.id);
-          }
+          const match = tracked.find((item) => item.el === entry.target);
+          if (!match) return;
+          if (entry.isIntersecting) intersecting.add(match.linkId);
+          else intersecting.delete(match.linkId);
         });
 
         const current = navLinks.find((link) => intersecting.has(link.id));
@@ -49,24 +62,23 @@ export function Header({ dict }: { dict: Dictionary }) {
       { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
     );
 
-    sections.forEach((section) => observer.observe(section));
+    tracked.forEach((item) => observer.observe(item.el));
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const isActive = (linkId: string) => {
-    if (linkId === "portfolio") return pathname === portfolioPath;
-    if (linkId === "servicios") return pathname === servicesPath;
+    if (linkId === "portfolio" && pathname === portfolioPath) return true;
+    if (linkId === "servicios" && pathname === servicesPath) return true;
     return activeId === linkId;
   };
-  const journeyLinks = navLinks.filter((link) => link.group === "journey");
-  const workLinks = navLinks.filter((link) => link.group === "work" && link.id !== "contacto");
+  const tabLinks = navLinks.filter((link) => link.id !== "contacto");
   const contactLink = navLinks.find((link) => link.id === "contacto");
 
   const linkClass = (id: string) =>
     cn(
-      "font-mono text-xs font-medium uppercase tracking-wider transition-colors duration-300",
-      isActive(id) ? "text-accent" : "text-text hover:text-accent",
+      "font-mono text-xs font-medium uppercase tracking-wider underline-offset-[6px] transition-colors duration-300",
+      isActive(id) ? "text-accent underline decoration-accent decoration-2" : "text-text hover:text-accent",
     );
 
   return (
@@ -77,15 +89,7 @@ export function Header({ dict }: { dict: Dictionary }) {
         </Link>
 
         <nav aria-label={dict.nav.mainNav} className="hidden items-center gap-7 md:flex">
-          {journeyLinks.map((link) => (
-            <Link key={link.id} href={link.href} aria-current={isActive(link.id) ? "true" : undefined} className={linkClass(link.id)}>
-              {link.label}
-            </Link>
-          ))}
-
-          <DecorativeLine orientation="vertical" className="h-4" />
-
-          {workLinks.map((link) => (
+          {tabLinks.map((link) => (
             <Link key={link.id} href={link.href} aria-current={isActive(link.id) ? "true" : undefined} className={linkClass(link.id)}>
               {link.label}
             </Link>
@@ -94,12 +98,13 @@ export function Header({ dict }: { dict: Dictionary }) {
 
         <div className="flex items-center gap-3">
           {contactLink ? (
-            <Link
-              href={contactLink.href}
+            <button
+              type="button"
+              onClick={openContact}
               className="hidden rounded-full bg-text px-5 py-2 font-mono text-xs uppercase tracking-wider text-bg transition-colors duration-300 hover:bg-accent md:inline-flex"
             >
               {contactLink.label}
-            </Link>
+            </button>
           ) : null}
           <Link
             href={otherLocaleHref}
@@ -132,20 +137,7 @@ export function Header({ dict }: { dict: Dictionary }) {
             className="overflow-hidden border-t border-accent-support/30 md:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
-              {journeyLinks.map((link) => (
-                <Link
-                  key={link.id}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-2 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-text hover:bg-surface-muted hover:text-accent"
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              <DecorativeLine className="my-2" />
-
-              {workLinks.map((link) => (
+              {tabLinks.map((link) => (
                 <Link
                   key={link.id}
                   href={link.href}
@@ -157,13 +149,16 @@ export function Header({ dict }: { dict: Dictionary }) {
               ))}
 
               {contactLink ? (
-                <Link
-                  href={contactLink.href}
-                  onClick={() => setMenuOpen(false)}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    openContact();
+                  }}
                   className="mt-2 rounded-full bg-text px-4 py-2.5 text-center font-mono text-xs uppercase tracking-wider text-bg"
                 >
                   {contactLink.label}
-                </Link>
+                </button>
               ) : null}
             </div>
           </motion.nav>

@@ -18,11 +18,13 @@ export function Process({ dict }: { dict: Dictionary }) {
         <Reveal stagger className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:mt-16 md:gap-y-14 lg:grid-cols-3">
           {dict.processSteps.map((item, index) => {
             return (
-              <RevealItem key={item.step} variant="blurIn" className="group">
+              <RevealItem key={item.step} variant="blurIn" className="group flex items-start gap-4 sm:block">
                 <MotionIconTile icon={item.icon} index={index} />
-                <p className="mt-4 font-mono text-xs text-accent-support transition-colors duration-300 group-hover:text-accent">{item.step}</p>
-                <h3 className="mt-2 font-heading text-lg font-medium text-text">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.description}</p>
+                <div className="sm:mt-4">
+                  <p className="font-mono text-xs text-accent-support transition-colors duration-300 group-hover:text-accent">{item.step}</p>
+                  <h3 className="mt-2 font-heading text-lg font-medium text-text">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.description}</p>
+                </div>
               </RevealItem>
             );
           })}

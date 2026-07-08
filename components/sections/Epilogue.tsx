@@ -3,8 +3,8 @@
 import { Eye } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { ContactModal } from "@/components/sections/ContactModal";
 import { CvModal } from "@/components/sections/CvModal";
+import { useContactModal } from "@/components/sections/ContactModalProvider";
 import { Button } from "@/components/ui/Button";
 import { DotGrid } from "@/components/ui/DotGrid";
 import { Highlight } from "@/components/ui/Highlight";
@@ -19,8 +19,8 @@ const EPILOGUE_PHOTO = "/photos/retrato-principal.png";
  * to talk, view the CV, or browse the full body of work.
  */
 export function Epilogue({ dict }: { dict: Dictionary }) {
-  const [modalOpen, setModalOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
+  const openContact = useContactModal();
   const { kicker, greeting, body, cta } = dict.contact;
   // Highlight only the opening word (Gracias / Thanks); the rest reads plain.
   const [greetingHead, ...greetingTailParts] = greeting.split(" ");
@@ -56,9 +56,7 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
         <div>
           <p className="font-mono font-medium text-xs uppercase tracking-[0.3em] text-accent">{kicker}</p>
           <h2 id="epilogo-heading" className="mt-5 font-heading text-4xl font-medium leading-tight text-text sm:text-5xl">
-            <Highlight>
-              <RevealText className="text-accent">{greetingHead}</RevealText>
-            </Highlight>
+            <Highlight>{greetingHead}</Highlight>
             {greetingRest ? (
               <>
                 {" "}
@@ -70,7 +68,7 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-text-secondary text-pretty">{body}</p>
 
           <Reveal delay={0.15} className="mt-10 flex flex-wrap items-center gap-3">
-            <Button variant="primary" onClick={() => setModalOpen(true)} className="uppercase">
+            <Button variant="primary" onClick={openContact} className="uppercase">
               {cta}
             </Button>
             <Button variant="outline" onClick={() => setCvOpen(true)} className="uppercase">
@@ -81,7 +79,6 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
         </div>
       </div>
 
-      <ContactModal dict={dict} open={modalOpen} onClose={() => setModalOpen(false)} />
       <CvModal dict={dict} open={cvOpen} onClose={() => setCvOpen(false)} />
     </section>
   );

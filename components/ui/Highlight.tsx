@@ -14,18 +14,6 @@ const markerStyle: CSSProperties = {
   backgroundRepeat: "no-repeat",
 };
 
-/**
- * A far lighter wash of the same marker, for emphasis that should whisper rather
- * than shout — used on section titles so they get the header's editorial accent
- * without competing with the hero. Low-opacity band, and the text keeps its
- * normal color (no accent tint).
- */
-const softMarkerStyle: CSSProperties = {
-  backgroundImage:
-    "linear-gradient(to top, color-mix(in srgb, var(--color-accent-support) 30%, transparent) 0%, color-mix(in srgb, var(--color-accent-support) 30%, transparent) 46%, transparent 54%)",
-  backgroundRepeat: "no-repeat",
-};
-
 export function Highlight({
   children,
   className,
@@ -35,14 +23,21 @@ export function Highlight({
   className?: string;
   tone?: "strong" | "soft";
 }) {
+  // Soft: a far lighter wash for section titles (whispers rather than shouts).
+  // The band lives in CSS (.hl-soft) so it can flip to a light, contrasting
+  // color in dark mode; the text stays dark ink in both modes.
+  if (tone === "soft") {
+    return (
+      <mark className={cn("hl-soft box-decoration-clone bg-transparent px-[0.08em] text-text", className)}>
+        {children}
+      </mark>
+    );
+  }
+
   return (
     <mark
-      style={tone === "soft" ? softMarkerStyle : markerStyle}
-      className={cn(
-        "box-decoration-clone bg-transparent px-[0.08em]",
-        tone === "strong" && "text-accent",
-        className,
-      )}
+      style={markerStyle}
+      className={cn("box-decoration-clone bg-transparent px-[0.08em] text-accent", className)}
     >
       {children}
     </mark>

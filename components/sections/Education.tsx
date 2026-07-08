@@ -41,7 +41,8 @@ export function Education({ dict }: { dict: Dictionary }) {
                   <li key={cert.title}>
                     <HoverLift className="group relative z-0 hover:z-10">
                       <p className="text-sm font-medium text-text transition-colors duration-300 group-hover:text-accent">{cert.title}</p>
-                      <p className="font-mono text-xs text-text-muted">{cert.period}</p>
+                      {cert.institution ? <p className="mt-0.5 text-xs text-text-secondary">{cert.institution}</p> : null}
+                      <p className="mt-0.5 font-mono text-xs text-text-muted">{cert.period}</p>
                     </HoverLift>
                   </li>
                 ))}

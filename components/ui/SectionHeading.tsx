@@ -1,7 +1,6 @@
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
 import { Highlight } from "@/components/ui/Highlight";
 import { Reveal } from "@/components/ui/Reveal";
-import { RevealText } from "@/components/ui/RevealText";
 
 interface SectionHeadingProps {
   eyebrow: string;
@@ -20,7 +19,6 @@ interface SectionHeadingProps {
 export function SectionHeading({ eyebrow, title, id, description, align = "left", accent }: SectionHeadingProps) {
   const hasAccent = Boolean(accent) && title.endsWith(accent!);
   const lead = hasAccent ? title.slice(0, title.length - accent!.length).trimEnd() : title;
-  const accentDelay = lead.split(" ").length * 0.045;
 
   return (
     <Reveal className={align === "center" ? "text-center" : "text-left"}>
@@ -29,13 +27,11 @@ export function SectionHeading({ eyebrow, title, id, description, align = "left"
         <p className="font-mono font-medium text-xs uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
       </div>
       <h2 id={id} className="mt-4 max-w-2xl font-heading text-3xl font-medium text-text sm:text-4xl">
-        <RevealText>{lead}</RevealText>
+        {lead}
         {hasAccent ? (
           <>
             {" "}
-            <Highlight tone="soft">
-              <RevealText delay={accentDelay}>{accent!}</RevealText>
-            </Highlight>
+            <Highlight tone="soft">{accent!}</Highlight>
           </>
         ) : null}
       </h2>

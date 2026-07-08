@@ -40,6 +40,8 @@ export interface SkillCategory {
 
 export interface Certification {
   title: string;
+  /** Optional issuing institution, shown under the title like the degree. */
+  institution?: string;
   period: string;
 }
 

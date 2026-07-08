@@ -24,10 +24,12 @@ export function Philosophy({ dict }: { dict: Dictionary }) {
         <Reveal stagger className="mt-8 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 md:mt-16 md:gap-y-14">
           {dict.philosophyItems.map((item, index) => {
             return (
-              <RevealItem key={item.title} variant="blurIn" className="group">
+              <RevealItem key={item.title} variant="blurIn" className="group flex items-start gap-4 sm:block">
                 <MotionIconTile icon={item.icon} index={index} />
-                <h3 className="mt-4 font-heading text-xl font-medium text-text">{item.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-text-secondary">{item.description}</p>
+                <div className="sm:mt-4">
+                  <h3 className="font-heading text-xl font-medium text-text">{item.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-text-secondary">{item.description}</p>
+                </div>
               </RevealItem>
             );
           })}

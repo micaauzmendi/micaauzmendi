@@ -91,9 +91,9 @@ export const en: Dictionary = {
     ],
     companiesLabel: "Along the way I worked with",
     companies: [
-      { name: "Anfler Solutions", logo: "/photos/logo-anfler.png" },
-      { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png" },
-      { name: "Yo No Fui", logo: "/photos/logo-yonofui.png" },
+      { name: "Anfler Solutions", logo: "/photos/logo-anfler-trim.png", logoClass: "h-5 max-w-[130px]" },
+      { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png", logoClass: "h-11 max-w-[150px]" },
+      { name: "Yo No Fui", logo: "/photos/logo-yonofui-v2.png", logoClass: "h-8 max-w-[130px]" },
     ],
     projectsForLabel: "And I worked on projects for",
     projectsFor: [
@@ -104,9 +104,11 @@ export const en: Dictionary = {
   profileSummary:
     "I started by designing textile products for babies: thinking about how something is made, how it's used and how it cares for whoever has it close. For eight years I ran it as my own venture and brand. Then came brands and visual identity and, later, experience design, UX/UI and frontend. Each discipline left me a different way of observing, asking and deciding. Today they all live inside a single way of thinking.",
   stats: [
-    { value: 18, suffix: "+", label: "Years inside design" },
+    { value: 18, suffix: "+", label: "Years designing" },
     { value: 3, suffix: "+", label: "Years in digital product" },
-    { value: 10, suffix: "+", label: "Projects that shipped to production" },
+    { value: 8, suffix: "+", label: "Years self-employed" },
+    { value: 6, suffix: "+", label: "Disciplines explored" },
+    { value: 100, suffix: "%", label: "Self-taught" },
   ],
   philosophy: {
     eyebrow: "My philosophy",
@@ -125,7 +127,7 @@ export const en: Dictionary = {
       icon: "Sparkles",
       title: "I don't design to impress.",
       description:
-        "I want something to be understood without effort, not to earn applause. Clarity ages better than effect.",
+        "I'd rather something be understood right away than look impressive. A clear interface serves the person better than a flashy one.",
     },
     {
       icon: "Compass",
@@ -136,16 +138,17 @@ export const en: Dictionary = {
     {
       icon: "Bot",
       title: "AI speeds things up; judgment stays human.",
-      description: "I use AI to explore and iterate faster. Deciding what's actually good is not something I delegate.",
+      description:
+        "I use AI to explore and iterate faster in design, and to move quickly in development. Deciding what's actually good is on me.",
     },
   ],
   process: {
     eyebrow: "The way I work",
-    title: "Every project is different. The reasoning isn't.",
-    titleAccent: "The reasoning isn't.",
+    title: "No magic formulas. Just process.",
+    titleAccent: "Just process.",
     tags: ["Investigate", "Prioritize", "Design", "Validate", "Implement", "Iterate"],
     description:
-      "I don't follow a closed methodology, I follow an order of questions. The project changes, the team changes, the scale changes — but the way of thinking holds.",
+      "Every project changes. Every team too. What stays the same is how I observe, ask, prioritize and decide.",
   },
   processSteps: [
     {
@@ -188,6 +191,7 @@ export const en: Dictionary = {
   services: {
     eyebrow: "Services",
     title: "How I can help.",
+    titleAccent: "help.",
     description: "From a landing page to your brand's full identity — I support the project end to end.",
   },
   servicesItems: [
@@ -220,18 +224,18 @@ export const en: Dictionary = {
   },
   experience: {
     eyebrow: "Experience",
-    title: "The scale changed. The challenge didn't.",
-    titleAccent: "The challenge didn't.",
+    title: "Where design proved itself.",
+    titleAccent: "proved itself.",
     tags: ["Product", "UX/UI", "Design Systems", "Frontend"],
     description:
-      "Each job was bigger and more complex than the last. The challenge, though, repeats in all of them: finding clarity where there was noise.",
+      "The teams and products I worked with over these years: my role, the context and what ended up shipping and in use.",
   },
   experienceItems: [
     {
       id: "anfler",
       company: "Anfler Solutions",
       role: "Product Designer / UX/UI Designer",
-      period: "February 2025 - Present",
+      period: "2025 / Present",
       yearLabel: "2025 —",
       projects: ["Migraciones", "Fronteras", "Arbolado GCBA", "Khalipa", "Sisgea"],
       impact: "Highly complex government systems, now in production and used by thousands of people.",
@@ -296,11 +300,12 @@ export const en: Dictionary = {
   ],
   experienceUi: { seeMore: "See more", seeLess: "See less" },
   featuredProjects: {
-    eyebrow: "Case studies",
-    title: "Decisions that ended up becoming product.",
-    titleAccent: "becoming product.",
+    eyebrow: "Featured work",
+    title: "Real cases. Real problems.",
+    titleAccent: "Real problems.",
     tags: ["Government", "SaaS", "Apps", "Branding"],
-    description: "Each one began with a hard question. Open the ones that spark your curiosity.",
+    description:
+      "A selection of recent work where I share the full process: the problem, the questions, the decisions and the outcome. Because a project's value isn't only in how it ends, but in how it got there.",
   },
   featuredProjectsUi: {
     viewAll: "See more projects",
@@ -386,8 +391,8 @@ export const en: Dictionary = {
   educationData: {
     degree: { title: "Industrial Design", institution: "Universidad Nacional de Mar del Plata", period: "2007 - 2013" },
     certifications: [
-      { title: "UX/UI Design (Basic & Advanced)", period: "2021 - 2022" },
-      { title: "Digital Marketing & Traffic — Academia de Publicidad · Meta Ads", period: "2026" },
+      { title: "UX/UI Design (Basic & Advanced)", institution: "Coderhouse", period: "2021 - 2022" },
+      { title: "Digital Marketing & Traffic", institution: "Academia de Publicidad · Meta Ads", period: "2026" },
     ],
     languages: [
       { language: "Spanish", level: "Native" },
@@ -422,7 +427,10 @@ export const en: Dictionary = {
     messagePlaceholder: "Tell me a bit about your project...",
     defaultMessage: "Hi Micaela, I'd like to tell you about a project.",
     whatsappButton: "Send via WhatsApp",
-    sendEmailButton: "Send via email",
+    sendEmailButton: "Send message",
+    sendingLabel: "Sending…",
+    successMessage: "Done! Your message was sent. I'll reply within 24 hours.",
+    errorMessage: "Couldn't send. Try again or reach me on WhatsApp.",
     closeModalLabel: "Close",
   },
   footer: {

@@ -1,10 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { BehanceIcon } from "@/components/ui/BehanceIcon";
 import { LinkedinIcon } from "@/components/ui/LinkedinIcon";
+import { useContactModal } from "@/components/sections/ContactModalProvider";
 import type { Dictionary } from "@/types/dictionary";
 
 export function Footer({ dict }: { dict: Dictionary }) {
   const base = dict.locale === "en" ? "/en" : "";
+  const openContact = useContactModal();
 
   const exploreLinks = [
     { label: dict.nav.sobreMi, href: `${base}/#sobre-mi` },
@@ -70,12 +74,13 @@ export function Footer({ dict }: { dict: Dictionary }) {
 
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">{dict.nav.contacto}</p>
-          <Link
-            href={`${base}/#contacto`}
+          <button
+            type="button"
+            onClick={openContact}
             className="mt-4 inline-flex rounded-full bg-text px-5 py-2 font-mono text-xs uppercase tracking-wider text-bg transition-colors duration-300 hover:bg-accent"
           >
             {dict.hero.ctaContact}
-          </Link>
+          </button>
         </div>
       </div>
 

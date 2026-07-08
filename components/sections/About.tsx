@@ -15,8 +15,6 @@ export function About({ dict }: { dict: Dictionary }) {
             title={dict.about.title}
             accent={dict.about.titleAccent}
           />
-
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-secondary">{dict.profileSummary}</p>
         </div>
 
         {/* The path made visible: disciplines as connected stages on a timeline. */}
@@ -38,14 +36,14 @@ export function About({ dict }: { dict: Dictionary }) {
         </div>
 
         {/* Stats without boxes — the accent-colored numbers carry the weight. */}
-        <Reveal delay={0.15} stagger className="mt-16 grid max-w-4xl grid-cols-3 gap-6 sm:gap-10">
+        <Reveal delay={0.15} stagger className="mt-16 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-5 sm:gap-10">
           {dict.stats.map((stat) => (
             <RevealItem key={stat.label}>
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}
                 label={stat.label}
-                valueClassName="text-accent"
+                valueClassName="text-accent-support"
               />
             </RevealItem>
           ))}
@@ -94,7 +92,7 @@ function CompanyGroup({
               src={company.logo}
               alt={company.name}
               loading="lazy"
-              className={`w-auto object-contain grayscale dark:brightness-0 dark:invert ${logoClass}`}
+              className={`w-auto object-contain grayscale dark:brightness-0 dark:invert ${company.logoClass ?? logoClass}`}
             />
           ) : (
             <span key={company.name} className={`font-heading font-medium text-text-secondary ${textClass}`}>

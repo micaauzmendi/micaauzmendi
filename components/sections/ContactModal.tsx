@@ -13,15 +13,19 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
+type SendStatus = "idle" | "sending" | "sent" | "error";
+
 export function ContactModal({ dict, open, onClose }: ContactModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<SendStatus>("idle");
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!open) return;
 
+    setStatus("idle");
     firstFieldRef.current?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -36,19 +40,43 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
     };
   }, [open, onClose]);
 
-  const composedMessage = [
-    name ? `${dict.cta.nameLabel}: ${name}` : null,
-    email ? `${dict.cta.emailFieldLabel}: ${email}` : null,
-    "",
-    message.trim() || dict.cta.defaultMessage,
-  ]
-    .filter((line) => line !== null)
-    .join("\n");
+  const messageBody = message.trim() || dict.cta.defaultMessage;
+  const whatsappHref = buildWhatsAppUrl(
+    dict.personalInfo.phone,
+    [
+      name ? `${dict.cta.nameLabel}: ${name}` : null,
+      email ? `${dict.cta.emailFieldLabel}: ${email}` : null,
+      "",
+      messageBody,
+    ]
+      .filter((line) => line !== null)
+      .join("\n"),
+  );
 
-  const mailtoHref = `mailto:${dict.personalInfo.email}?subject=${encodeURIComponent(
-    `${name || dict.personalInfo.name} — ${dict.cta.modalTitle}`,
-  )}&body=${encodeURIComponent(composedMessage)}`;
-  const whatsappHref = buildWhatsAppUrl(dict.personalInfo.phone, composedMessage);
+  // Sends the message straight to Mica's inbox via FormSubmit (no backend). The
+  // very first submission triggers a one-time activation email she must confirm;
+  // after that, every submission is forwarded to her address.
+  async function handleSend() {
+    setStatus("sending");
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${dict.personalInfo.email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: name || "—",
+          email: email || "—",
+          message: messageBody,
+          _subject: `${name || dict.personalInfo.name} — ${dict.cta.modalTitle}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      const data = (await response.json().catch(() => ({}))) as { success?: boolean | string };
+      setStatus(response.ok && (data.success === true || data.success === "true") ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <AnimatePresence>
@@ -139,16 +167,31 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
               </div>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button href={whatsappHref} target="_blank" rel="noreferrer" variant="primary" className="flex-1">
-                <MessageCircle size={16} aria-hidden="true" />
-                {dict.cta.whatsappButton}
-              </Button>
-              <Button href={mailtoHref} variant="outline" className="flex-1">
-                <Mail size={16} aria-hidden="true" />
-                {dict.cta.sendEmailButton}
-              </Button>
-            </div>
+            {status === "sent" ? (
+              <p className="mt-6 rounded-xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-text">
+                {dict.cta.successMessage}
+              </p>
+            ) : (
+              <>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button
+                    type="button"
+                    onClick={handleSend}
+                    variant="primary"
+                    className="flex-1 disabled:cursor-not-allowed disabled:opacity-60"
+                    disabled={status === "sending"}
+                  >
+                    <Mail size={16} aria-hidden="true" />
+                    {status === "sending" ? dict.cta.sendingLabel : dict.cta.sendEmailButton}
+                  </Button>
+                  <Button href={whatsappHref} target="_blank" rel="noreferrer" variant="outline" className="flex-1">
+                    <MessageCircle size={16} aria-hidden="true" />
+                    {dict.cta.whatsappButton}
+                  </Button>
+                </div>
+                {status === "error" ? <p className="mt-3 text-sm text-accent">{dict.cta.errorMessage}</p> : null}
+              </>
+            )}
 
             <div className="mt-6 flex items-center justify-center gap-6 border-t border-accent-support/20 pt-5">
               <a

@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ProjectIndexList } from "@/components/portfolio/ProjectIndexList";
+import { ContactModalProvider } from "@/components/sections/ContactModalProvider";
 import { BackToHome } from "@/components/ui/BackToHome";
 import { DecorativeLine } from "@/components/ui/DecorativeLine";
 import { Reveal } from "@/components/ui/Reveal";
@@ -17,7 +18,8 @@ export function ProyectosPageContent({
   caseImages?: Record<string, string[]>;
 }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <ContactModalProvider dict={dict}>
+      <div className="flex min-h-screen flex-col">
       <SetHtmlLang locale={dict.locale} />
       <a href="#main-content" className="sr-only-focusable">
         {dict.nav.skipToContent}
@@ -52,6 +54,7 @@ export function ProyectosPageContent({
         </div>
       </main>
       <Footer dict={dict} />
-    </div>
+      </div>
+    </ContactModalProvider>
   );
 }

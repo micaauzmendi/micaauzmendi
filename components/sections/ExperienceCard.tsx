@@ -42,7 +42,7 @@ export function ExperienceCard({ entry, ui }: { entry: ExperienceEntry; ui: Dict
       </div>
 
       {entry.impact ? (
-        <p className="mt-5 flex gap-3 border-l-2 border-accent/50 pl-4 text-[15px] italic leading-relaxed text-text">
+        <p className="mt-6 border-l-2 border-accent pl-4 text-base font-medium italic leading-relaxed text-accent">
           {entry.impact}
         </p>
       ) : null}
@@ -70,9 +70,9 @@ export function ExperienceCard({ entry, ui }: { entry: ExperienceEntry; ui: Dict
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <ul className="mt-4 space-y-3 border-t border-accent-support/30 pt-4">
+            <ul className="mt-4 list-disc space-y-3 border-t border-accent-support/30 pl-5 pt-4">
               {entry.bullets.map((bullet) => (
-                <li key={bullet} className="text-sm leading-relaxed text-text-secondary">
+                <li key={bullet} className="pl-1 text-sm leading-relaxed text-text-secondary marker:text-accent">
                   {bullet}
                 </li>
               ))}

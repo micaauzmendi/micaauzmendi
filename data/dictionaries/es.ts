@@ -50,17 +50,17 @@ export const es: Dictionary = {
   },
   hero: {
     sectionLabel: "Product Designer · UX/UI",
-    headlinePre: "Algunas formas de diseñar cambian.",
-    headlineAccent: "Otras permanecen.",
+    headlinePre: "Cambió el cómo.",
+    headlineAccent: "No el por qué.",
     subtitle:
-      "Hace más de dieciocho años que diseño. Cambiaron las herramientas, los formatos y los productos. Lo que nunca cambió fue el punto de partida: entender qué necesita una persona y convertir esa complejidad en algo simple de usar.",
+      "Hace más de dieciocho años que diseño. Cambiaron las herramientas, los formatos y los productos. Pero nunca cambió lo que me mueve: la curiosidad por entender a las personas y transformar sus problemas en soluciones simples y claras.",
     ctaProjects: "Ver trabajos",
     ctaContact: "Hablemos",
   },
   contact: {
     kicker: "Contacto",
-    greeting: "Gracias por llegar hasta acá.",
-    body: "Ya sea que estés sumando una diseñadora a tu equipo o tengas un proyecto que necesita diseño, me encantaría escucharte. Escribime y lo vemos juntos.",
+    greeting: "Conversemos.",
+    body: "Si estás buscando sumar una diseñadora a tu equipo o necesitás acompañamiento en un proyecto, me encantaría conocer el desafío.",
     cta: "Hablemos",
   },
   about: {
@@ -93,9 +93,9 @@ export const es: Dictionary = {
     ],
     companiesLabel: "En el camino trabajé con",
     companies: [
-      { name: "Anfler Solutions", logo: "/photos/logo-anfler.png" },
-      { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png" },
-      { name: "Yo No Fui", logo: "/photos/logo-yonofui.png" },
+          { name: "Yo No Fui", logo: "/photos/logo-yonofui-v2.png", logoClass: "h-10 max-w-[200px]" },
+      { name: "Anfler Solutions", logo: "/photos/logo-anfler-trim.png", logoClass: "h-5 max-w-[130px]" },
+      { name: "Stakeholders Colombia", logo: "/photos/logo-stakeholders.png", logoClass: "h-11 max-w-[150px]" },
     ],
     projectsForLabel: "Y realicé trabajos para",
     projectsFor: [
@@ -106,9 +106,11 @@ export const es: Dictionary = {
   profileSummary:
     "Empecé diseñando productos textiles para bebés: pensando cómo algo se fabrica, cómo se usa y cómo cuida a quien lo tiene cerca. Durante ocho años lo sostuve como emprendimiento y marca propia. Después vinieron las marcas y la identidad visual y, más tarde, el diseño de experiencias, la UX/UI y el frontend. Cada disciplina me dejó una forma distinta de observar, de preguntar y de decidir. Hoy todas conviven en una sola manera de pensar.",
   stats: [
-    { value: 18, suffix: "+", label: "Años dentro del diseño" },
+    { value: 18, suffix: "+", label: "Años diseñando" },
     { value: 3, suffix: "+", label: "Años en producto digital" },
-    { value: 10, suffix: "+", label: "Trabajos que llegaron a producción" },
+    { value: 8, suffix: "+", label: "Años emprendiendo" },
+    { value: 4, suffix: "+", label: "Disciplinas recorridas" },
+    { value: 100, suffix: "%", label: "Autodidacta" },
   ],
   philosophy: {
     eyebrow: "Mi filosofía",
@@ -121,34 +123,31 @@ export const es: Dictionary = {
       icon: "Target",
       title: "No empiezo por la pantalla.",
       description:
-        "La pantalla es la última decisión, no la primera. Antes está el problema, la persona que lo tiene y lo que el negocio necesita resolver.",
-    },
+"La interfaz llega después. Primero necesito entender el problema, las personas que lo tienen y el objetivo que el producto busca cumplir."    },
     {
       icon: "Sparkles",
-      title: "No diseño para impresionar.",
+      title: "Una buena interfaz no necesita explicarse.",
       description:
-        "Busco que algo se entienda sin esfuerzo, no que arranque un aplauso. La claridad envejece mejor que el efecto.",
-    },
+"Busco que cada decisión haga el producto más fácil de entender y de usar. Si algo genera dudas, todavía hay trabajo por hacer."    },
     {
       icon: "Compass",
-      title: "Las decisiones pequeñas también construyen producto.",
+      title: "Los pequeños detalles también diseñan la experiencia.",
       description:
-        "El espaciado, un texto de error, el orden de dos botones. Nadie los nota cuando están bien; todos los sufren cuando están mal.",
-    },
+"Un mensaje de error, un espaciado o el orden de dos acciones pueden parecer mínimos, pero terminan definiendo cómo se siente usar un producto."    },
+    
     {
       icon: "Bot",
-      title: "La IA acelera; el criterio sigue siendo humano.",
+      title: "La IA es parte de mi proceso.",
       description:
-        "Uso inteligencia artificial para explorar e iterar más rápido. La decisión de qué está bien no la delego.",
-    },
-  ],
+"La utilizo para investigar, diseñar, prototipar y programar más rápido. Es una herramienta que potencia mi trabajo, y como tal, su valor depende del criterio con el que se utilice." },
+ ],
   process: {
     eyebrow: "Mi manera de trabajar",
-    title: "Cada trabajo es distinto. El razonamiento no.",
-    titleAccent: "El razonamiento no.",
+    title: "No hay recetas mágicas. Sí procesos.",
+    titleAccent: "Sí procesos.",
     tags: ["Investigar", "Priorizar", "Diseñar", "Validar", "Implementar", "Iterar"],
     description:
-      "No sigo una metodología cerrada, sigo un orden de preguntas. Cambia el trabajo, cambia el equipo, cambia la escala — pero el modo de pensar se sostiene.",
+      "Cada proyecto cambia. Cada equipo también. Lo que permanece es la forma en la que observo, pregunto, priorizo y tomo decisiones.",
   },
   processSteps: [
     {
@@ -190,22 +189,23 @@ export const es: Dictionary = {
   ],
   services: {
     eyebrow: "Servicios",
-    title: "En qué puedo ayudarte.",
-    description: "Desde una landing page hasta la identidad completa de tu marca — acompaño el trabajo de punta a punta.",
+    title: "Cómo podemos trabajar juntos.",
+    titleAccent: "trabajar juntos.",
+    description: " Cada proyecto necesita un tipo de acompañamiento distinto. Puedo integrarme a un equipo de producto, participar en una etapa específica o acompañar un proyecto de principio a fin. Me adapto al contexto, al equipo y a los desafíos de cada caso.",
   },
   servicesItems: [
     {
       category: "Producto Digital & UX/UI",
       icon: "LayoutGrid",
-      items: ["Diseño UX/UI", "Diseño de aplicaciones", "Diseño de páginas web", "Diseño de landing pages", "Asesoría UX"],
+      items: [ "Landing pages" , "Diseño de aplicaciones", "Diseño de páginas web", "Sistemas de Diseño" ,  "Asesoría UX"],
     },
     {
       category: "E-commerce & Presencia Digital",
       icon: "ShoppingBag",
       items: [
         "Armado de tienda online",
-        "Configuración de chat online (WhatsApp / chatbot)",
         "Diseño de presencia digital",
+        "Diseño de Experiencia de Compra",
       ],
     },
     {
@@ -216,7 +216,7 @@ export const es: Dictionary = {
     {
       category: "Branding & Diseño Gráfico",
       icon: "Brush",
-      items: ["Identidad corporativa", "Sistemas de diseño", "Diseño de flyers y placas", "Documentos corporativos"],
+      items: ["Identidad corporativa", "Diseño de flyers y placas", "Documentos corporativos"],
     },
   ],
   interlude: {
@@ -227,19 +227,19 @@ export const es: Dictionary = {
   },
   experience: {
     eyebrow: "Experiencia",
-    title: "Cambió la escala. No el desafío.",
-    titleAccent: "No el desafío.",
+    title: "Donde el diseño se puso a prueba.",
+    titleAccent: "se puso a prueba.",
     tags: ["Producto", "UX/UI", "Design Systems", "Frontend"],
     description:
-      "Cada trabajo fue más grande y más complejo que el anterior. El desafío, en cambio, se repite en todos: encontrar claridad donde había ruido.",
+      "Los equipos y productos en los que trabajé estos años: mi rol, el contexto y lo que quedó funcionando y en uso.",
   },
   experienceItems: [
     {
       id: "anfler",
       company: "Anfler Solutions",
       role: "Product Designer / UX/UI Designer",
-      period: "Febrero 2025 - Presente",
-      yearLabel: "2025 —",
+      period: "2025 / Presente",
+      yearLabel: "2025 — Presente",
       projects: ["Migraciones", "Fronteras", "Arbolado GCBA", "Khalipa", "Sisgea"],
       impact: "Sistemas de gobierno de alta complejidad, hoy en producción y usados por miles de personas.",
       bullets: [
@@ -303,11 +303,12 @@ export const es: Dictionary = {
   ],
   experienceUi: { seeMore: "Ver más", seeLess: "Ver menos" },
   featuredProjects: {
-    eyebrow: "Casos de estudio",
-    title: "Decisiones que terminaron siendo producto.",
-    titleAccent: "siendo producto.",
+    eyebrow: "Trabajos destacados",
+    title: "Casos reales. Problemas reales.",
+    titleAccent: "Problemas reales.",
     tags: ["Gobierno", "SaaS", "Apps", "Branding"],
-    description: "Cada uno empezó con una pregunta difícil. Abrí los que te generen curiosidad.",
+    description:
+      "Una selección de trabajos recientes donde comparto el proceso completo: el problema, las preguntas, las decisiones y el resultado. Porque el valor de un proyecto no está solo en cómo termina, sino en cómo llegó hasta ahí.",
   },
   featuredProjectsUi: {
     viewAll: "Ver más trabajos",
@@ -319,17 +320,17 @@ export const es: Dictionary = {
   },
   portfolioPage: {
     eyebrow: "Portfolio completo",
-    title: "{count} trabajos, cada uno con su propio desafío.",
+    title: "Casos reales. Problemas reales.",
     description:
-      "Sistemas gubernamentales, plataformas SaaS, apps y trabajos de identidad de marca. Cada caso completo —proceso, capturas y detalle— vive en Behance.",
+      "Una selección de trabajos recientes donde comparto el proceso completo: el problema, las preguntas, las decisiones y el resultado. Porque el valor de un proyecto no está solo en cómo termina, sino en cómo llegó hasta ahí.",
     behanceLinkLabel: "behance.net/micaauzmendi",
     filterAllLabel: "Todos",
     filterGroupLabel: "Filtrar trabajos por categoría",
   },
   skills: {
     eyebrow: "Lo que llevo a cada equipo",
-    title: "No son herramientas. Son formas de aportar.",
-    titleAccent: "Son formas de aportar.",
+    title: "Cada equipo tiene necesidades distintas. Me gusta adaptarme a ellas.",
+    titleAccent: " Me gusta adaptarme a ellas.",
     tags: ["Investigación", "Sistemas", "Criterio de producto"],
   },
   skillsItems: [
@@ -362,8 +363,8 @@ export const es: Dictionary = {
   ],
   tools: {
     eyebrow: "Herramientas",
-    title: "Las herramientas cambian. El criterio debería durar más.",
-    titleAccent: "El criterio debería durar más.",
+    title: "Mi mejor herramienta sigue siendo la curiosidad.",
+    titleAccent: "la curiosidad.",
     tags: ["Figma", "Adobe", "Notion", "IA"],
   },
   toolsItems: [
@@ -373,7 +374,6 @@ export const es: Dictionary = {
     { name: "Visual Studio Code", icon: "Code2" },
     { name: "ChatGPT", icon: "MessageSquare" },
     { name: "Claude Design", icon: "Sparkles" },
-    { name: "Claude Code", icon: "Bot" },
   ],
   frontend: {
     eyebrow: "Frontend",
@@ -401,8 +401,8 @@ export const es: Dictionary = {
   educationData: {
     degree: { title: "Diseño Industrial", institution: "Universidad Nacional de Mar del Plata", period: "2007 - 2013" },
     certifications: [
-      { title: "Diseño UX/UI (Básico y Avanzado)", period: "2021 - 2022" },
-      { title: "Marketing Digital & Tráfico — Academia de Publicidad · Meta Ads", period: "2026" },
+      { title: "Diseño UX/UI (Básico y Avanzado)", institution: "Coderhouse", period: "2021 - 2022" },
+      { title: "Marketing Digital & Tráfico", institution: "Academia de Publicidad · Meta Ads", period: "2026" },
     ],
     languages: [
       { language: "Español", level: "Nativo" },
@@ -437,7 +437,10 @@ export const es: Dictionary = {
     messagePlaceholder: "Contame un poco sobre tu trabajo...",
     defaultMessage: "Hola Micaela, quiero contarte sobre un trabajo.",
     whatsappButton: "Enviar por WhatsApp",
-    sendEmailButton: "Enviar por email",
+    sendEmailButton: "Enviar mensaje",
+    sendingLabel: "Enviando…",
+    successMessage: "¡Listo! Tu mensaje se envió. Te respondo en menos de 24 horas.",
+    errorMessage: "No se pudo enviar. Probá de nuevo o escribime por WhatsApp.",
     closeModalLabel: "Cerrar",
   },
   footer: {

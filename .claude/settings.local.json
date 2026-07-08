@@ -64,7 +64,10 @@
       "Bash(echo \"=== exit: $? ===\")",
       "PowerShell(npm install react-pdf 2>&1)",
       "PowerShell(Copy-Item \"node_modules\\\\pdfjs-dist\\\\build\\\\pdf.worker.min.mjs\" \"public\\\\pdf.worker.min.mjs\" -Force)",
-      "PowerShell(Add-Type -AssemblyName System.Drawing; @\\(\"migraciones-portada-hd.png\",\"stakeholders-portada-hd.png\",\"ember-portada-hd.png\"\\) | ForEach-Object { $p=\"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\Portfolio Interactivo\\\\public\\\\photos\\\\$_\"; if\\(Test-Path $p\\){ $i=New-Object System.Drawing.Bitmap\\($p\\); Write-Output \\(\"{0}  {1}x{2}  {3}KB\" -f $_,$i.Width,$i.Height,[int]\\(\\(Get-Item $p\\).Length/1KB\\)\\); $i.Dispose\\(\\) } })"
+      "PowerShell(Add-Type -AssemblyName System.Drawing; @\\(\"migraciones-portada-hd.png\",\"stakeholders-portada-hd.png\",\"ember-portada-hd.png\"\\) | ForEach-Object { $p=\"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\Portfolio Interactivo\\\\public\\\\photos\\\\$_\"; if\\(Test-Path $p\\){ $i=New-Object System.Drawing.Bitmap\\($p\\); Write-Output \\(\"{0}  {1}x{2}  {3}KB\" -f $_,$i.Width,$i.Height,[int]\\(\\(Get-Item $p\\).Length/1KB\\)\\); $i.Dispose\\(\\) } })",
+      "Bash(python -m pip install Pillow --quiet)",
+      "Bash(python -c ' *)",
+      "Bash(npx next *)"
     ]
   }
 }
