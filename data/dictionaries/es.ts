@@ -474,7 +474,7 @@ export const es: Dictionary = {
       id: "fronteras",
       title: "Sistema de control fronterizo",
       category: "UX/UI",
-      description:
+      description: 
         "Rediseño de un sistema utilizado por agentes de control fronterizo para optimizar los procesos de inspección migratoria y control documental.",
       image: "/photos/fronteras-portada-hd.png",
       behanceUrl: "https://www.behance.net/gallery/251932145/Caso-de-Estudio-Sistema-de-control-fronterizo",
