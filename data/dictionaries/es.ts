@@ -444,7 +444,7 @@ export const es: Dictionary = {
     closeModalLabel: "Cerrar",
   },
   footer: {
-    tagline: "Diseñado y construido con cuidado por Micaela.",
+    tagline: "Micaela Auzmendi | Diseño & Desarrollo.",
     influentialPhrase: "Hacerlo simple.",
     exploreLabel: "Explorar",
     connectLabel: "Conectar",
