@@ -75,6 +75,17 @@ export interface ProcessStep {
 
 export type ProjectCategory = "UX/UI" | "Brands";
 
+/** Discipline/support tags used by the /proyectos filter chips. A project can
+ *  carry several (e.g. a re-branding that also shipped a UX/UI flow). Kept as
+ *  language-neutral ids; the chip labels are localized in the dictionary. */
+export type ProjectTag =
+  | "ux-ui"
+  | "branding"
+  | "mobile"
+  | "web-sistemas"
+  | "ecommerce"
+  | "textil";
+
 export interface PortfolioProject {
   id: string;
   title: string;
@@ -82,6 +93,8 @@ export interface PortfolioProject {
   /** Optional discipline label shown on the card in place of `category`
    *  (e.g. "Diseño Textil"). `category` is still used for filtering. */
   label?: string;
+  /** Filter chips match against these. Language-neutral ids. */
+  tags?: ProjectTag[];
   year?: string;
   description: string;
   image: string;

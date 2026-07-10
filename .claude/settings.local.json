@@ -67,7 +67,13 @@
       "PowerShell(Add-Type -AssemblyName System.Drawing; @\\(\"migraciones-portada-hd.png\",\"stakeholders-portada-hd.png\",\"ember-portada-hd.png\"\\) | ForEach-Object { $p=\"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\Portfolio Interactivo\\\\public\\\\photos\\\\$_\"; if\\(Test-Path $p\\){ $i=New-Object System.Drawing.Bitmap\\($p\\); Write-Output \\(\"{0}  {1}x{2}  {3}KB\" -f $_,$i.Width,$i.Height,[int]\\(\\(Get-Item $p\\).Length/1KB\\)\\); $i.Dispose\\(\\) } })",
       "Bash(python -m pip install Pillow --quiet)",
       "Bash(python -c ' *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(curl -s -X POST https://formsubmit.co/ajax/micaauzmendi@gmail.com -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{\"name\":\"Activacion\",\"email\":\"micaauzmendi@gmail.com\",\"message\":\"Test de activacion del formulario de contacto del portfolio. Si ves esto, el formulario quedo conectado.\",\"_subject\":\"Activa tu formulario de contacto del portfolio\",\"_captcha\":\"false\",\"_template\":\"table\"}')",
+      "Bash(curl -s -X POST https://formsubmit.co/ajax/micaauzmendi@gmail.com -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Origin: http://localhost:3000' -H 'Referer: http://localhost:3000/' -d '{\"name\":\"Activacion\",\"email\":\"micaauzmendi@gmail.com\",\"message\":\"Test de activacion del formulario de contacto del portfolio.\",\"_subject\":\"Activa tu formulario de contacto\",\"_captcha\":\"false\",\"_template\":\"table\"}')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "mcp__claude-in-chrome__list_connected_browsers",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__computer"
     ]
   }
 }

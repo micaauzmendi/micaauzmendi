@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, Mail, MessageCircle, X } from "lucide-react";
+import { ExternalLink, Mail, MessageCircle, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import type { Dictionary } from "@/types/dictionary";
@@ -18,6 +18,7 @@ type SendStatus = "idle" | "sending" | "sent" | "error";
 export function ContactModal({ dict, open, onClose }: ContactModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<SendStatus>("idle");
   const firstFieldRef = useRef<HTMLInputElement>(null);
@@ -46,6 +47,7 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
     [
       name ? `${dict.cta.nameLabel}: ${name}` : null,
       email ? `${dict.cta.emailFieldLabel}: ${email}` : null,
+      phone ? `${dict.cta.phoneLabel}: ${phone}` : null,
       "",
       messageBody,
     ]
@@ -65,6 +67,7 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
         body: JSON.stringify({
           name: name || "—",
           email: email || "—",
+          phone: phone || "—",
           message: messageBody,
           _subject: `${name || dict.personalInfo.name} — ${dict.cta.modalTitle}`,
           _template: "table",
@@ -150,6 +153,20 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
               </div>
 
               <div>
+                <label htmlFor="contact-phone" className="font-mono text-xs uppercase tracking-wider text-text-muted">
+                  {dict.cta.phoneLabel} · {dict.cta.optionalLabel}
+                </label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  value={phone}
+                  onChange={(event) => setPhone(event.target.value)}
+                  placeholder={dict.cta.phonePlaceholder}
+                  className="mt-1.5 w-full rounded-xl border border-accent-support/40 bg-bg px-4 py-2.5 text-sm text-text placeholder:text-text-muted focus:border-accent focus:outline-none"
+                />
+              </div>
+
+              <div>
                 <label
                   htmlFor="contact-message"
                   className="font-mono text-xs uppercase tracking-wider text-text-muted"
@@ -173,43 +190,63 @@ export function ContactModal({ dict, open, onClose }: ContactModalProps) {
               </p>
             ) : (
               <>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Button
-                    type="button"
-                    onClick={handleSend}
-                    variant="primary"
-                    className="flex-1 disabled:cursor-not-allowed disabled:opacity-60"
-                    disabled={status === "sending"}
-                  >
-                    <Mail size={16} aria-hidden="true" />
-                    {status === "sending" ? dict.cta.sendingLabel : dict.cta.sendEmailButton}
-                  </Button>
-                  <Button href={whatsappHref} target="_blank" rel="noreferrer" variant="outline" className="flex-1">
-                    <MessageCircle size={16} aria-hidden="true" />
-                    {dict.cta.whatsappButton}
-                  </Button>
-                </div>
+                <Button
+                  type="button"
+                  onClick={handleSend}
+                  variant="primary"
+                  className="mt-6 w-full uppercase disabled:cursor-not-allowed disabled:opacity-60"
+                  disabled={status === "sending"}
+                >
+                  <Mail size={16} aria-hidden="true" />
+                  {status === "sending" ? dict.cta.sendingLabel : dict.cta.sendEmailButton}
+                </Button>
                 {status === "error" ? <p className="mt-3 text-sm text-accent">{dict.cta.errorMessage}</p> : null}
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-wider text-text-secondary transition-colors hover:text-accent"
+                >
+                  <MessageCircle size={14} aria-hidden="true" />
+                  {dict.cta.whatsappButton}
+                </a>
               </>
             )}
 
-            <div className="mt-6 flex items-center justify-center gap-6 border-t border-accent-support/20 pt-5">
-              <a
-                href={dict.personalInfo.linkedin.url}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-text-secondary transition-colors hover:text-accent"
-              >
-                {dict.cta.linkedinLabel} <ExternalLink size={12} aria-hidden="true" />
-              </a>
-              <a
-                href={dict.personalInfo.behance.url}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-text-secondary transition-colors hover:text-accent"
-              >
-                {dict.cta.behanceLabel} <ExternalLink size={12} aria-hidden="true" />
-              </a>
+            <div className="mt-6 border-t border-accent-support/20 pt-5">
+              <div className="flex flex-col items-center gap-2">
+                <a
+                  href={`mailto:${dict.personalInfo.email}`}
+                  className="flex items-center gap-2 font-mono text-xs text-text-secondary transition-colors hover:text-accent"
+                >
+                  <Mail size={13} aria-hidden="true" /> {dict.personalInfo.email}
+                </a>
+                <a
+                  href={`tel:${dict.personalInfo.phone.replace(/\s+/g, "")}`}
+                  className="flex items-center gap-2 font-mono text-xs text-text-secondary transition-colors hover:text-accent"
+                >
+                  <Phone size={13} aria-hidden="true" /> {dict.personalInfo.phone}
+                </a>
+              </div>
+
+              <div className="mt-4 flex items-center justify-center gap-6">
+                <a
+                  href={dict.personalInfo.linkedin.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-text-secondary transition-colors hover:text-accent"
+                >
+                  {dict.cta.linkedinLabel} <ExternalLink size={12} aria-hidden="true" />
+                </a>
+                <a
+                  href={dict.personalInfo.behance.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-text-secondary transition-colors hover:text-accent"
+                >
+                  {dict.cta.behanceLabel} <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </motion.div>
         </motion.div>

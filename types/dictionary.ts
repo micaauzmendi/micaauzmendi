@@ -140,6 +140,8 @@ export interface Dictionary {
     behanceLinkLabel: string;
     filterAllLabel: string;
     filterGroupLabel: string;
+    /** Category/discipline chips. `id` matches `PortfolioProject.tags`. */
+    filters: { id: string; label: string }[];
   };
   skills: SectionCopy;
   skillsItems: SkillCategory[];
@@ -173,6 +175,9 @@ export interface Dictionary {
     namePlaceholder: string;
     emailFieldLabel: string;
     emailFieldPlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    optionalLabel: string;
     messageLabel: string;
     messagePlaceholder: string;
     defaultMessage: string;

@@ -69,19 +69,16 @@ function MarqueeCard({
     </>
   );
 
-  if (decorative) {
-    return (
-      <div aria-hidden tabIndex={-1} draggable={false} className={className}>
-        {inner}
-      </div>
-    );
-  }
-
+  // Every copy opens the preview so any card the marquee scrolls into view is
+  // clickable. The duplicated copies stay out of the tab order and hidden from
+  // screen readers so the same project isn't announced three times.
   return (
     <button
       type="button"
       onClick={() => onOpen?.(project)}
-      aria-label={formatTemplate(dict.featuredProjectsUi.previewLabel, { title: project.title })}
+      aria-hidden={decorative || undefined}
+      tabIndex={decorative ? -1 : undefined}
+      aria-label={decorative ? undefined : formatTemplate(dict.featuredProjectsUi.previewLabel, { title: project.title })}
       draggable={false}
       className={className}
     >
@@ -191,10 +188,15 @@ export function ProjectMarquee({ projects, dict, caseImages = {} }: ProjectMarqu
   const activeImages = activeProject ? caseImages[activeProject.id] ?? [] : [];
   const handleOpen = (project: PortfolioProject) => setActiveId(project.id);
 
+  // Fila superior: UX/UI. Fila inferior: Branding/Textil (todo lo demás). Así
+  // cada proyecto vive en una sola fila y las filas nunca repiten una pieza.
+  const uxProjects = projects.filter((project) => project.category === "UX/UI");
+  const brandProjects = projects.filter((project) => project.category !== "UX/UI");
+
   return (
     <div className="relative flex flex-col gap-6">
-      <MarqueeRow projects={projects} dict={dict} direction="left" onOpen={handleOpen} />
-      <MarqueeRow projects={[...projects].reverse()} dict={dict} direction="right" onOpen={handleOpen} />
+      <MarqueeRow projects={uxProjects} dict={dict} direction="left" onOpen={handleOpen} />
+      <MarqueeRow projects={brandProjects} dict={dict} direction="right" onOpen={handleOpen} />
       {/* Edge fades signal the rows continue horizontally (and are scrubbable) */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-bg to-transparent md:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-bg to-transparent md:w-24" />

@@ -14,8 +14,8 @@ export function FeaturedProjects({
   caseImages?: Record<string, string[]>;
 }) {
   const base = dict.locale === "en" ? "/en" : "";
-  // En el home mostramos solo los casos UX/UI (el resto del portfolio vive en /proyectos).
-  const featuredProjects = dict.projects.filter((project) => project.category === "UX/UI");
+  // Mostramos todos los trabajos: el marquee separa UX/UI (fila superior) de
+  // Branding/Textil (fila inferior) para que las filas nunca repitan un proyecto.
 
   return (
     <section id="proyectos" aria-labelledby="proyectos-heading" className="relative overflow-hidden bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32">
@@ -30,7 +30,7 @@ export function FeaturedProjects({
         />
 
         <Reveal delay={0.1} className="mt-14">
-          <ProjectMarquee projects={featuredProjects} dict={dict} caseImages={caseImages} />
+          <ProjectMarquee projects={dict.projects} dict={dict} caseImages={caseImages} />
         </Reveal>
 
         <Reveal delay={0.15} className="mt-14 flex justify-center">

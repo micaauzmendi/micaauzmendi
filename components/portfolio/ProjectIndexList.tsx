@@ -3,10 +3,15 @@
 import { useMemo, useState } from "react";
 import { ProjectGrid } from "@/components/portfolio/ProjectGrid";
 import { cn } from "@/lib/utils";
-import type { PortfolioProject, ProjectCategory } from "@/types/content";
+import type { PortfolioProject, ProjectTag } from "@/types/content";
 import type { Dictionary } from "@/types/dictionary";
 
-const CATEGORY_FILTERS: ProjectCategory[] = ["UX/UI", "Brands"];
+// Fallback for projects that predate the `tags` field: derive one from category
+// so every project still matches at least the discipline chip.
+function tagsFor(project: PortfolioProject): ProjectTag[] {
+  if (project.tags?.length) return project.tags;
+  return project.category === "Brands" ? ["branding"] : ["ux-ui"];
+}
 
 export function ProjectIndexList({
   projects,
@@ -17,10 +22,16 @@ export function ProjectIndexList({
   dict: Dictionary;
   caseImages?: Record<string, string[]>;
 }) {
-  const [filter, setFilter] = useState<ProjectCategory | "all">("all");
+  const [filter, setFilter] = useState<string>("all");
+
+  // Only show chips that actually match at least one project.
+  const filters = useMemo(
+    () => dict.portfolioPage.filters.filter((f) => projects.some((p) => tagsFor(p).includes(f.id as ProjectTag))),
+    [dict.portfolioPage.filters, projects],
+  );
 
   const filtered = useMemo(
-    () => (filter === "all" ? projects : projects.filter((project) => project.category === filter)),
+    () => (filter === "all" ? projects : projects.filter((project) => tagsFor(project).includes(filter as ProjectTag))),
     [filter, projects],
   );
 
@@ -40,20 +51,20 @@ export function ProjectIndexList({
         >
           {dict.portfolioPage.filterAllLabel}
         </button>
-        {CATEGORY_FILTERS.map((category) => (
+        {filters.map((category) => (
           <button
-            key={category}
+            key={category.id}
             type="button"
-            aria-pressed={filter === category}
-            onClick={() => setFilter(category)}
+            aria-pressed={filter === category.id}
+            onClick={() => setFilter(category.id)}
             className={cn(
               "rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors duration-300",
-              filter === category
+              filter === category.id
                 ? "border-accent bg-accent text-bg"
                 : "border-accent-support/50 text-text-secondary hover:border-accent hover:text-accent",
             )}
           >
-            {category}
+            {category.label}
           </button>
         ))}
       </div>

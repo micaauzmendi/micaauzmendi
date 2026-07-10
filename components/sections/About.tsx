@@ -48,59 +48,7 @@ export function About({ dict }: { dict: Dictionary }) {
             </RevealItem>
           ))}
         </Reveal>
-
-        {/* Bare logos (no chips): larger for the employers, smaller for project clients. */}
-        <div className="mt-14 space-y-8">
-          <CompanyGroup
-            label={dict.about.companiesLabel}
-            companies={dict.about.companies}
-            logoClass="h-12 max-w-[210px]"
-            textClass="text-lg"
-          />
-          <CompanyGroup
-            label={dict.about.projectsForLabel}
-            companies={dict.about.projectsFor}
-            logoClass="h-7 max-w-[120px]"
-            textClass="text-sm"
-          />
-        </div>
       </div>
     </section>
-  );
-}
-
-function CompanyGroup({
-  label,
-  companies,
-  logoClass,
-  textClass,
-}: {
-  label: string;
-  companies: Dictionary["about"]["companies"];
-  logoClass: string;
-  textClass: string;
-}) {
-  return (
-    <div className="text-center">
-      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">{label}</p>
-      <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
-        {companies.map((company) =>
-          company.logo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={company.name}
-              src={company.logo}
-              alt={company.name}
-              loading="lazy"
-              className={`w-auto object-contain grayscale dark:brightness-0 dark:invert ${company.logoClass ?? logoClass}`}
-            />
-          ) : (
-            <span key={company.name} className={`font-heading font-medium text-text-secondary ${textClass}`}>
-              {company.name}
-            </span>
-          ),
-        )}
-      </div>
-    </div>
   );
 }
