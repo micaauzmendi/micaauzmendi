@@ -2,8 +2,8 @@
 
 import { motion, useAnimationFrame, useMotionValue, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
-import { ProjectPreviewModal } from "@/components/portfolio/ProjectPreviewModal";
+import Link from "next/link";
+import { useRef } from "react";
 import { formatTemplate } from "@/lib/format";
 import type { PortfolioProject } from "@/types/content";
 import type { Dictionary } from "@/types/dictionary";
@@ -27,6 +27,7 @@ const WIDTHS = [
 interface ProjectMarqueeProps {
   projects: PortfolioProject[];
   dict: Dictionary;
+  /** No longer used here — cards link to /proyectos, which owns the preview. */
   caseImages?: Record<string, string[]>;
 }
 
@@ -34,14 +35,14 @@ function MarqueeCard({
   project,
   dict,
   width,
+  href,
   decorative = false,
-  onOpen,
 }: {
   project: PortfolioProject;
   dict: Dictionary;
   width: string;
+  href: string;
   decorative?: boolean;
-  onOpen?: (project: PortfolioProject) => void;
 }) {
   const className = `group relative block h-72 shrink-0 select-none overflow-hidden rounded-none text-left transition-[border-radius] duration-500 ease-out hover:rounded-tl-[2rem] hover:rounded-br-[2rem] sm:h-80 ${width}`;
 
@@ -69,13 +70,13 @@ function MarqueeCard({
     </>
   );
 
-  // Every copy opens the preview so any card the marquee scrolls into view is
-  // clickable. The duplicated copies stay out of the tab order and hidden from
-  // screen readers so the same project isn't announced three times.
+  // Every card links to the project on /proyectos (which opens its preview),
+  // so any copy the marquee scrolls into view is clickable and reliable — no
+  // modal fighting the moving track. The duplicated copies stay out of the tab
+  // order and hidden from screen readers so a project isn't announced 3 times.
   return (
-    <button
-      type="button"
-      onClick={() => onOpen?.(project)}
+    <Link
+      href={href}
       aria-hidden={decorative || undefined}
       tabIndex={decorative ? -1 : undefined}
       aria-label={decorative ? undefined : formatTemplate(dict.featuredProjectsUi.previewLabel, { title: project.title })}
@@ -83,7 +84,7 @@ function MarqueeCard({
       className={className}
     >
       {inner}
-    </button>
+    </Link>
   );
 }
 
@@ -91,12 +92,12 @@ function MarqueeRow({
   projects,
   dict,
   direction,
-  onOpen,
+  base,
 }: {
   projects: PortfolioProject[];
   dict: Dictionary;
   direction: "left" | "right";
-  onOpen: (project: PortfolioProject) => void;
+  base: string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -130,8 +131,8 @@ function MarqueeRow({
         project={project}
         dict={dict}
         width={WIDTHS[i % WIDTHS.length]}
+        href={`${base}/proyectos`}
         decorative={copy !== 0}
-        onOpen={onOpen}
       />
     )),
   );
@@ -168,7 +169,7 @@ function MarqueeRow({
         event.currentTarget.releasePointerCapture?.(event.pointerId);
       }}
       onClickCapture={(event) => {
-        // Suppress the card link when the pointer was dragged rather than clicked.
+        // Suppress navigation when the pointer was dragged rather than clicked.
         if (dragDistance.current > DRAG_THRESHOLD) {
           event.preventDefault();
           event.stopPropagation();
@@ -182,11 +183,8 @@ function MarqueeRow({
   );
 }
 
-export function ProjectMarquee({ projects, dict, caseImages = {} }: ProjectMarqueeProps) {
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const activeProject = projects.find((project) => project.id === activeId) ?? null;
-  const activeImages = activeProject ? caseImages[activeProject.id] ?? [] : [];
-  const handleOpen = (project: PortfolioProject) => setActiveId(project.id);
+export function ProjectMarquee({ projects, dict }: ProjectMarqueeProps) {
+  const base = dict.locale === "en" ? "/en" : "";
 
   // Fila superior: UX/UI. Fila inferior: Branding/Textil (todo lo demás). Así
   // cada proyecto vive en una sola fila y las filas nunca repiten una pieza.
@@ -195,18 +193,11 @@ export function ProjectMarquee({ projects, dict, caseImages = {} }: ProjectMarqu
 
   return (
     <div className="relative flex flex-col gap-6">
-      <MarqueeRow projects={uxProjects} dict={dict} direction="left" onOpen={handleOpen} />
-      <MarqueeRow projects={brandProjects} dict={dict} direction="right" onOpen={handleOpen} />
+      <MarqueeRow projects={uxProjects} dict={dict} direction="left" base={base} />
+      <MarqueeRow projects={brandProjects} dict={dict} direction="right" base={base} />
       {/* Edge fades signal the rows continue horizontally (and are scrubbable) */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-bg to-transparent md:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-bg to-transparent md:w-24" />
-
-      <ProjectPreviewModal
-        project={activeProject}
-        images={activeImages}
-        dict={dict}
-        onClose={() => setActiveId(null)}
-      />
     </div>
   );
 }

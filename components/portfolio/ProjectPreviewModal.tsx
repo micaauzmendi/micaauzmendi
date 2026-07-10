@@ -18,6 +18,12 @@ interface ProjectPreviewModalProps {
 export function ProjectPreviewModal({ project, images, dict, onClose }: ProjectPreviewModalProps) {
   const open = project !== null;
 
+  // Proyectos con caso completo cargado muestran su galería; los que todavía no
+  // la tienen caen a su portada (la misma imagen que se ve en la tarjeta de
+  // trabajos) para que la vista previa nunca quede vacía.
+  const hasCaseGallery = images.length > 0;
+  const gallery = hasCaseGallery ? images : project ? [project.image] : [];
+
   useEffect(() => {
     if (!open) return;
 
@@ -86,17 +92,19 @@ export function ProjectPreviewModal({ project, images, dict, onClose }: ProjectP
             <div className="flex-1 overflow-y-auto">
               <p className="px-6 pt-5 text-sm text-text-secondary md:px-8">{project.description}</p>
 
-              {images.length > 0 ? (
+              {gallery.length > 0 ? (
                 <>
-                  <div className="mx-6 mt-4 flex items-start gap-2 rounded-lg border border-accent-support/30 bg-accent/[0.06] px-3 py-2.5 md:mx-8">
-                    <Info size={14} aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
-                    <p className="font-mono text-[11px] leading-relaxed text-text-secondary">
-                      {dict.featuredProjectsUi.previewQualityNote}
-                    </p>
-                  </div>
+                  {hasCaseGallery ? (
+                    <div className="mx-6 mt-4 flex items-start gap-2 rounded-lg border border-accent-support/30 bg-accent/[0.06] px-3 py-2.5 md:mx-8">
+                      <Info size={14} aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+                      <p className="font-mono text-[11px] leading-relaxed text-text-secondary">
+                        {dict.featuredProjectsUi.previewQualityNote}
+                      </p>
+                    </div>
+                  ) : null}
 
                   <div className="mt-4 flex flex-col">
-                    {images.map((src, index) => (
+                    {gallery.map((src, index) => (
                       <div key={src} className="relative w-full bg-bg">
                         <Image
                           src={src}
