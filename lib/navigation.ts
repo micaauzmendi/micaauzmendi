@@ -7,22 +7,22 @@ export interface NavLink {
 }
 
 /**
- * A deliberately short nav, ordered by what a recruiter weighs first: the work,
- * the services, the experience, then who she is — all in one row, followed by
- * the "Hablemos" contact button (handled separately in the Header).
- * Process/skills are intentionally left out to keep it focused (still reachable
- * by scrolling). Servicios is its own page; the rest are home anchors.
+ * A deliberately short, single-landing nav: everything lives on the home page
+ * now. "Inicio" jumps to the top, then the work and the experience, followed by
+ * the "Hablemos" contact button (handled separately in the Header). Every tab is
+ * a home anchor — the standalone /proyectos and /servicios pages are hidden for
+ * now (see app/proyectos + lib/navigation history) but their code still exists.
  */
 export function buildNavLinks(dict: Dictionary): NavLink[] {
   const base = dict.locale === "en" ? "/en" : "";
 
   return [
-    { id: "portfolio", label: dict.nav.portfolio, href: `${base}/proyectos` },
-    // Temporarily hidden: Services now shows as a section inside the About area.
-    // The standalone /servicios page still exists — uncomment to bring the tab back.
+    { id: "inicio", label: dict.nav.inicio, href: `${base}/#hero` },
+    { id: "portfolio", label: dict.nav.portfolio, href: `${base}/#proyectos` },
+    // Temporarily hidden: standalone pages folded into the single home landing.
+    // The /proyectos + /servicios pages still exist — restore their tabs here.
     // { id: "servicios", label: dict.nav.servicios, href: `${base}/servicios` },
     { id: "experiencia", label: dict.nav.experiencia, href: `${base}/#experiencia` },
-    { id: "sobre-mi", label: dict.nav.sobreMi, href: `${base}/#sobre-mi` },
     { id: "contacto", label: dict.nav.contacto, href: `${base}/#contacto` },
   ];
 }

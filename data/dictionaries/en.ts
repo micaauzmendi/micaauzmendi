@@ -11,6 +11,7 @@ export const en: Dictionary = {
       "Micaela Auzmendi — Product Designer specialized in UX/UI, Design Systems and integrating AI into product design workflows.",
   },
   nav: {
+    inicio: "Home",
     sobreMi: "About",
     proceso: "Process",
     servicios: "Services",
@@ -447,8 +448,8 @@ export const en: Dictionary = {
   footer: {
     tagline: "Designed and built with care by Micaela.",
     influentialPhrase: "Make it simple.",
-    exploreLabel: "Explore",
-    connectLabel: "Connect",
+    exploreLabel: "Navigation",
+    connectLabel: "Contact",
   },
   projects: [
     {

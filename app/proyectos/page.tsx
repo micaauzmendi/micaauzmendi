@@ -1,17 +1,9 @@
-import type { Metadata } from "next";
-import { ProyectosPageContent } from "@/components/pages/ProyectosPageContent";
-import { getDictionary } from "@/data/dictionaries";
-import { getCaseImagesMap } from "@/lib/caseImages";
-import { formatTemplate } from "@/lib/format";
+import { redirect } from "next/navigation";
 
-const dict = getDictionary("es");
-const caseImages = getCaseImagesMap(dict.projects.map((project) => project.id));
-
-export const metadata: Metadata = {
-  title: dict.portfolioPage.eyebrow,
-  description: formatTemplate(dict.portfolioPage.title, { count: dict.projects.length }),
-};
-
+// La interfaz /proyectos está OCULTA por ahora: los trabajos viven en la
+// sección "#proyectos" del home (grilla editorial con vista previa in-site).
+// El código sigue intacto en ProyectosPageContent — para reactivar la página,
+// borrá este redirect y restaurá el render original (ver historial de git).
 export default function ProyectosPage() {
-  return <ProyectosPageContent dict={dict} caseImages={caseImages} />;
+  redirect("/#proyectos");
 }

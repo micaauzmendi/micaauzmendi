@@ -1,6 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
-import { ProjectMarquee } from "@/components/portfolio/ProjectMarquee";
-import { Button } from "@/components/ui/Button";
+import { ProjectIndexList } from "@/components/portfolio/ProjectIndexList";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GridField } from "@/components/ui/GridField";
 import { Reveal } from "@/components/ui/Reveal";
@@ -13,9 +11,9 @@ export function FeaturedProjects({
   dict: Dictionary;
   caseImages?: Record<string, string[]>;
 }) {
-  const base = dict.locale === "en" ? "/en" : "";
-  // Mostramos todos los trabajos: el marquee separa UX/UI (fila superior) de
-  // Branding/Textil (fila inferior) para que las filas nunca repitan un proyecto.
+  // Trabajos ahora vive sólo aquí (la página /proyectos está oculta). Mostramos
+  // la grilla editorial irregular con filtros — cada pieza abre su vista previa
+  // in-site, igual que antes hacía la sección /proyectos.
 
   return (
     <section id="proyectos" aria-labelledby="proyectos-heading" className="relative overflow-hidden bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32">
@@ -30,14 +28,7 @@ export function FeaturedProjects({
         />
 
         <Reveal delay={0.1} className="mt-14">
-          <ProjectMarquee projects={dict.projects} dict={dict} caseImages={caseImages} />
-        </Reveal>
-
-        <Reveal delay={0.15} className="mt-14 flex justify-center">
-          <Button href={`${base}/proyectos`} variant="outline" className="uppercase">
-            {dict.featuredProjectsUi.viewAll}
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </Button>
+          <ProjectIndexList projects={dict.projects} dict={dict} caseImages={caseImages} />
         </Reveal>
       </div>
     </section>

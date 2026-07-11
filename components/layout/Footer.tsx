@@ -1,34 +1,41 @@
 "use client";
 
+import { Mail, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { BehanceIcon } from "@/components/ui/BehanceIcon";
 import { LinkedinIcon } from "@/components/ui/LinkedinIcon";
 import { useContactModal } from "@/components/sections/ContactModalProvider";
 import type { Dictionary } from "@/types/dictionary";
+import { buildNavLinks } from "@/lib/navigation";
 
 export function Footer({ dict }: { dict: Dictionary }) {
-  const base = dict.locale === "en" ? "/en" : "";
   const openContact = useContactModal();
 
-  const exploreLinks = [
-    { label: dict.nav.sobreMi, href: `${base}/#sobre-mi` },
-    { label: dict.nav.proceso, href: `${base}/#proceso` },
-    { label: dict.nav.experiencia, href: `${base}/#experiencia` },
-    { label: dict.nav.portfolio, href: `${base}/proyectos` },
-  ];
+  // Misma lista que la barra de navegación (sin el botón "Hablemos"), así el
+  // footer siempre queda en sync con el nav: Inicio · Trabajos · Experiencia.
+  const navLinks = buildNavLinks(dict).filter((link) => link.id !== "contacto");
+  const telHref = `tel:${dict.personalInfo.phone.replace(/\s/g, "")}`;
 
   return (
     <footer className="relative overflow-hidden border-t border-accent-support/30 bg-surface-muted/25 px-6 pt-16 md:px-10">
-      <div className="mx-auto grid max-w-6xl gap-10 pb-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 pb-14 sm:grid-cols-2 lg:grid-cols-3">
         <div className="sm:col-span-2 lg:col-span-1">
-          <p className="font-heading text-xl font-semibold text-text">{dict.personalInfo.name}</p>
-          <p className="mt-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">{dict.personalInfo.title}</p>
+          {/* Firma manuscrita como logo; invierte a blanco en modo oscuro. */}
+          <Image
+            src="/photos/logo-micaauzmendi.png"
+            alt={dict.personalInfo.name}
+            width={215}
+            height={44}
+            className="h-11 w-auto dark:invert"
+          />
+          <p className="mt-3 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">{dict.personalInfo.title}</p>
         </div>
 
         <nav aria-label={dict.footer.exploreLabel}>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">{dict.footer.exploreLabel}</p>
           <ul className="mt-4 space-y-2.5 text-sm">
-            {exploreLinks.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="text-text-secondary transition-colors hover:text-accent">
                   {link.label}
@@ -63,21 +70,27 @@ export function Footer({ dict }: { dict: Dictionary }) {
             </li>
             <li>
               <a
-                href={`mailto:${dict.personalInfo.email}`}
-                className="text-text-secondary transition-colors hover:text-accent"
+                href={telHref}
+                className="inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-accent"
               >
-                {dict.personalInfo.email}
+                <Phone size={14} aria-hidden="true" /> {dict.personalInfo.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${dict.personalInfo.email}`}
+                className="inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-accent"
+              >
+                <Mail size={14} aria-hidden="true" /> {dict.personalInfo.email}
               </a>
             </li>
           </ul>
-        </div>
 
-        <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">{dict.nav.contacto}</p>
+          {/* Botón "Hablemos" movido acá abajo (antes vivía en su propia columna). */}
           <button
             type="button"
             onClick={openContact}
-            className="mt-4 inline-flex rounded-full bg-text px-5 py-2 font-mono text-xs uppercase tracking-wider text-bg transition-colors duration-300 hover:bg-accent"
+            className="mt-6 inline-flex rounded-full bg-text px-5 py-2 font-mono text-xs uppercase tracking-wider text-bg transition-colors duration-300 hover:bg-accent"
           >
             {dict.hero.ctaContact}
           </button>
@@ -92,9 +105,11 @@ export function Footer({ dict }: { dict: Dictionary }) {
         {dict.footer.influentialPhrase}
       </p>
 
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 border-t border-accent-support/20 py-6 text-center md:flex-row md:text-left">
+      {/* Firma centrada y apilada: el año arriba, el nombre + rol abajo (una sola
+          vez — antes el nombre se repetía a ambos lados). */}
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-1.5 border-t border-accent-support/20 py-6 text-center">
         <p className="font-mono text-xs uppercase tracking-wider text-text-muted">
-          © {new Date().getFullYear()} {dict.personalInfo.name}
+          © {new Date().getFullYear()}
         </p>
         <p className="font-mono text-xs uppercase tracking-wider text-text-muted">{dict.footer.tagline}</p>
       </div>

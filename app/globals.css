@@ -71,6 +71,22 @@
     font-family: var(--font-heading), system-ui, sans-serif;
   }
 
+  /* Tailwind v4 preflight ya no pone el cursor de mano en los controles nativos,
+     así que lo reponemos para todo lo clickeable (sobre todo botones). */
+  button,
+  summary,
+  label[for],
+  [role="button"],
+  [role="tab"],
+  a[href] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;

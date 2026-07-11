@@ -74,7 +74,14 @@
       "mcp__claude-in-chrome__list_connected_browsers",
       "mcp__claude-in-chrome__navigate",
       "mcp__claude-in-chrome__computer",
-      "mcp__claude-in-chrome__read_console_messages"
+      "mcp__claude-in-chrome__read_console_messages",
+      "Bash(ls src/app)",
+      "Bash(ls app *)",
+      "Bash(sed -n '/footer: {/,/},/p' data/dictionaries/es.ts)",
+      "Bash(sed -n '/footer: {/,/},/p' data/dictionaries/en.ts)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(grep -iE \"^phone.mjs$|^mail.mjs$\")",
+      "Bash(awk 'NR>=15 && NR<=17 {print NR\": \"$0}' data/dictionaries/es.ts)"
     ]
   }
 }

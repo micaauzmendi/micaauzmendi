@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,13 +12,12 @@ import type { Dictionary } from "@/types/dictionary";
 import { buildNavLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-// Which home section each nav tab should light up for while scrolling. The
-// "portfolio" tab links out to /proyectos, but on the home it tracks the
-// featured-projects block (id="proyectos").
+// Which home section each nav tab should light up for while scrolling. Every
+// tab is a home anchor now, so each maps to the section it scrolls to.
 const NAV_SECTION_ID: Record<string, string> = {
+  inicio: "hero",
   portfolio: "proyectos",
   experiencia: "experiencia",
-  "sobre-mi": "sobre-mi",
   contacto: "contacto",
 };
 
@@ -84,8 +84,17 @@ export function Header({ dict }: { dict: Dictionary }) {
   return (
     <header className="sticky top-0 z-50 border-b border-accent-support/30 bg-bg/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2 md:px-10">
-        <Link href={`${base}/#hero`} className="font-heading text-sm font-semibold tracking-tight text-text">
-          Micaela Auzmendi
+        <Link href={`${base}/#hero`} aria-label={dict.personalInfo.name} className="shrink-0">
+          {/* Firma manuscrita como logo de marca. `dark:invert` vuelve blanca la
+              firma negra en modo oscuro (logo monocromo sobre transparente). */}
+          <Image
+            src="/photos/logo-micaauzmendi.png"
+            alt={dict.personalInfo.name}
+            width={156}
+            height={32}
+            priority
+            className="h-8 w-auto dark:invert"
+          />
         </Link>
 
         <nav aria-label={dict.nav.mainNav} className="hidden items-center gap-7 md:flex">

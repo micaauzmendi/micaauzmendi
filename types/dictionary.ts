@@ -57,6 +57,7 @@ export interface Dictionary {
     description: string;
   };
   nav: {
+    inicio: string;
     sobreMi: string;
     proceso: string;
     servicios: string;

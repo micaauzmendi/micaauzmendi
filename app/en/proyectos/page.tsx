@@ -1,17 +1,9 @@
-import type { Metadata } from "next";
-import { ProyectosPageContent } from "@/components/pages/ProyectosPageContent";
-import { getDictionary } from "@/data/dictionaries";
-import { getCaseImagesMap } from "@/lib/caseImages";
-import { formatTemplate } from "@/lib/format";
+import { redirect } from "next/navigation";
 
-const dict = getDictionary("en");
-const caseImages = getCaseImagesMap(dict.projects.map((project) => project.id));
-
-export const metadata: Metadata = {
-  title: dict.portfolioPage.eyebrow,
-  description: formatTemplate(dict.portfolioPage.title, { count: dict.projects.length }),
-};
-
+// The /en/proyectos interface is HIDDEN for now: the work lives in the home's
+// "#proyectos" section (editorial grid with in-site preview). The code stays
+// intact in ProyectosPageContent — to bring the page back, remove this redirect
+// and restore the original render (see git history).
 export default function ProyectosPageEn() {
-  return <ProyectosPageContent dict={dict} caseImages={caseImages} />;
+  redirect("/en/#proyectos");
 }
