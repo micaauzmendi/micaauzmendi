@@ -9,7 +9,7 @@ export function Services({ dict }: { dict: Dictionary }) {
     <section
       id="servicios"
       aria-labelledby="servicios-heading"
-      className="relative overflow-hidden bg-surface-muted/50 px-6 py-16 md:px-10 md:py-32"
+      className="relative overflow-hidden bg-surface-muted/50 px-6 pb-12 pt-16 md:px-10 md:pb-16 md:pt-32"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeading

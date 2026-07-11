@@ -21,7 +21,7 @@ export function Process({ dict }: { dict: Dictionary }) {
               <RevealItem key={item.step} variant="blurIn" className="group flex items-start gap-4 sm:block">
                 <MotionIconTile icon={item.icon} index={index} />
                 <div className="sm:mt-4">
-                  <p className="font-mono text-xs text-accent-support transition-colors duration-300 group-hover:text-accent">{item.step}</p>
+                  <p className="font-mono text-xs text-accent transition-colors duration-300 group-hover:text-text">{item.step}</p>
                   <h3 className="mt-2 font-heading text-lg font-medium text-text">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{item.description}</p>
                 </div>

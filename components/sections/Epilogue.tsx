@@ -30,7 +30,7 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
     <section
       id="contacto"
       aria-labelledby="epilogo-heading"
-      className="relative overflow-hidden bg-surface-muted/50 px-6 py-20 md:px-10 md:py-36"
+      className="relative overflow-hidden bg-surface-muted/50 px-6 pb-20 pt-12 md:px-10 md:pb-36 md:pt-20"
     >
       <div
         aria-hidden="true"
@@ -56,7 +56,7 @@ export function Epilogue({ dict }: { dict: Dictionary }) {
         <div>
           <p className="font-mono font-medium text-xs uppercase tracking-[0.3em] text-accent">{kicker}</p>
           <h2 id="epilogo-heading" className="mt-5 font-heading text-4xl font-medium leading-tight text-text sm:text-5xl">
-            <Highlight>{greetingHead}</Highlight>
+            <Highlight tone="soft">{greetingHead}</Highlight>
             {greetingRest ? (
               <>
                 {" "}

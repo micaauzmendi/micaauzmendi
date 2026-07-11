@@ -81,7 +81,17 @@
       "Bash(sed -n '/footer: {/,/},/p' data/dictionaries/en.ts)",
       "Bash(echo \"EXIT: $?\")",
       "Bash(grep -iE \"^phone.mjs$|^mail.mjs$\")",
-      "Bash(awk 'NR>=15 && NR<=17 {print NR\": \"$0}' data/dictionaries/es.ts)"
+      "Bash(awk 'NR>=15 && NR<=17 {print NR\": \"$0}' data/dictionaries/es.ts)",
+      "Bash(awk 'NR>=15 && NR<=18 {print NR\": \"$0}' data/dictionaries/es.ts)",
+      "Bash(sed -n '/nav: {/,/},/p' data/dictionaries/en.ts)",
+      "Bash(sed -n '/hero: {/,/},/p' data/dictionaries/en.ts)",
+      "Bash(sed -n '/contact: {/,/},/p' data/dictionaries/en.ts)",
+      "Bash(sed -n '/tools: {/,/^  },/p' data/dictionaries/es.ts)",
+      "Bash(sed -n '/tools: {/,/^  },/p' data/dictionaries/en.ts)",
+      "Bash(awk 'NR>=375 && NR<=402 {print NR\": \"$0}' data/dictionaries/es.ts)",
+      "Bash(awk 'NR>=365 && NR<=392 {print NR\": \"$0}' data/dictionaries/en.ts)",
+      "Bash(sed -n '/servicesItems: \\\\[/,/^  \\\\],/p' data/dictionaries/es.ts)",
+      "Bash(sed -n '/servicesItems: \\\\[/,/^  \\\\],/p' data/dictionaries/en.ts)"
     ]
   }
 }

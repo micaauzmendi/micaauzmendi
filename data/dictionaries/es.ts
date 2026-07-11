@@ -198,21 +198,7 @@ export const es: Dictionary = {
     {
       category: "Producto Digital & UX/UI",
       icon: "LayoutGrid",
-      items: [ "Landing pages" , "Diseño de aplicaciones", "Diseño de páginas web", "Sistemas de Diseño" ,  "Asesoría UX"],
-    },
-    {
-      category: "E-commerce & Presencia Digital",
-      icon: "ShoppingBag",
-      items: [
-        "Armado de tienda online",
-        "Diseño de presencia digital",
-        "Diseño de Experiencia de Compra",
-      ],
-    },
-    {
-      category: "Marketing Digital",
-      icon: "Megaphone",
-      items: ["Meta Ads · pauta publicitaria"],
+      items: ["Landing pages", "Diseño de aplicaciones", "Diseño de páginas web", "Sistemas de Diseño", "Asesoría UX", "Análisis UX"],
     },
     {
       category: "Branding & Diseño Gráfico",
@@ -383,6 +369,7 @@ export const es: Dictionary = {
     { name: "Visual Studio Code", icon: "Code2" },
     { name: "ChatGPT", icon: "MessageSquare" },
     { name: "Claude Design", icon: "Sparkles" },
+    { name: "Claude Code", icon: "Bot" },
   ],
   frontend: {
     eyebrow: "Frontend",
@@ -458,8 +445,8 @@ export const es: Dictionary = {
   footer: {
     tagline: "Micaela Auzmendi | Diseño & Desarrollo.",
     influentialPhrase: "Hacerlo simple.",
-    exploreLabel: "Navegación",
-    connectLabel: "Contacto",
+    exploreLabel: "Explorar",
+    connectLabel: "Conectar",
   },
   projects: [
     {
@@ -590,7 +577,7 @@ export const es: Dictionary = {
     },
     {
       id: "yonofui-branding",
-      title: "Manual de Marca",
+      title: "Yo No Fui",
       category: "Brands",
       label: "Branding",
       tags: ["branding"],
@@ -612,7 +599,7 @@ export const es: Dictionary = {
     },
     {
       id: "yonofui-emociones",
-      title: "Colección Emociones",
+      title: "Yo No Fui",
       category: "Brands",
       label: "Diseño Textil",
       tags: ["branding", "textil"],

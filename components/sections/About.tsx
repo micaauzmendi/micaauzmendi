@@ -36,7 +36,7 @@ export function About({ dict }: { dict: Dictionary }) {
         </div>
 
         {/* Stats without boxes — the accent-colored numbers carry the weight. */}
-        <Reveal delay={0.15} stagger className="mt-16 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-5 sm:gap-10">
+        <Reveal delay={0.15} stagger className="mt-16 grid @container max-w-4xl grid-cols-1 gap-6 sm:grid-cols-5 sm:gap-6 lg:gap-8">
           {dict.stats.map((stat) => (
             <RevealItem key={stat.label}>
               <AnimatedCounter

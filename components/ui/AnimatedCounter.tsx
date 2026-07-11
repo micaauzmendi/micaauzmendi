@@ -25,8 +25,12 @@ export function AnimatedCounter({ value, suffix = "", label, valueClassName = "t
   }, [isInView, value, count, prefersReducedMotion]);
 
   return (
-    <div ref={ref} className="flex flex-col gap-1">
-      <p className={`font-heading text-5xl font-bold sm:text-6xl ${valueClassName}`}>
+    <div ref={ref} className="flex min-w-0 flex-col gap-1">
+      {/* Tamaño fluido atado al ANCHO DEL CONTENEDOR (unidad cqi), no del viewport:
+          así escala con el contenedor de stats (que topa en max-w-4xl) y nunca
+          desborda, incluso cuando el viewport es más ancho que el contenedor.
+          Requiere un ancestro con `@container` (ver About). */}
+      <p className={`font-heading text-5xl sm:text-[clamp(1.75rem,6cqi,3.75rem)] font-bold leading-none tabular-nums ${valueClassName}`}>
         <motion.span>{rounded}</motion.span>
         {suffix}
       </p>

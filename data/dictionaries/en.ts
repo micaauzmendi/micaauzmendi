@@ -199,17 +199,7 @@ export const en: Dictionary = {
     {
       category: "Digital Product & UX/UI",
       icon: "LayoutGrid",
-      items: ["UX/UI design", "App design", "Website design", "Landing page design", "UX advisory"],
-    },
-    {
-      category: "E-commerce & Digital Presence",
-      icon: "ShoppingBag",
-      items: ["Online store setup", "Online chat setup (WhatsApp / chatbot)", "Digital presence design"],
-    },
-    {
-      category: "Digital Marketing",
-      icon: "Megaphone",
-      items: ["Meta Ads · paid campaigns"],
+      items: ["UX/UI design", "App design", "Website design", "Landing page design", "UX advisory", "UX analysis"],
     },
     {
       category: "Branding & Graphic Design",
