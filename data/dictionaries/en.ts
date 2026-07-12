@@ -49,17 +49,17 @@ export const en: Dictionary = {
   },
   hero: {
     sectionLabel: "Product Designer · UX/UI",
-    headlinePre: "Some ways of designing change.",
-    headlineAccent: "Others stay.",
+    headlinePre: "The how changed.",
+    headlineAccent: "Not the why.",
     subtitle:
-      "More than eighteen years ago I started by designing objects. Over time the tools changed, the formats changed, even the name of what I do changed. The way I stand in front of a problem never did.",
+      "I've been designing for more than eighteen years. The tools, the formats and the products changed. But what drives me never did: the curiosity to understand people and turn their problems into simple, clear solutions.",
     ctaProjects: "View projects",
     ctaContact: "Let's talk",
   },
   contact: {
     kicker: "Contact",
-    greeting: "Thanks for making it this far.",
-    body: "Whether you're adding a designer to your team or have a project that needs design, I'd love to hear from you. Send me a message and we'll take it from there.",
+    greeting: "Let's chat.",
+    body: "If you're looking to add a designer to your team or need support on a project, I'd love to hear about the challenge.",
     cta: "Let's talk",
   },
   about: {
@@ -122,25 +122,25 @@ export const en: Dictionary = {
       icon: "Target",
       title: "I don't start with the screen.",
       description:
-        "The screen is the last decision, not the first. Before it comes the problem, the person who has it and what the business needs to solve.",
+        "The interface comes later. First I need to understand the problem, the people who have it and the goal the product is meant to achieve.",
     },
     {
       icon: "Sparkles",
-      title: "I don't design to impress.",
+      title: "A good interface doesn't need explaining.",
       description:
-        "I'd rather something be understood right away than look impressive. A clear interface serves the person better than a flashy one.",
+        "I want every decision to make the product easier to understand and use. If something raises doubts, there's still work to do.",
     },
     {
       icon: "Compass",
-      title: "Small decisions build the product too.",
+      title: "The small details design the experience too.",
       description:
-        "Spacing, an error message, the order of two buttons. No one notices them when they're right; everyone suffers them when they're wrong.",
+        "An error message, some spacing or the order of two actions may seem minor, but they end up defining how it feels to use a product.",
     },
     {
       icon: "Bot",
-      title: "AI speeds things up; judgment stays human.",
+      title: "AI is part of my process.",
       description:
-        "I use AI to explore and iterate faster in design, and to move quickly in development. Deciding what's actually good is on me.",
+        "I use it to research, design, prototype and code faster. It's a tool that amplifies my work, and as such, its value depends on the judgment behind it.",
     },
   ],
   process: {
@@ -191,20 +191,20 @@ export const en: Dictionary = {
   ],
   services: {
     eyebrow: "Services",
-    title: "How I can help.",
-    titleAccent: "help.",
-    description: "From a landing page to your brand's full identity — I support the project end to end.",
+    title: "How we can work together.",
+    titleAccent: "work together.",
+    description: "Every project needs a different kind of support. I can join a product team, take part in a specific stage or accompany a project from start to finish. I adapt to the context, the team and the challenges of each case.",
   },
   servicesItems: [
     {
       category: "Digital Product & UX/UI",
       icon: "LayoutGrid",
-      items: ["UX/UI design", "App design", "Website design", "Landing page design", "UX advisory", "UX analysis"],
+      items: ["Landing pages", "App design", "Website design", "Design Systems", "UX advisory", "UX analysis"],
     },
     {
       category: "Branding & Graphic Design",
       icon: "Brush",
-      items: ["Corporate identity", "Design systems", "Flyers & signage design", "Corporate documents"],
+      items: ["Corporate identity", "Flyers & signage design", "Corporate documents"],
     },
   ],
   interlude: {
@@ -308,9 +308,9 @@ export const en: Dictionary = {
   },
   portfolioPage: {
     eyebrow: "Full portfolio",
-    title: "{count} projects, each with its own challenge.",
+    title: "Real cases. Real problems.",
     description:
-      "Government systems, SaaS platforms, apps and brand identity projects. Every full case — process, screenshots and detail — lives on Behance.",
+      "A selection of recent work where I share the full process: the problem, the questions, the decisions and the outcome. Because a project's value isn't only in how it ends, but in how it got there.",
     behanceLinkLabel: "behance.net/micaauzmendi",
     filterAllLabel: "All",
     filterGroupLabel: "Filter projects by category",
@@ -325,8 +325,8 @@ export const en: Dictionary = {
   },
   skills: {
     eyebrow: "What I bring to a team",
-    title: "Not tools. Ways of contributing.",
-    titleAccent: "Ways of contributing.",
+    title: "Every team has different needs. I like adapting to them.",
+    titleAccent: "I like adapting to them.",
     tags: ["Research", "Systems", "Product sense"],
   },
   skillsItems: [
@@ -351,8 +351,8 @@ export const en: Dictionary = {
   ],
   tools: {
     eyebrow: "Tools",
-    title: "Tools change. Judgment should last longer.",
-    titleAccent: "Judgment should last longer.",
+    title: "My best tool is still curiosity.",
+    titleAccent: "curiosity.",
     tags: ["Figma", "Adobe", "Notion", "AI"],
   },
   toolsItems: [
@@ -436,10 +436,10 @@ export const en: Dictionary = {
     closeModalLabel: "Close",
   },
   footer: {
-    tagline: "Designed and built with care by Micaela.",
+    tagline: "Micaela Auzmendi | Design & Development.",
     influentialPhrase: "Make it simple.",
-    exploreLabel: "Navigation",
-    connectLabel: "Contact",
+    exploreLabel: "Explore",
+    connectLabel: "Connect",
   },
   projects: [
     {
