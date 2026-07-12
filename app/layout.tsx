@@ -23,11 +23,20 @@ export const metadata: Metadata = {
     siteName: "Micaela Auzmendi",
     locale: "es_AR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Micaela Auzmendi · Product Designer UX/UI",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Micaela Auzmendi · Product Designer UX/UI",
     description: SITE_DESCRIPTION,
+    images: ["/og-image.png"],
   },
 };
 

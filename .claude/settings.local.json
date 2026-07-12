@@ -91,7 +91,13 @@
       "Bash(awk 'NR>=375 && NR<=402 {print NR\": \"$0}' data/dictionaries/es.ts)",
       "Bash(awk 'NR>=365 && NR<=392 {print NR\": \"$0}' data/dictionaries/en.ts)",
       "Bash(sed -n '/servicesItems: \\\\[/,/^  \\\\],/p' data/dictionaries/es.ts)",
-      "Bash(sed -n '/servicesItems: \\\\[/,/^  \\\\],/p' data/dictionaries/en.ts)"
+      "Bash(sed -n '/servicesItems: \\\\[/,/^  \\\\],/p' data/dictionaries/en.ts)",
+      "Bash(node -e \"require\\('sharp'\\);console.log\\('sharp OK'\\)\")",
+      "Bash(node \"C:/Users/usuario/AppData/Local/Temp/claude/C--Users-usuario-Desktop-UX-Mica-Portfolio-Interactivo/7cb7bc07-4d92-40a0-8ad7-e8e771cfe67d/scratchpad/make-og.js\")",
+      "Bash(node _make-og.js)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/og-image.png)",
+      "Bash(curl -s http://localhost:3000/en)"
     ]
   }
 }
