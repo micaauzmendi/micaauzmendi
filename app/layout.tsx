@@ -5,7 +5,7 @@ import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const GA_MEASUREMENT_ID = "G-6HD2JKYVW7";
+const GA_MEASUREMENT_ID = "G-7BC7CKWSL1";
 
 const SITE_URL = "https://micaelaauzmendi.com";
 const SITE_DESCRIPTION =
