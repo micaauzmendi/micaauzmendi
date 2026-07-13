@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans, JetBrains_Mono, Jost } from "next/font/google";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-6HD2JKYVW7";
 
 const SITE_URL = "https://micaelaauzmendi.com";
 const SITE_DESCRIPTION =
@@ -65,6 +68,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${heading.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <ThemeProvider>
           <AmbientBackground />
           {children}
