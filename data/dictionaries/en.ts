@@ -444,7 +444,7 @@ export const en: Dictionary = {
   projects: [
     {
       id: "migraciones",
-      title: "Migraciones",
+      title: "Immigration management platform",
       category: "UX/UI",
       tags: ["ux-ui", "web-sistemas"],
       description:
@@ -455,7 +455,7 @@ export const en: Dictionary = {
     },
     {
       id: "arbolado",
-      title: "Arbolado BA",
+      title: "Public registry system",
       category: "UX/UI",
       tags: ["ux-ui", "mobile"],
       description:
@@ -476,7 +476,7 @@ export const en: Dictionary = {
     },
     {
       id: "khalipa",
-      title: "Khalipa",
+      title: "Online ordering app",
       category: "UX/UI",
       tags: ["ux-ui", "mobile"],
       description:
@@ -486,7 +486,7 @@ export const en: Dictionary = {
     },
     {
       id: "sisgea",
-      title: "Sisgea",
+      title: "Internal employee system",
       category: "UX/UI",
       tags: ["ux-ui", "web-sistemas"],
       description: "Redesign of a corporate intranet aimed at streamlining information management and internal processes.",

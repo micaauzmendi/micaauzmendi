@@ -97,7 +97,21 @@
       "Bash(node _make-og.js)",
       "Bash(curl -s http://localhost:3000)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/og-image.png)",
-      "Bash(curl -s http://localhost:3000/en)"
+      "Bash(curl -s http://localhost:3000/en)",
+      "Bash(python -c \"import pypdf; print\\('pypdf ok'\\)\")",
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(cp \"C:/Users/usuario/Desktop/UX Mica/Postulaciones/CV-ATS FRIENDLY-PRODUCT DESIGNER SAAS/Micaela Auzmendi - Product Designer.pdf\" \"public/cv-mica-auzmendi.pdf\")",
+      "Bash(python -c \"import pypdf; r=pypdf.PdfReader\\('public/cv-mica-auzmendi.pdf'\\); print\\('pages:', len\\(r.pages\\)\\); print\\('title line:', \\(r.pages[0].extract_text\\(\\) or ''\\)[:40]\\)\")",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(echo \"--- exit: $? ---\")",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $i=[System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\Portfolio Interactivo\\\\public\\\\photos\\\\share-portfolio.png\"\\); \"$\\($i.Width\\)x$\\($i.Height\\)\"; $i.Dispose\\(\\))",
+      "PowerShell(\\(Get-Item \"C:\\\\Users\\\\usuario\\\\Desktop\\\\UX Mica\\\\Portfolio Interactivo\\\\public\\\\photos\\\\share-portfolio.png\"\\).Length/1MB)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type} %{size_download}\\\\n\" http://localhost:3000/photos/share-portfolio-og.png)",
+      "PowerShell(\"borrado\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type} %{size_download} bytes\\\\n\" http://localhost:3000/photos/share-portfolio-og.jpg)"
     ]
   }
 }

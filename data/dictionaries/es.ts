@@ -451,7 +451,7 @@ export const es: Dictionary = {
   projects: [
     {
       id: "migraciones",
-      title: "Migraciones",
+      title: "Plataforma de gestión migratoria",
       category: "UX/UI",
       tags: ["ux-ui", "web-sistemas"],
       description:
@@ -462,7 +462,7 @@ export const es: Dictionary = {
     },
     {
       id: "arbolado",
-      title: "Arbolado BA",
+      title: "Sistema de registro público",
       category: "UX/UI",
       tags: ["ux-ui", "mobile"],
       description:
@@ -483,7 +483,7 @@ export const es: Dictionary = {
     },
     {
       id: "khalipa",
-      title: "Khalipa",
+      title: "App de pedidos en línea",
       category: "UX/UI",
       tags: ["ux-ui", "mobile"],
       description:
@@ -493,7 +493,7 @@ export const es: Dictionary = {
     },
     {
       id: "sisgea",
-      title: "Sisgea",
+      title: "Sistema interno de empleados",
       category: "UX/UI",
       tags: ["ux-ui", "web-sistemas"],
       description:

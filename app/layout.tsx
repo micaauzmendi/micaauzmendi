@@ -10,6 +10,8 @@ const GA_MEASUREMENT_ID = "G-7BC7CKWSL1";
 const SITE_URL = "https://micaelaauzmendi.com";
 const SITE_DESCRIPTION =
   "Micaela Auzmendi — Product Designer especializada en UX/UI, Design Systems e integración de IA en procesos de diseño de producto.";
+// Versión optimizada (1200x630) de /photos/share-portfolio.png para previews de link
+const SHARE_IMAGE = "/photos/share-portfolio-og.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: SHARE_IMAGE,
         width: 1200,
         height: 630,
         alt: "Micaela Auzmendi · Product Designer UX/UI",
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Micaela Auzmendi · Product Designer UX/UI",
     description: SITE_DESCRIPTION,
-    images: ["/og-image.png"],
+    images: [SHARE_IMAGE],
   },
 };
 
